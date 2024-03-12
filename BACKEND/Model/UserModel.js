@@ -7,8 +7,8 @@ const userSchema=new Schema({
         type:String,
         required:true,
     },
-    age:{
-        type:Number,
+    DOB:{
+        type:String,
         required:true,
     },
     address:{
