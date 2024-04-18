@@ -1,0 +1,28 @@
+const express=require("express");
+const router=express.Router();
+//Insert Model
+const User = require("../../Model/UserModel");
+//Insert User Controller
+const UserController=require("../../Controllers/admin/UserControllers");
+const { } = require("../../Controllers/admin/UserControllers");
+const { validateSignupRequest, isRequestValidated,validateSigninRequest } = require("../../validators/user");
+const { requireAuth } = require('../../common-middleware');
+
+
+router.get("/",requireAuth,UserController.getAllUsers);
+router.post("/",UserController.addUsers);
+router.get("/:id",UserController.getById);
+router.put("/:id",requireAuth,UserController.updateUser);
+router.delete("/:id",requireAuth,UserController.deleteUser);;
+// UserRoutes.js
+
+
+router.post('/admin/signin',validateSigninRequest,isRequestValidated, UserController.signIn);
+
+router.post('/admin/signup',validateSignupRequest,isRequestValidated,UserController.signUp)
+
+
+
+
+module.exports = router;
+

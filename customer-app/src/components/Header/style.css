@@ -1,0 +1,244 @@
+/* style.css */
+/* style.css */
+
+.headerBar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end; /* Aligns children to the right */
+  align-items: center;
+}
+
+.spacer {
+  flex-grow: 1; /* This pushes the buttons to the right */
+}
+
+.loginButton {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: none;
+  padding: 8px 20px; /* Increase padding for larger button */
+  cursor: pointer;
+  border-radius: 8px; /* Make the button slightly rounder */
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 16px; /* Set font size */
+}
+
+.loginButton:hover {
+  background-color: #333; /* Darken background on hover */
+}
+
+.adminLoginButton {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: none;
+  padding: 8px 20px; /* Increase padding for larger button */
+  cursor: pointer;
+  border-radius: 8px; /* Make the button slightly rounder */
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 16px; /* Set font size */
+}
+
+.signupButton {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: none;
+  padding: 8px 20px; /* Increase padding for larger button */
+  cursor: pointer;
+  border-radius: 8px; /* Make the button slightly rounder */
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 16px; /* Set font size */
+}
+
+.signupButton:hover {
+  background-color: #333; /* Darken background on hover */
+}
+
+/* Rest of the CSS remains the same */
+
+
+
+
+.loginFormContainer {
+  margin-top: 54px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('file:///C:/Users/USER/Pictures/image1.avif');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.loginForm {
+  margin-top: 1px;
+  background: rgba(65, 62, 62, 0.5); /* Transparent background */
+  padding: 100px; /* Decrease padding for smaller form */
+  border-radius: 15px; /* Make the form rounder */
+  box-shadow: 0 0 20px rgba(210, 210, 210, 0.5); /* Darker shadow */
+  max-width: 400px; /* Increase maximum width */
+  width: 100%;
+  height: 50%;
+  display: flex; /* Use flexbox for layout */
+}
+
+.loginFormInputs{
+  margin-top: 0px;
+  margin-bottom: 110px;
+}
+
+/* Style for the login form image */
+
+
+
+/* Style for the login form inputs */
+
+
+/* Rest of your CSS remains the same */
+
+.loginForm h2 {
+  margin-top: 1px;
+ 
+  text-align: center;
+  color: #fef9f9; /* Text color */
+  font-family:Georgia;/* Set font family */
+  font-size: 50px; /* Set font size */
+}
+
+.inputField {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 50px; /* Increase margin to add space */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: #ffffff; /* Text color */
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 16px; /* Set font size */
+}
+
+.loginSubmitButton {
+  background: linear-gradient(to right, #0f0f0f, #0f1010); /* Gradient background */
+  color: white;
+  border: none;
+  padding: 12px 24px; /* Increase padding for larger button */
+  cursor: pointer;
+  border-radius: 8px; /* Make the button slightly rounder */
+  font-family: 'Georgia'; /* Set font family */
+  font-size: 20px; /* Set font size */
+  width: 100%;
+}
+
+.signupFormContainer {
+  margin-top: 54px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('file:///C:/Users/USER/Downloads/cat-han-wZZR8Is6Rtk-unsplash.jpg');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupForm {
+  
+  background: rgba(9, 9, 23, 0.5); /* Transparent background */
+  padding: 100px; /* Decrease padding for smaller form */
+  padding-top: 40px;
+  border-radius: 15px; /* Make the form rounder */
+  box-shadow: 0 0 20px rgba(25, 22, 68, 0.5); /* Darker shadow */
+  max-width: 400px; /* Increase maximum width */
+  width: 100%;
+  height: 65%;
+  display: flex; 
+}
+
+.signupForm h2 {
+
+  margin-top: 1px;
+  margin-bottom: 3px;
+  text-align: center;
+  color: #fef9f9; /* Text color */
+  font-family:Georgia;/* Set font family */
+  font-size: 30px;  /* Set font size */
+}
+
+
+
+
+/* Apply styles to input fields in the sign-up form */
+.signupForm .inputField {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 8px; /* Increase margin */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: #ffffff; /* Text color */
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 16px; /* Set font size */
+}
+
+/* Apply styles to the submit button in the sign-up form */
+.signupForm .signupSubmitButton {
+  background: linear-gradient(to right, #020024, #010437); /* Gradient background */
+  color: white;
+  border: none;
+  padding: 12px 24px; /* Increase padding for larger button */
+  cursor: pointer;
+  border-radius: 8px; /* Make the button slightly rounder */
+  font-family: 'Georgia'; /* Set font family */
+  font-size: 20px; /* Set font size */
+  width: 100%;
+}
+.signupButton1{
+  background: rgba(65, 62, 62, 0.5);
+  border-radius: 8px;
+  border: none;
+  color: #f2ff9a;
+  font-family:Georgia;
+}
+.error{
+
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
+}
+.error1{
+
+  color: rgb(232, 45, 45);
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
+}
+h4{
+  color:#fef9f9;
+  text-align: center;
+}
+.loginDropdown {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: none;
+  padding: 8px 12px; /* Adjust padding as needed */
+  cursor: pointer;
+  border-radius: 8px; /* Make the dropdown slightly rounder */
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 16px; /* Set font size */
+}
+
+.loginDropdown:hover {
+  background-color: #333; /* Darken background on hover */
+}
