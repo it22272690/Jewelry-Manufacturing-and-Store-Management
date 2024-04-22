@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { signout } from '../../../actions/user.action';
+
+
 
 const CustomerDashboard = () => {
   const [user, setUser] = useState(null);
@@ -15,7 +16,6 @@ const CustomerDashboard = () => {
   const [showBigButtons, setShowBigButtons] = useState(true); // State to control rendering of big buttons, initialized to true
   const history = useNavigate();
 
-  const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const logout = () => {
@@ -103,14 +103,18 @@ const CustomerDashboard = () => {
   };
 
   const handleSidebarButtonClick = (title) => {
-    setHeaderTitle(title); // Update the header title based on the button clicked
+    setHeaderTitle(title); 
     if (title === "Dashboard") {
-      setShowBigButtons(true); // If Dashboard button is clicked, show the big buttons
+      setShowBigButtons(true); 
     } else {
-      setShowBigButtons(false); // If any other button is clicked, hide the big buttons
+      setShowBigButtons(false);
     }
   };
-
+  const handleProductionStatusClick = () => {
+   
+   
+    history(`/room/roomId`);
+  };
   return (
     <div>
       <header className="header">
@@ -132,16 +136,16 @@ const CustomerDashboard = () => {
         {showBigButtons ? (
           <div className="bigButtons">
             <div className="buttonContainer">
-              <p className='summary'>From your account dashboard you can view your recent orders,<br/> manage your wishlist and track production status,<br/> and edit your password and account details.</p>
+              <p className='summary'>From your account dashboard you can view your recent orders,<br/> manage your wishlist and track production status.</p>
               <div className="buttonRow">
                 <button>Orders</button>
-                <button>Account Details</button>
+             
                 <button>Wishlist</button>
               </div>
               <div className="buttonRow">
-                <button>Recommendations</button>
-                <button>Production status</button>
-                <button>Logout</button>
+               
+                <button onClick={handleProductionStatusClick}>Production status</button>
+                
               </div>
             </div>
           </div>

@@ -41,7 +41,10 @@ const AdminDashboard = () => {
       }
     }
   };
-
+  useEffect(() => {
+    fetchAdminDetails();
+    
+  }, []);
   const handleUpdate = async () => {
     try {
       const token = window.localStorage.getItem("token");
@@ -146,7 +149,7 @@ const AdminDashboard = () => {
             <li><button onClick={() =>  handleSidebarButtonClick("Account Details") }>Account Details</button></li>
             <li><button onClick={() => handleSidebarButtonClick("Settings")}>Settings</button></li>
             <li><button onClick={() => { setShowDeleteConfirmation(true); handleSidebarButtonClick("Delete Account") }}>Delete Account</button></li>
-            <li><button onClick={logout}>Logout</button></li>
+         
           </ul>
         </div>
        
@@ -163,7 +166,7 @@ const AdminDashboard = () => {
               <div className="buttonRow">
                 <button>Recommendations</button>
                 <button>Production status</button>
-                <button>Logout</button>
+                
               </div>
             </div>
           </div>

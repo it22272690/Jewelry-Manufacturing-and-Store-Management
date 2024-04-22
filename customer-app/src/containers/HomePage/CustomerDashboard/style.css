@@ -65,18 +65,21 @@
 .row {
   display: flex;
   justify-content: space-between;
+  
 }
 
 .detail {
   width: 48%; /* Adjust width as needed */
   margin-bottom: 50px; 
   text-align:justify;
+  font-size: 20px;
 }
 
 .detail label {
   font-weight: bold;
   margin-right: 10px;
-  
+  font-size: 20px;
+  color: #f3c143;
 }
 
 .detail input {

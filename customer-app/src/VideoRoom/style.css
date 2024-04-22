@@ -1,0 +1,24 @@
+
+  .room{
+    color: #61209d;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .dashbutton{
+    margin-top: 70px;
+    padding: 10px 20px;
+    background-color: #af2222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left:640px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
+  dahbutton:hover {
+    background-color: #0056b3;
+  }
+ 
+  
