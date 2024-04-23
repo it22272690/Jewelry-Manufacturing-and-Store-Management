@@ -147,6 +147,7 @@ function Reserves() {
                 Description {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
                 <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>

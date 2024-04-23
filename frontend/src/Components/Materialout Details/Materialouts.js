@@ -151,6 +151,7 @@ function Materialouts() {
                 <th>Sapphire</th>
                 <th>Aquamarine</th>
                 <th>Description</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
