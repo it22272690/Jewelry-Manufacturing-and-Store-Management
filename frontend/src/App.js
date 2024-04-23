@@ -7,6 +7,7 @@ import Signin from "./Containers/Signin";
 import Signup from "./Containers/Signup";
 import { useDispatch, useSelector } from "react-redux";
 import {isUserLoggedIn} from './actions';
+import Mailer from "./Components/Layout/Mailer";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin/signup" element={<Signup />} />
         <Route path="/signup/signin" element={<Signin />} />
+        <Route path="/sendmails" element={<Mailer/>}/>
       </Routes>
     </div>
   );

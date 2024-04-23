@@ -31,7 +31,7 @@ if (!name) {
 }
 
 if (!DOB) {
-  setErrorMessage('Date of Birth is required');
+  setErrorMessage('DOB is required');
   return;
 }
 
@@ -44,6 +44,18 @@ if (!phoneNumber) {
   setErrorMessage('Phone Number is required');
   return;
 }
+
+  const dobRegex = /^\d{4}-\d{2}-\d{2}$/;
+  if (!dobRegex.test(DOB)) {
+    setErrorMessage('Invalid DOB format');
+    return;
+  }
+  const phoneRegex = /^\d{10}$/;
+  if (!phoneRegex.test(phoneNumber)) {
+    setErrorMessage('Invalid phone number format');
+    return;
+  }
+
 
 if (!username) {
   setErrorMessage('Username is required');
@@ -102,7 +114,7 @@ if (password.length < 6) {
                 <Col md={6}>
                   <Input
                     label="Date of Birth"
-                    placeholder="DOB"
+                    placeholder="2001-04-05"
                     value={DOB}
                     type="text"
                     onChange={(e) =>setDOB(e.target.value)}
@@ -120,7 +132,7 @@ if (password.length < 6) {
                 <Col md={6}>
                   <Input
                     label="Phone Number"
-                    placeholder="Phone Number"
+                    placeholder="0740035353"
                     value={phoneNumber}
                     type="text"
                     onChange={(e) =>setphoneNumber(e.target.value)}
@@ -138,14 +150,14 @@ if (password.length < 6) {
               </Row>
               <Input
                 label="Email"
-                placeholder="Email"
+                placeholder="a@gmail.com"
                 value={email}
                 type="email"
                 onChange={(e) =>setEmail(e.target.value)}
               />
 
               <Input
-                label="Password"
+                label="Password (should be six characters long)"
                 placeholder="Password"
                 value={password}
                 type="password"

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/Layout/Header';
 import './style.css';
 import axios from 'axios';
@@ -15,7 +16,7 @@ const AdminDashboard = () => {
   const [showAdminDetails, setshowAdminDetails] = useState(false);
   const [users, setCustomers] = useState([]);
   const dispatch = useDispatch();
-
+  const history = useNavigate();
   const logout = () => {
     dispatch(signout());
   };
@@ -134,7 +135,11 @@ const AdminDashboard = () => {
     }
   };
 
-  
+  const handleSendEmailsClick = () => {
+   
+   
+    history(`/sendmails`);
+  };
   return (
     <div>
       <header className="header">
@@ -147,7 +152,7 @@ const AdminDashboard = () => {
             <li><button onClick={() => handleSidebarButtonClick("Dashboard")}>Dashboard</button></li>
             <li><button onClick={() =>  handleSidebarButtonClick("Customers") }>Customers</button></li>
             <li><button onClick={() =>  handleSidebarButtonClick("Account Details") }>Account Details</button></li>
-            <li><button onClick={() => handleSidebarButtonClick("Settings")}>Settings</button></li>
+            <li><button onClick={() => { handleSendEmailsClick(); handleSidebarButtonClick("Delete Account") }}>Send Emails</button></li>
             <li><button onClick={() => { setShowDeleteConfirmation(true); handleSidebarButtonClick("Delete Account") }}>Delete Account</button></li>
          
           </ul>
