@@ -1,0 +1,18 @@
+const express=require("express");
+const routerR=express.Router();
+
+//Insert Model
+const Reserve=require("../Model/ReserveModel");
+
+//Insert Reserve Controller
+const ReserveController=require("../Controllers/ReserveControllers");
+
+routerR.get("/",ReserveController.getAllReserves);
+routerR.post("/",ReserveController.addReserves);
+routerR.get("/:id",ReserveController.getById);
+routerR.put("/:id",ReserveController.updateReserve);
+routerR.delete("/:id",ReserveController.deleteReserve);
+
+//export
+module.exports=routerR;
+

@@ -1,0 +1,18 @@
+const express=require("express");
+const routerMI=express.Router();
+
+//Insert Model
+const Materialin=require("../Model/MaterialinModel");
+
+//Insert Materialin Controller
+const MaterialinController=require("../Controllers/MaterialinControllers");
+
+routerMI.get("/",MaterialinController.getAllMaterialins);
+routerMI.post("/",MaterialinController.addMaterialins);
+routerMI.get("/:id",MaterialinController.getById);
+routerMI.put("/:id",MaterialinController.updateMaterialin);
+routerMI.delete("/:id",MaterialinController.deleteMaterialin);
+
+//export
+module.exports=routerMI;
+

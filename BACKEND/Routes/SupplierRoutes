@@ -1,0 +1,18 @@
+const express=require("express");
+const routerS=express.Router();
+
+//Insert Model
+const Supplier=require("../Model/SupplierModel");
+
+//Insert Supplier Controller
+const SupplierController=require("../Controllers/SupplierControllers");
+
+routerS.get("/",SupplierController.getAllSuppliers);
+routerS.post("/",SupplierController.addSuppliers);
+routerS.get("/:id",SupplierController.getById);
+routerS.put("/:id",SupplierController.updateSupplier);
+routerS.delete("/:id",SupplierController.deleteSupplier);
+
+//export
+module.exports=routerS;
+

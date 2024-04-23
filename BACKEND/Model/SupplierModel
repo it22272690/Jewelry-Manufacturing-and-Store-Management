@@ -1,0 +1,36 @@
+const mongoose=require("mongoose");
+const Schema=mongoose.Schema;
+
+const supplierSchema=new Schema({
+    supplierID:{
+        type:String, //data type
+        required:true, //validate
+    },
+    name:{
+        type:String, //data type
+        required:true, //validate
+    },
+    email:{
+        type:String, //data type
+        required:true, //validate
+    },
+    phone:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    address:{
+        type:String,
+        required:true,
+    },
+    description:{
+        type:String, //data type
+        required:true, //validate
+    },
+});
+
+module.exports=mongoose.model(
+    "SupplierModel", //file name
+    supplierSchema //function name
+)
+
+ 

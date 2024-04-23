@@ -1,0 +1,20 @@
+const express=require("express");
+const routerP=express.Router();
+
+//Insert Model
+const Product=require("../Model/ProductModel");
+
+//Insert Product Controller
+const ProductController=require("../Controllers/ProductControllers");
+
+routerP.get("/",ProductController.getAllProducts);
+routerP.post("/",ProductController.addProducts);
+routerP.get("/:id",ProductController.getById);
+routerP.put("/:id",ProductController.updateProduct);
+routerP.delete("/:id",ProductController.deleteProduct);
+
+//export
+module.exports=routerP;
+
+//router was changed into routerP
+

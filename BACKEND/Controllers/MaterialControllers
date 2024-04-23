@@ -1,0 +1,111 @@
+const Material=require("../Model/MaterialModel");
+
+//data display
+const getAllMaterials=async(req,res,next)=>{
+    let Materials;
+    //Get all materials
+    try{
+        materials=await Material.find();
+    }catch(err){
+        console.log(err);
+    }
+    //If not found
+    if(!materials){
+        return res.status(404).json({Message:"Material not found!"});
+    }
+
+    //Display all materials
+    return res.status(200).json({materials});
+};
+
+//data insert
+const addMaterials=async(req,res,next)=>{
+
+    const{materialID,name,unit,quantity} =req.body;
+
+    let materials;
+
+    try{
+        materials=new Material({materialID,name,unit,quantity});
+        await materials.save();
+    }catch(err){
+        console.log(err);
+    }
+
+    //If not insert data
+    if(!materials){
+        return res.status(404).json({message:"unable to add materials"});
+    }
+    return res.status(200).json({materials});
+};
+
+
+//Get by ID
+const getById=async(req,res,next)=>{
+
+    const id=req.params.id;
+    let material;
+
+    try{
+        material=await Material.findById(id);
+    }catch(err){
+        console.log(err);
+    }
+
+    //If not available data
+    if(!material){
+        return res.status(404).json({message:"material not found"});
+    }
+    return res.status(200).json({material});
+}
+
+//Update material details
+const updateMaterial=async(req,res,next)=>{
+
+    const id=req.params.id;
+    const{materialID,name,unit,quantity} =req.body;
+
+    //variable name
+    let materials;
+
+    try{
+        materials=await Material.findByIdAndUpdate(id,{materialID:materialID,name:name,unit:unit,quantity:quantity});
+        materials=await materials.save();
+    }catch(err){
+        console.log(err);
+    }
+    //If can't update material
+    if(!materials){
+        return res.status(404).json({message:"Unable to update material details"});
+    }
+    return res.status(200).json({materials});
+
+}
+
+//Delete material details
+const deleteMaterial=async(req,res,next)=>{
+
+    const id=req.params.id;
+
+    let material;
+
+    try{
+        material=await Material.findByIdAndDelete(id);
+    }catch(err){
+        console.log(err);
+    }
+
+    //If can't delete material
+    if(!material){
+        return res.status(404).json({message:"Unable to delete material details"});
+    }
+    return res.status(200).json({material});
+
+}
+
+
+exports.addMaterials=addMaterials;
+exports.getAllMaterials=getAllMaterials;
+exports.getById=getById;
+exports.updateMaterial=updateMaterial;
+exports.deleteMaterial=deleteMaterial;

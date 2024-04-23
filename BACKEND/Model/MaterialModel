@@ -1,0 +1,28 @@
+const mongoose=require("mongoose");
+const Schema=mongoose.Schema;
+
+const materialSchema=new Schema({
+    materialID:{
+        type:String, //data type
+        required:true, //validate
+    },
+    name:{
+        type:String, //data type
+        required:true, //validate
+    },
+    unit:{
+        type:String,
+        required:true,
+    },
+    quantity:{
+        type:Number, //data type
+        required:true, //validate
+    },
+});
+
+module.exports=mongoose.model(
+    "MaterialModel", //file name
+    materialSchema //function name
+)
+
+ 

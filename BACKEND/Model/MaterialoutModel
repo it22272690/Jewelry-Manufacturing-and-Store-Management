@@ -1,0 +1,52 @@
+const mongoose=require("mongoose");
+const Schema=mongoose.Schema;
+
+const materialoutSchema=new Schema({
+    materialoutID:{
+        type:String, //data type
+        required:true, //validate
+    },
+    JobId:{
+        type:String, //data type
+        required:true, //validate
+    },
+    date:{
+        type:String, //data type
+        required:true, //validate
+    },
+    gold:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    silver:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    pladium:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    ruby:{
+        type:Number,
+        required:true,
+    },
+    sapphire:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    aquamarine:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    description:{
+        type:String,
+        required:true,
+    }
+});
+
+module.exports=mongoose.model(
+    "MaterialoutModel", //file name
+    materialoutSchema //function name
+)
+
+ 

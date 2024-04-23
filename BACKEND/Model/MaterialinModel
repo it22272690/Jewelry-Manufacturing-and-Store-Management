@@ -1,0 +1,48 @@
+const mongoose=require("mongoose");
+const Schema=mongoose.Schema;
+
+const materialinSchema=new Schema({
+    supplierID:{
+        type:String, //data type
+        required:true, //validate
+    },
+    date:{
+        type:String, //data type
+        required:true, //validate
+    },
+    gold:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    silver:{
+        type:Number,
+        required:true,
+    },
+    pladium:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    ruby:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    sapphire:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    aquamarine:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    value:{
+        type:Number, //data type
+        required:true, //validate
+    },
+});
+
+module.exports=mongoose.model(
+    "MaterialinModel", //file name
+    materialinSchema //function name
+)
+
+ 

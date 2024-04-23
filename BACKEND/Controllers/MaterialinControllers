@@ -1,0 +1,111 @@
+const Materialin=require("../Model/MaterialinModel");
+
+//data display
+const getAllMaterialins=async(req,res,next)=>{
+    let Materialins;
+    //Get all materialins
+    try{
+        materialins=await Materialin.find();
+    }catch(err){
+        console.log(err);
+    }
+    //If not found
+    if(!materialins){
+        return res.status(404).json({Message:"Materialin not found!"});
+    }
+
+    //Display all materialins
+    return res.status(200).json({materialins});
+};
+
+//data insert
+const addMaterialins=async(req,res,next)=>{
+
+    const{supplierID,date,gold,silver,pladium,ruby,sapphire,aquamarine,value} =req.body;
+
+    let materialins;
+
+    try{
+        materialins=new Materialin({supplierID,date,gold,silver,pladium,ruby,sapphire,aquamarine,value});
+        await materialins.save();
+    }catch(err){
+        console.log(err);
+    }
+
+    //If not insert data
+    if(!materialins){
+        return res.status(404).json({message:"unable to add materialins"});
+    }
+    return res.status(200).json({materialins});
+};
+
+
+//Get by ID
+const getById=async(req,res,next)=>{
+
+    const id=req.params.id;
+    let materialin;
+
+    try{
+        materialin=await Materialin.findById(id);
+    }catch(err){
+        console.log(err);
+    }
+
+    //If not available data
+    if(!materialin){
+        return res.status(404).json({message:"materialin not found"});
+    }
+    return res.status(200).json({materialin});
+}
+
+//Update materialin details
+const updateMaterialin=async(req,res,next)=>{
+
+    const id=req.params.id;
+    const{supplierID,date,gold,silver,pladium,ruby,sapphire,aquamarine,value} =req.body;
+
+    //variable name
+    let materialins;
+
+    try{
+        materialins=await Materialin.findByIdAndUpdate(id,{supplierID:supplierID,date:date,gold:gold,silver:silver,pladium:pladium,ruby:ruby,sapphire:sapphire,aquamarine:aquamarine,value:value});
+        materialins=await materialins.save();
+    }catch(err){
+        console.log(err);
+    }
+    //If can't update materialin
+    if(!materialins){
+        return res.status(404).json({message:"Unable to update materialin details"});
+    }
+    return res.status(200).json({materialins});
+
+}
+
+//Delete materialin details
+const deleteMaterialin=async(req,res,next)=>{
+
+    const id=req.params.id;
+
+    let materialin;
+
+    try{
+        materialin=await Materialin.findByIdAndDelete(id);
+    }catch(err){
+        console.log(err);
+    }
+
+    //If can't delete materialin
+    if(!materialin){
+        return res.status(404).json({message:"Unable to delete materialin details"});
+    }
+    return res.status(200).json({materialin});
+
+}
+
+
+exports.addMaterialins=addMaterialins;
+exports.getAllMaterialins=getAllMaterialins;
+exports.getById=getById;
+exports.updateMaterialin=updateMaterialin;
+exports.deleteMaterialin=deleteMaterialin;
