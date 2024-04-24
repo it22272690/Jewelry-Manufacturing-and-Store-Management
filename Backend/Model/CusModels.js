@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const cusSchema = new mongoose.Schema({
   FirstName: {
-    type: String,
+    type: String, // data type
     required: true,
   },
   LastName: {
