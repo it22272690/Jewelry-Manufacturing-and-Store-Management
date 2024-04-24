@@ -3,6 +3,7 @@ const router = new express.Router();
 const controllers = require("../Controllers/employeesControllers");
 const workcontrollers = require("../Controllers/workHistoryControllers");
 const attcontrollers = require("../Controllers/attendanceControllers");
+const leavecontrollers = require("../Controllers/leaveControllers");
 const upload = require("../multerconfig/storageConfig")
 
 
@@ -30,5 +31,9 @@ router.get("/attendance/attdetails",attcontrollers.attendanceget);  //Route to g
 router.get("/attendance/:id",attcontrollers.singleattendanceget);   //Route to get single attendance detail
 router.put("/attendance/edit/:id",attcontrollers.attendanceedit);
 router.delete("/attendance/delete/:id",attcontrollers.attendancedelete);
+
+//leave
+router.post("/leave/addleave",leavecontrollers.leavepost);
+router.get("/leave/leavedetails",leavecontrollers.leaveget);
 
 module.exports = router;
