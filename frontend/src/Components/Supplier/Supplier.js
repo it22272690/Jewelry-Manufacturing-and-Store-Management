@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Supplier(props) {
-  const { _id, supplierID,name, email, phone, address,description } = props.supplier;
+  const { _id, supplierID,name,nic,email,phone,address,bankdetails,description } = props.supplier;
 
   const history = useNavigate();
 
@@ -29,9 +29,11 @@ function Supplier(props) {
       <td>{_id}</td>
       <td>{supplierID}</td>
       <td>{name}</td>
+      <td>{nic}</td>
       <td>{email}</td>
       <td>{phone}</td>
       <td>{address}</td>
+      <td>{bankdetails}</td>
       <td>{description}</td>
       <td>
       <Link to={`/supplierdetails/${_id}`}>

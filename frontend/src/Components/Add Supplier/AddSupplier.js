@@ -8,9 +8,11 @@ function AddSupplier() {
   const [inputs, setInputs] = useState({
     supplierID:"",
     name: "",
+    nic: "",
     email: "",
     phone: "",
     address:"",
+    bankdetails:"",
     description: "",
   });
 
@@ -33,9 +35,11 @@ function AddSupplier() {
       .post("http://localhost:5000/suppliers", {
         supplierID:String(inputs.supplierID),
         name: String(inputs.name),
+        nic: String(inputs.nic),
         email: String(inputs.email),
         phone: String(inputs.phone),
         address: String(inputs.address),
+        bankdetails: String(inputs.bankdetails),
         description: String(inputs.description),
       })
       .then((res) => res.data);
@@ -91,6 +95,19 @@ function AddSupplier() {
         <br />
         <br />
 
+        <label style={{ fontSize: "20px" }}>NIC</label>
+        <br />
+        <input
+          type="text"
+          name="nic"
+          onChange={handleChange}
+          value={inputs.nic}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
+        />
+        <br />
+        <br />
+
         <label style={{ fontSize: "20px" }}>Email</label>
         <br />
         <input
@@ -124,6 +141,19 @@ function AddSupplier() {
           name="address"
           onChange={handleChange}
           value={inputs.address}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Bankdetails</label>
+        <br />
+        <input
+          type="text"
+          name="bankdetails"
+          onChange={handleChange}
+          value={inputs.bankdetails}
           required
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />

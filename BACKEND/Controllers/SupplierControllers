@@ -21,12 +21,12 @@ const getAllSuppliers=async(req,res,next)=>{
 //data insert
 const addSuppliers=async(req,res,next)=>{
 
-    const{supplierID,name,email,phone,address,description} =req.body;
+    const{supplierID,name,nic,email,phone,address,bankdetails,description} =req.body;
 
     let suppliers;
 
     try{
-        suppliers=new Supplier({supplierID,name,email,phone,address,description});
+        suppliers=new Supplier({supplierID,name,nic,email,phone,address,bankdetails,description});
         await suppliers.save();
     }catch(err){
         console.log(err);
@@ -63,13 +63,13 @@ const getById=async(req,res,next)=>{
 const updateSupplier=async(req,res,next)=>{
 
     const id=req.params.id;
-    const{supplierID,name,email,phone,address,description} =req.body;
+    const{supplierID,name,nic,email,phone,address,bankdetails,description} =req.body;
 
     //variable name
     let suppliers;
 
     try{
-        suppliers=await Supplier.findByIdAndUpdate(id,{supplierID:supplierID,name:name,email:email,phone:phone,address:address,description:description});
+        suppliers=await Supplier.findByIdAndUpdate(id,{supplierID:supplierID,name:name,nic:nic,email:email,phone:phone,address:address,bankdetails:bankdetails,description:description});
         suppliers=await suppliers.save();
     }catch(err){
         console.log(err);

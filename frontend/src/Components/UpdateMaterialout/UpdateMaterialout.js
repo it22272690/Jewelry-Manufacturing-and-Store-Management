@@ -28,9 +28,18 @@ function UpdateMaterialout() {
         gold: String(inputs.gold),
         silver: String(inputs.silver),
         pladium: String(inputs.pladium),
-        ruby: String(inputs.ruby),
-        sapphire: String(inputs.sapphire),
-        aquamarine: String(inputs.aquamarine),
+        platinum: String(inputs.platinum),
+        thairuby: String(inputs.thairuby),
+        burmeseruby: String(inputs.burmeseruby),
+        bluesapphire: String(inputs.bluesapphire),
+        purplesapphire: String(inputs.purplesapphire),
+        starsapphire: String(inputs.starsapphire),
+        whitesapphire: String(inputs.whitesapphire),
+        blooddiamond: String(inputs.blooddiamond),
+        pinkstardiamond: String(inputs.pinkstardiamond),
+        regentdiamond: String(inputs.regentdiamond),
+        colombianaquamarine: String(inputs.colombianaquamarine),
+        madagascaraquamarine: String(inputs.madagascaraquamarine),
         description: String(inputs.description)
       })
       .then((res) => res.data);
@@ -120,7 +129,7 @@ function UpdateMaterialout() {
           onChange={handleChange}
           value={inputs.gold}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
@@ -151,39 +160,156 @@ function UpdateMaterialout() {
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Ruby</label>
+        <label style={{ fontSize: "20px" }}>Platinum</label>
         <br />
         <input
           type="number"
-          name="ruby"
+          name="platinum"
           onChange={handleChange}
-          value={inputs.ruby}
+          value={inputs.platinum}
           required
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Sapphire</label>
+        <label style={{ fontSize: "20px" }}>Thai Ruby</label>
         <br />
         <input
           type="number"
-          name="sapphire"
+          name="thairuby"
           onChange={handleChange}
-          value={inputs.sapphire}
+          value={inputs.thairuby}
           required
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Aquamarine</label>
+        <label style={{ fontSize: "20px" }}>Burmese Ruby</label>
         <br />
         <input
           type="number"
-          name="aquamarine"
+          name="burmeseruby"
           onChange={handleChange}
-          value={inputs.aquamarine}
+          value={inputs.burmeseruby}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Blue Sapphire</label>
+        <br />
+        <input
+          type="number"
+          name="bluesapphire"
+          onChange={handleChange}
+          value={inputs.bluesapphire}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Purple Sapphire</label>
+        <br />
+        <input
+          type="number"
+          name="purplesapphire"
+          onChange={handleChange}
+          value={inputs.purplesapphire}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Star Sapphire</label>
+        <br />
+        <input
+          type="number"
+          name="starsapphire"
+          onChange={handleChange}
+          value={inputs.starsapphire}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>White Sapphire</label>
+        <br />
+        <input
+          type="number"
+          name="whitesapphire"
+          onChange={handleChange}
+          value={inputs.whitesapphire}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Blood Diamond</label>
+        <br />
+        <input
+          type="number"
+          name="blooddiamond"
+          onChange={handleChange}
+          value={inputs.blooddiamond}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Pink star Diamond</label>
+        <br />
+        <input
+          type="number"
+          name="pinkstardiamond"
+          onChange={handleChange}
+          value={inputs.pinkstardiamond}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Regent Diamond</label>
+        <br />
+        <input
+          type="number"
+          name="regentdiamond"
+          onChange={handleChange}
+          value={inputs.regentdiamond}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Colombian Aquamarine</label>
+        <br />
+        <input
+          type="number"
+          name="colombianaquamarine"
+          onChange={handleChange}
+          value={inputs.colombianaquamarine}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Madagascar Aquamarine</label>
+        <br />
+        <input
+          type="number"
+          name="madagascaraquamarine"
+          onChange={handleChange}
+          value={inputs.madagascaraquamarine}
           required
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />

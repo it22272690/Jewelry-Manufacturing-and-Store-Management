@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Materialout(props) {
-  const { _id, materialoutID, JobId, date, gold,silver,pladium,ruby,sapphire,aquamarine,description } = props.materialout;
+  const { _id, materialoutID, JobId, date, gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description } = props.materialout;
 
   const history = useNavigate();
 
@@ -33,9 +33,18 @@ function Materialout(props) {
       <td>{gold}</td>
       <td>{silver}</td>
       <td>{pladium}</td>
-      <td>{ruby}</td>
-      <td>{sapphire}</td>
-      <td>{aquamarine}</td>
+      <td>{platinum}</td>
+      <td>{thairuby}</td>
+      <td>{burmeseruby}</td>
+      <td>{bluesapphire}</td>
+      <td>{purplesapphire}</td>
+      <td>{starsapphire}</td>
+      <td>{whitesapphire}</td>
+      <td>{blooddiamond}</td>
+      <td>{pinkstardiamond}</td>
+      <td>{regentdiamond}</td>
+      <td>{colombianaquamarine}</td>
+      <td>{madagascaraquamarine}</td>
       <td>{description}</td>
       <td>
       <Link to={`/materialoutdetails/${_id}`}>

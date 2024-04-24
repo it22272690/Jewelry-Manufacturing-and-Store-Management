@@ -10,13 +10,37 @@ const materialSchema=new Schema({
         type:String, //data type
         required:true, //validate
     },
+    type:{
+        type:String,
+        required:true,
+    },
+    grade:{
+        type:String, //data type
+        required:true, //validate
+    },
+    supplier:{
+        type:Number, //data type
+        required:true, //validate
+    },
     unit:{
         type:String,
+        required:true,
+    },
+    unitweight:{
+        type:Number,
+        required:true,
+    },
+    unitcost:{
+        type:Number,
         required:true,
     },
     quantity:{
         type:Number, //data type
         required:true, //validate
+    },
+    description:{
+        type:String,
+        required:true,
     },
 });
 

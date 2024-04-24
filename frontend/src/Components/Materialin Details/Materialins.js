@@ -80,8 +80,8 @@ function Materialins() {
 
   const handleSort = () => {
     const sortedMaterialins = [...filteredMaterialins].sort((a, b) => {
-      const nameA = a.date.toLowerCase();
-      const nameB = b.date.toLowerCase();
+      const nameA = a.supplierID.toLowerCase();
+      const nameB = b.supplierID.toLowerCase();
       if (nameA < nameB) {
         return sortOrder === "asc" ? -1 : 1;
       }
@@ -139,16 +139,25 @@ function Materialins() {
             <thead>
               <tr>
                 <th>Id</th>
-                <th>SupplierID</th>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                  Date {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                SupplierID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
+                <th>Date</th>
                 <th>Gold</th>
                 <th>Silver</th>
                 <th>Pladium</th>
-                <th>Ruby</th>
-                <th>Sapphire</th>
-                <th>Aquamarine</th>
+                <th>Platinum</th>
+                <th>Thai Ruby</th>
+                <th>Burmese Ruby</th>
+                <th>Blue Sapphire</th>
+                <th>Purple Sapphire</th>
+                <th>Star Sapphire</th>
+                <th>White Sapphire</th>
+                <th>Blood Diamond</th>
+                <th>Pink star Diamond</th>
+                <th>Regent Diamond</th>
+                <th>Colombian Aquamarine</th>
+                <th>Madagascar Aquamarine</th>
                 <th>Value</th>
                 <th>Actions</th>
               </tr>
@@ -177,9 +186,18 @@ function Materialins() {
                   <Text style={styles.cell}>Gold</Text>
                   <Text style={styles.cell}>Silver</Text>
                   <Text style={styles.cell}>Pladium</Text>
-                  <Text style={styles.cell}>Ruby</Text>
-                  <Text style={styles.cell}>Sapphire</Text>
-                  <Text style={styles.cell}>Aquamarine</Text>
+                  <Text style={styles.cell}>Platinum</Text>
+                  <Text style={styles.cell}>Thai Ruby</Text>
+                  <Text style={styles.cell}>Burmese Ruby</Text>
+                  <Text style={styles.cell}>Blue Sapphire</Text>
+                  <Text style={styles.cell}>Purple Sapphire</Text>
+                  <Text style={styles.cell}>Star Sapphire</Text>
+                  <Text style={styles.cell}>White Sapphire</Text>
+                  <Text style={styles.cell}>Blood Diamond</Text>
+                  <Text style={styles.cell}>Pink star Diamond</Text>
+                  <Text style={styles.cell}>Regent Diamond</Text>
+                  <Text style={styles.cell}>Colombian Aquamarine</Text>
+                  <Text style={styles.cell}>Madagascar Aquamarine</Text>
                   <Text style={styles.cell}>Value</Text>
                 </View>
                 {showAll ? (
@@ -191,9 +209,18 @@ function Materialins() {
                       <Text style={styles.cell}>{materialin.gold}</Text>
                       <Text style={styles.cell}>{materialin.silver}</Text>
                       <Text style={styles.cell}>{materialin.pladium}</Text>
-                      <Text style={styles.cell}>{materialin.ruby}</Text>
-                      <Text style={styles.cell}>{materialin.sapphire}</Text>
-                      <Text style={styles.cell}>{materialin.aquamarine}</Text>
+                      <Text style={styles.cell}>{materialin.platinum}</Text>
+                      <Text style={styles.cell}>{materialin.thairuby}</Text>
+                      <Text style={styles.cell}>{materialin.burmeseruby}</Text>
+                      <Text style={styles.cell}>{materialin.bluesapphire}</Text>
+                      <Text style={styles.cell}>{materialin.purplesapphire}</Text>
+                      <Text style={styles.cell}>{materialin.starsapphire}</Text>
+                      <Text style={styles.cell}>{materialin.whitesapphire}</Text>
+                      <Text style={styles.cell}>{materialin.blooddiamond}</Text>
+                      <Text style={styles.cell}>{materialin.pinkstardiamond}</Text>
+                      <Text style={styles.cell}>{materialin.regentdiamond}</Text>
+                      <Text style={styles.cell}>{materialin.colombianaquamarine}</Text>
+                      <Text style={styles.cell}>{materialin.madagascaraquamarine}</Text>
                       <Text style={styles.cell}>{materialin.value}</Text>
                     </View>
                   ))
@@ -206,9 +233,18 @@ function Materialins() {
                       <Text style={styles.cell}>{materialin.gold}</Text>
                       <Text style={styles.cell}>{materialin.silver}</Text>
                       <Text style={styles.cell}>{materialin.pladium}</Text>
-                      <Text style={styles.cell}>{materialin.ruby}</Text>
-                      <Text style={styles.cell}>{materialin.sapphire}</Text>
-                      <Text style={styles.cell}>{materialin.aquamarine}</Text>
+                      <Text style={styles.cell}>{materialin.platinum}</Text>
+                      <Text style={styles.cell}>{materialin.thairuby}</Text>
+                      <Text style={styles.cell}>{materialin.burmeseruby}</Text>
+                      <Text style={styles.cell}>{materialin.bluesapphire}</Text>
+                      <Text style={styles.cell}>{materialin.purplesapphire}</Text>
+                      <Text style={styles.cell}>{materialin.starsapphire}</Text>
+                      <Text style={styles.cell}>{materialin.whitesapphire}</Text>
+                      <Text style={styles.cell}>{materialin.blooddiamond}</Text>
+                      <Text style={styles.cell}>{materialin.pinkstardiamond}</Text>
+                      <Text style={styles.cell}>{materialin.regentdiamond}</Text>
+                      <Text style={styles.cell}>{materialin.colombianaquamarine}</Text>
+                      <Text style={styles.cell}>{materialin.madagascaraquamarine}</Text>
                       <Text style={styles.cell}>{materialin.value}</Text>
                     </View>
                   ))

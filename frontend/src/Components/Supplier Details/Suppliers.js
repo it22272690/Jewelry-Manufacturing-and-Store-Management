@@ -80,8 +80,8 @@ function Suppliers() {
 
   const handleSort = () => {
     const sortedSuppliers = [...filteredSuppliers].sort((a, b) => {
-      const nameA = a.name.toLowerCase();
-      const nameB = b.name.toLowerCase();
+      const nameA = a.supplierID.toLowerCase();
+      const nameB = b.supplierID.toLowerCase();
       if (nameA < nameB) {
         return sortOrder === "asc" ? -1 : 1;
       }
@@ -139,13 +139,15 @@ function Suppliers() {
             <thead>
               <tr>
                 <th>Id</th>
-                <th>SupplierID</th>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                  Name {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                SupplierID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
+                <th>Name</th>
+                <th>NIC</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
+                <th>Bankdetails</th>
                 <th>Description</th>
                 <th>Actions</th>
               </tr>
@@ -171,21 +173,25 @@ function Suppliers() {
                 <View style={styles.row}>
                   <Text style={styles.cell}>SupplierID</Text>
                   <Text style={styles.cell}>Name</Text>
+                  <Text style={styles.cell}>NIC</Text>
                   <Text style={styles.cell}>Email</Text>
                   <Text style={styles.cell}>Phone</Text>
                   <Text style={styles.cell}>Address</Text>
+                  <Text style={styles.cell}>Bankdetails</Text>
                   <Text style={styles.cell}>Description</Text>
                 </View>
                 {showAll ? (
                   // Render all suppliers if showAll is true
                   suppliers.map((supplier, i) => (
-                    <View style={styles.row}>
-                    <Text style={styles.cell}>SupplierID</Text>
-                    <Text style={styles.cell}>Name</Text>
-                    <Text style={styles.cell}>Email</Text>
-                    <Text style={styles.cell}>Phone</Text>
-                    <Text style={styles.cell}>Address</Text>
-                    <Text style={styles.cell}>Description</Text>
+                    <View key={i} style={styles.row}>
+                    <Text style={styles.cell}>{supplier.supplierID}</Text>
+                    <Text style={styles.cell}>{supplier.name}</Text>
+                    <Text style={styles.cell}>{supplier.nic}</Text>
+                    <Text style={styles.cell}>{supplier.email}</Text>
+                    <Text style={styles.cell}>{supplier.phone}</Text>
+                    <Text style={styles.cell}>{supplier.address}</Text>
+                    <Text style={styles.cell}>{supplier.bankdetails}</Text>
+                    <Text style={styles.cell}>{supplier.description}</Text>
                   </View>
                   ))
                 ) : (
@@ -194,9 +200,11 @@ function Suppliers() {
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{supplier.supplierID}</Text>
                       <Text style={styles.cell}>{supplier.name}</Text>
+                      <Text style={styles.cell}>{supplier.nic}</Text>
                       <Text style={styles.cell}>{supplier.email}</Text>
                       <Text style={styles.cell}>{supplier.phone}</Text>
                       <Text style={styles.cell}>{supplier.address}</Text>
+                      <Text style={styles.cell}>{supplier.bankdetails}</Text>
                       <Text style={styles.cell}>{supplier.description}</Text>
                     </View>
                   ))

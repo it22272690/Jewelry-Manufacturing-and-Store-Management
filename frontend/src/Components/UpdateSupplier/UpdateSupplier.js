@@ -22,11 +22,13 @@ function UpdateSupplier() {
   const sendRequest = async () => {
     await axios
       .put(`http://localhost:5000/suppliers/${id}`, {
-        supplierID: String(inputs.supplierID),
+        supplierID:String(inputs.supplierID),
         name: String(inputs.name),
+        nic: String(inputs.nic),
         email: String(inputs.email),
         phone: String(inputs.phone),
         address: String(inputs.address),
+        bankdetails: String(inputs.bankdetails),
         description: String(inputs.description),
       })
       .then((res) => res.data);
@@ -71,8 +73,14 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.supplierID}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
+          style={{
+            borderRadius: "5px",
+            padding: "5px",
+            width: "100%",
+            fontSize: "20px", // Adjust the font size as needed
+          }}
         />
+
         <br />
         <br />
 
@@ -84,7 +92,20 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.name}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>NIC</label>
+        <br />
+        <input
+          type="text"
+          name="nic"
+          onChange={handleChange}
+          value={inputs.nic}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
         <br />
         <br />
@@ -97,7 +118,7 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.email}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
@@ -105,16 +126,15 @@ function UpdateSupplier() {
         <label style={{ fontSize: "20px" }}>Phone</label>
         <br />
         <input
-          type="number"
+          type="Number"
           name="phone"
           onChange={handleChange}
           value={inputs.phone}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
-
 
         <label style={{ fontSize: "20px" }}>Address</label>
         <br />
@@ -124,7 +144,20 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.address}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Bankdetails</label>
+        <br />
+        <input
+          type="text"
+          name="bankdetails"
+          onChange={handleChange}
+          value={inputs.bankdetails}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
@@ -137,7 +170,7 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.description}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />

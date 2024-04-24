@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Material(props) {
-  const { _id, materialID, name, unit, quantity } = props.material;
+  const { _id, materialID,name,type,grade,supplier,unit,unitweight,unitcost,quantity,description } = props.material;
 
   const history = useNavigate();
 
@@ -29,8 +29,14 @@ function Material(props) {
       <td>{_id}</td>
       <td>{materialID}</td>
       <td>{name}</td>
+      <td>{type}</td>
+      <td>{grade}</td>
+      <td>{supplier}</td>
       <td>{unit}</td>
+      <td>{unitweight}</td>
+      <td>{unitcost}</td>
       <td>{quantity}</td>
+      <td>{description}</td>
       <td>
       <Link to={`/materialdetails/${_id}`}>
         <button

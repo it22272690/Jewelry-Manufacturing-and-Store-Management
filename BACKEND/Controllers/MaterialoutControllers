@@ -21,12 +21,12 @@ const getAllMaterialouts=async(req,res,next)=>{
 //data insert
 const addMaterialouts=async(req,res,next)=>{
 
-    const{materialoutID,JobId,date,gold,silver,pladium,ruby,sapphire,aquamarine,description} =req.body;
+    const{materialoutID,JobId,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description} =req.body;
 
     let materialouts;
 
     try{
-        materialouts=new Materialout({materialoutID,JobId,date,gold,silver,pladium,ruby,sapphire,aquamarine,description});
+        materialouts=new Materialout({materialoutID,JobId,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description});
         await materialouts.save();
     }catch(err){
         console.log(err);
@@ -63,13 +63,13 @@ const getById=async(req,res,next)=>{
 const updateMaterialout=async(req,res,next)=>{
 
     const id=req.params.id;
-    const{materialoutID,JobId,date,gold,silver,pladium,ruby,sapphire,aquamarine,description} =req.body;
+    const{materialoutID,JobId,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description} =req.body;
 
     //variable name
     let materialouts;
 
     try{
-        materialouts=await Materialout.findByIdAndUpdate(id,{materialoutID:materialoutID,JobId:JobId,date:date,gold:gold,silver:silver,pladium:pladium,ruby:ruby,sapphire:sapphire,aquamarine:aquamarine,description:description});
+        materialouts=await Materialout.findByIdAndUpdate(id,{materialoutID:materialoutID,JobId:JobId,date:date,gold:gold,silver:silver,pladium:pladium,platinum:platinum,thairuby:thairuby,burmeseruby:burmeseruby,bluesapphire:bluesapphire,purplesapphire:purplesapphire,starsapphire:starsapphire,whitesapphire:whitesapphire,blooddiamond:blooddiamond,pinkstardiamond:pinkstardiamond,regentdiamond:regentdiamond,colombianaquamarine:colombianaquamarine,madagascaraquamarine:madagascaraquamarine,description:description});
         materialouts=await materialouts.save();
     }catch(err){
         console.log(err);

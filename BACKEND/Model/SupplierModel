@@ -10,6 +10,10 @@ const supplierSchema=new Schema({
         type:String, //data type
         required:true, //validate
     },
+    nic:{
+        type:String, //data type
+        required:true, //validate
+    },
     email:{
         type:String, //data type
         required:true, //validate
@@ -21,6 +25,10 @@ const supplierSchema=new Schema({
     address:{
         type:String,
         required:true,
+    },
+    bankdetails:{
+        type:String, //data type
+        required:true, //validate
     },
     description:{
         type:String, //data type

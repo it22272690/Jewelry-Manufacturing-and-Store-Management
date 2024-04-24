@@ -80,8 +80,8 @@ function Materialouts() {
 
   const handleSort = () => {
     const sortedMaterialouts = [...filteredMaterialouts].sort((a, b) => {
-      const nameA = a.date.toLowerCase();
-      const nameB = b.date.toLowerCase();
+      const nameA = a.materialoutID.toLowerCase();
+      const nameB = b.materialoutID.toLowerCase();
       if (nameA < nameB) {
         return sortOrder === "asc" ? -1 : 1;
       }
@@ -139,17 +139,25 @@ function Materialouts() {
             <thead>
               <tr>
                 <th>Id</th>
-                <th>MaterialoutID</th>
-                <th>JobID</th>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                  Date {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                MaterialoutID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
+                <th>JobID</th>
                 <th>Gold</th>
                 <th>Silver</th>
                 <th>Pladium</th>
-                <th>Ruby</th>
-                <th>Sapphire</th>
-                <th>Aquamarine</th>
+                <th>Platinum</th>
+                <th>Thai Ruby</th>
+                <th>Burmese Ruby</th>
+                <th>Blue Sapphire</th>
+                <th>Purple Sapphire</th>
+                <th>Star Sapphire</th>
+                <th>White Sapphire</th>
+                <th>Blood Diamond</th>
+                <th>Pink star Diamond</th>
+                <th>Regent Diamond</th>
+                <th>Colombian Aquamarine</th>
+                <th>Madagascar Aquamarine</th>
                 <th>Description</th>
                 <th>Actions</th>
               </tr>
@@ -179,25 +187,43 @@ function Materialouts() {
                   <Text style={styles.cell}>Gold</Text>
                   <Text style={styles.cell}>Silver</Text>
                   <Text style={styles.cell}>Pladium</Text>
-                  <Text style={styles.cell}>Ruby</Text>
-                  <Text style={styles.cell}>Sapphire</Text>
-                  <Text style={styles.cell}>Aquamarine</Text>
+                  <Text style={styles.cell}>Platinum</Text>
+                  <Text style={styles.cell}>Thai Ruby</Text>
+                  <Text style={styles.cell}>Burmese Ruby</Text>
+                  <Text style={styles.cell}>Blue Sapphire</Text>
+                  <Text style={styles.cell}>Purple Sapphire</Text>
+                  <Text style={styles.cell}>Star Sapphire</Text>
+                  <Text style={styles.cell}>White Sapphire</Text>
+                  <Text style={styles.cell}>Blood Diamond</Text>
+                  <Text style={styles.cell}>Pink star Diamond</Text>
+                  <Text style={styles.cell}>Regent Diamond</Text>
+                  <Text style={styles.cell}>Colombian Aquamarine</Text>
+                  <Text style={styles.cell}>Madagascar Aquamarine</Text>
                   <Text style={styles.cell}>Description</Text>
                 </View>
                 {showAll ? (
                   // Render all materialouts if showAll is true
                   materialouts.map((materialout, i) => (
-                    <View style={styles.row}>
-                  <Text style={styles.cell}>MaterialoutID</Text>
-                  <Text style={styles.cell}>JobID</Text>
-                  <Text style={styles.cell}>Date</Text>
-                  <Text style={styles.cell}>Gold</Text>
-                  <Text style={styles.cell}>Silver</Text>
-                  <Text style={styles.cell}>Pladium</Text>
-                  <Text style={styles.cell}>Ruby</Text>
-                  <Text style={styles.cell}>Sapphire</Text>
-                  <Text style={styles.cell}>Aquamarine</Text>
-                  <Text style={styles.cell}>Description</Text>
+                    <View key={i} style={styles.row}>
+                  <Text style={styles.cell}>{materialout.materialoutID}</Text>
+                  <Text style={styles.cell}>{materialout.JobID}</Text>
+                  <Text style={styles.cell}>{materialout.date}</Text>
+                  <Text style={styles.cell}>{materialout.gold}</Text>
+                      <Text style={styles.cell}>{materialout.silver}</Text>
+                      <Text style={styles.cell}>{materialout.pladium}</Text>
+                      <Text style={styles.cell}>{materialout.platinum}</Text>
+                      <Text style={styles.cell}>{materialout.thairuby}</Text>
+                      <Text style={styles.cell}>{materialout.burmeseruby}</Text>
+                      <Text style={styles.cell}>{materialout.bluesapphire}</Text>
+                      <Text style={styles.cell}>{materialout.purplesapphire}</Text>
+                      <Text style={styles.cell}>{materialout.starsapphire}</Text>
+                      <Text style={styles.cell}>{materialout.whitesapphire}</Text>
+                      <Text style={styles.cell}>{materialout.blooddiamond}</Text>
+                      <Text style={styles.cell}>{materialout.pinkstardiamond}</Text>
+                      <Text style={styles.cell}>{materialout.regentdiamond}</Text>
+                      <Text style={styles.cell}>{materialout.colombianaquamarine}</Text>
+                      <Text style={styles.cell}>{materialout.madagascaraquamarine}</Text>
+                  <Text style={styles.cell}>{materialout.description}</Text>
                 </View>
                   ))
                 ) : (
@@ -205,15 +231,24 @@ function Materialouts() {
                   paginateMaterialouts().map((materialout, i) => (
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{materialout.materialoutID}</Text>
-                      <Text style={styles.cell}>{materialout.JobId}</Text>
-                      <Text style={styles.cell}>{materialout.date}</Text>
-                      <Text style={styles.cell}>{materialout.gold}</Text>
+                  <Text style={styles.cell}>{materialout.JobID}</Text>
+                  <Text style={styles.cell}>{materialout.date}</Text>
+                  <Text style={styles.cell}>{materialout.gold}</Text>
                       <Text style={styles.cell}>{materialout.silver}</Text>
                       <Text style={styles.cell}>{materialout.pladium}</Text>
-                      <Text style={styles.cell}>{materialout.ruby}</Text>
-                      <Text style={styles.cell}>{materialout.sapphire}</Text>
-                      <Text style={styles.cell}>{materialout.aquamarine}</Text>
-                      <Text style={styles.cell}>{materialout.description}</Text>
+                      <Text style={styles.cell}>{materialout.platinum}</Text>
+                      <Text style={styles.cell}>{materialout.thairuby}</Text>
+                      <Text style={styles.cell}>{materialout.burmeseruby}</Text>
+                      <Text style={styles.cell}>{materialout.bluesapphire}</Text>
+                      <Text style={styles.cell}>{materialout.purplesapphire}</Text>
+                      <Text style={styles.cell}>{materialout.starsapphire}</Text>
+                      <Text style={styles.cell}>{materialout.whitesapphire}</Text>
+                      <Text style={styles.cell}>{materialout.blooddiamond}</Text>
+                      <Text style={styles.cell}>{materialout.pinkstardiamond}</Text>
+                      <Text style={styles.cell}>{materialout.regentdiamond}</Text>
+                      <Text style={styles.cell}>{materialout.colombianaquamarine}</Text>
+                      <Text style={styles.cell}>{materialout.madagascaraquamarine}</Text>
+                  <Text style={styles.cell}>{materialout.description}</Text>
                     </View>
                   ))
                 )}

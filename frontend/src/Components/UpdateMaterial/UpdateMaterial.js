@@ -24,8 +24,14 @@ function UpdateMaterial() {
       .put(`http://localhost:5000/materials/${id}`, {
         materialID: String(inputs.materialID),
         name: String(inputs.name),
+        type: String(inputs.type),
+        grade: String(inputs.grade),
+        supplier: String(inputs.supplier),
         unit: String(inputs.unit),
+        unitweight: String(inputs.unitweight),
+        unitcost: String(inputs.unitcost),
         quantity: String(inputs.quantity),
+        description: String(inputs.description),
       })
       .then((res) => res.data);
   };
@@ -61,7 +67,7 @@ function UpdateMaterial() {
           backgroundColor: "lightgray",
         }}
       >
-        <label style={{ fontSize: "20px" }}>Material</label>
+        <label style={{ fontSize: "20px" }}>MaterialID</label>
         <br />
         <input
           type="text"
@@ -69,8 +75,14 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.materialID}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
+          style={{
+            borderRadius: "5px",
+            padding: "5px",
+            width: "100%",
+            fontSize: "20px", // Adjust the font size as needed
+          }}
         />
+
         <br />
         <br />
 
@@ -82,7 +94,46 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.name}
           required
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Type</label>
+        <br />
+        <input
+          type="text"
+          name="type"
+          onChange={handleChange}
+          value={inputs.type}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Grade</label>
+        <br />
+        <input
+          type="text"
+          name="grade"
+          onChange={handleChange}
+          value={inputs.grade}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Supplier</label>
+        <br />
+        <input
+          type="text"
+          name="supplier"
+          onChange={handleChange}
+          value={inputs.supplier}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
@@ -95,6 +146,32 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.unit}
           required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Unitweight</label>
+        <br />
+        <input
+          type="Number"
+          name="unitweight"
+          onChange={handleChange}
+          value={inputs.unitweight}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Unitcost</label>
+        <br />
+        <input
+          type="Number"
+          name="unitcost"
+          onChange={handleChange}
+          value={inputs.unitcost}
+          required
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -103,10 +180,23 @@ function UpdateMaterial() {
         <label style={{ fontSize: "20px" }}>Quantity</label>
         <br />
         <input
-          type="number"
+          type="Number"
           name="quantity"
           onChange={handleChange}
           value={inputs.quantity}
+          required
+          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
+        />
+        <br />
+        <br />
+
+        <label style={{ fontSize: "20px" }}>Description</label>
+        <br />
+        <input
+          type="text"
+          name="description"
+          onChange={handleChange}
+          value={inputs.description}
           required
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />

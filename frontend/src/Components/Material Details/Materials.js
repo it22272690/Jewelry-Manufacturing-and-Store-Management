@@ -80,8 +80,8 @@ function Materials() {
 
   const handleSort = () => {
     const sortedMaterials = [...filteredMaterials].sort((a, b) => {
-      const nameA = a.name.toLowerCase();
-      const nameB = b.name.toLowerCase();
+      const nameA = a.materialID.toLowerCase();
+      const nameB = b.materialID.toLowerCase();
       if (nameA < nameB) {
         return sortOrder === "asc" ? -1 : 1;
       }
@@ -139,12 +139,18 @@ function Materials() {
             <thead>
               <tr>
                 <th>Id</th>
-                <th>MaterialID</th>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                  Name {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                MaterialID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Grade</th>
+                <th>Supplier</th>
                 <th>Unit</th>
+                <th>Unitweight</th>
+                <th>Unitcost</th>
                 <th>Quantity</th>
+                <th>Description</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -169,8 +175,14 @@ function Materials() {
                 <View style={styles.row}>
                   <Text style={styles.cell}>MaterialID</Text>
                   <Text style={styles.cell}>Name</Text>
+                  <Text style={styles.cell}>Type</Text>
+                  <Text style={styles.cell}>Grade</Text>
+                  <Text style={styles.cell}>Supplier</Text>
                   <Text style={styles.cell}>Unit</Text>
+                  <Text style={styles.cell}>Unitweight</Text>
+                  <Text style={styles.cell}>Unitcost</Text>
                   <Text style={styles.cell}>Quantity</Text>
+                  <Text style={styles.cell}>Description</Text>
                 </View>
                 {showAll ? (
                   // Render all materials if showAll is true
@@ -178,8 +190,14 @@ function Materials() {
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{material.materialID}</Text>
                       <Text style={styles.cell}>{material.name}</Text>
+                      <Text style={styles.cell}>{material.type}</Text>
+                      <Text style={styles.cell}>{material.grade}</Text>
+                      <Text style={styles.cell}>{material.supplier}</Text>
                       <Text style={styles.cell}>{material.unit}</Text>
+                      <Text style={styles.cell}>{material.unitweight}</Text>
+                      <Text style={styles.cell}>{material.unitcost}</Text>
                       <Text style={styles.cell}>{material.quantity}</Text>
+                      <Text style={styles.cell}>{material.description}</Text>
                     </View>
                   ))
                 ) : (
@@ -188,8 +206,14 @@ function Materials() {
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{material.materialID}</Text>
                       <Text style={styles.cell}>{material.name}</Text>
+                      <Text style={styles.cell}>{material.type}</Text>
+                      <Text style={styles.cell}>{material.grade}</Text>
+                      <Text style={styles.cell}>{material.supplier}</Text>
                       <Text style={styles.cell}>{material.unit}</Text>
+                      <Text style={styles.cell}>{material.unitweight}</Text>
+                      <Text style={styles.cell}>{material.unitcost}</Text>
                       <Text style={styles.cell}>{material.quantity}</Text>
+                      <Text style={styles.cell}>{material.description}</Text>
                     </View>
                   ))
                 )}
