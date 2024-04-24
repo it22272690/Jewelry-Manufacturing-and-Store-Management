@@ -1,16 +1,31 @@
-//pass=bnt9hDq93LfdKMml
-const express=require("express");
-const mongoose=require("mongoose");
-const router=require("./Routes/UserRoutes");
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const colors = require("colors");
+const connectDb = require("./Config/connectDb");
+// config dot env file
+dotenv.config();
 
-const app=express();
+//databse call
+connectDb();
 
-//Middleware
-app.use("/users",router);
+//rest object
+const app = express();
 
-mongoose.connect("mongodb+srv://it22272690:bnt9hDq93LfdKMml@cluster0.ivjcibu.mongodb.net/")
-.then(()=>console.log("Connected to MongoDB"))
-.then(()=>{
-    app.listen(5000);
-})
-.catch((err)=>console.log((err)));
+//middlewares
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(cors());
+
+//routes
+app.use("/api/v1/users", require("./Routes/userRoute"));
+//transaction routes
+app.use("/api/v1/transactions", require("./Routes/transactionRoute"));
+//port
+const PORT = 8080 || process.env.PORT;
+
+//listen server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
