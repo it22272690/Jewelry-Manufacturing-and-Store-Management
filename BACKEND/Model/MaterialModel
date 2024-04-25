@@ -40,7 +40,7 @@ const materialSchema=new Schema({
     },
     description:{
         type:String, //data type
-        required:true, //validate
+        //required:true, //validate
     },
 });
 
