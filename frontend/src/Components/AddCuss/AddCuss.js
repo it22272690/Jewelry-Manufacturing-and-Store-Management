@@ -313,6 +313,7 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.FirstName}
           placeholder="Enter your first name"
+          pattern="[a-zA-Z]+"
           required
         />
       </Form.Group>
@@ -327,6 +328,7 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.LastName}
           placeholder="Enter your last name"
+          pattern="[a-zA-Z]+"
           required
         />
       </Form.Group>
@@ -344,6 +346,7 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.AccountUsername}
           placeholder="Enter your account username"
+          pattern="[A-Za-z0-9]+"
           required
         />
       </Form.Group>
@@ -358,6 +361,7 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.MobileNumber}
           placeholder="Enter your mobile number"
+          pattern="^0\d{9}$"
           required
         />
       </Form.Group>
@@ -375,6 +379,7 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.Address}
           placeholder="Enter your address"
+          pattern="[A-Za-z0-9]+"
           required
         />
       </Form.Group>
@@ -389,6 +394,7 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.City}
           placeholder="Enter your city"
+          pattern="[a-zA-Z]+"
           required
         />
       </Form.Group>
@@ -436,6 +442,7 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.Zip}
           placeholder="Enter your zip code"
+          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           required
         />
       </Form.Group>
@@ -531,6 +538,7 @@ function AddCuss() {
                 onChange={handleChange}
                 value={inputs.MaterialWeight1}
                 placeholder="Enter material weight 1"
+                pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                 required
             />
         </Form.Group>
@@ -567,6 +575,7 @@ function AddCuss() {
                     onChange={handleChange}
                     value={inputs.MaterialWeight2}
                     placeholder="Enter material weight 2"
+                    pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                     required
                 />
             </Form.Group>
@@ -603,6 +612,7 @@ function AddCuss() {
                     onChange={handleChange}
                     value={inputs.MaterialWeight3}
                     placeholder="Enter material weight 3"
+                    pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                     required
                 />
             </Form.Group>
@@ -613,15 +623,20 @@ function AddCuss() {
         <Col md={6}>
             <Form.Group controlId="AttributeType">
                 <Form.Label className="addcus-label">Attribute Type</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="AttributeType"
-                    className="addcus-input"
-                    onChange={handleChange}
-                    value={inputs.AttributeType}
-                    placeholder="Enter attribute type"
-                    required
-                />
+                <Form.Select
+                      aria-label=" select example"
+                      name="AttributeType"
+                      onChange={handleChange}
+                      value={inputs.AttributeType}
+                      required
+                    >
+                      <option></option>
+                      <option value="height">height</option>
+                      <option value="length">length</option>
+                      <option value="width">width</option>
+                      <option value="diametere">diametere</option>
+                      <option value="radiuos">radiuos</option>
+                    </Form.Select>
             </Form.Group>
         </Col>
         <Col md={6}>
@@ -634,6 +649,7 @@ function AddCuss() {
                     onChange={handleChange}
                     value={inputs.Dimension}
                     placeholder="Enter dimension"
+                    pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                     required
                 />
             </Form.Group>
@@ -697,6 +713,7 @@ function AddCuss() {
             onChange={handleChange}
             value={inputs.StoneWeight}
             placeholder="Enter stone weight"
+            pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
             required
         />
     </Form.Group>
