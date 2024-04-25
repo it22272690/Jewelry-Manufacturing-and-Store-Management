@@ -71,6 +71,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.supplierID}
           required
+          pattern="[A-Za-z0-9]+"
           style={{
             borderRadius: "5px",
             padding: "5px",
@@ -89,6 +90,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.name}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
         <br />
@@ -102,6 +104,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.nic}
           required
+          pattern="^\d{9}(v|V)|\d{12}$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
         <br />
@@ -128,6 +131,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.phone}
           required
+          pattern="^0\d{9}$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -141,6 +145,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.address}
           required
+          pattern="[A-Za-z0-9]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -154,6 +159,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.bankdetails}
           required
+          pattern="[A-Za-z0-9]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -167,6 +173,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.description}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />

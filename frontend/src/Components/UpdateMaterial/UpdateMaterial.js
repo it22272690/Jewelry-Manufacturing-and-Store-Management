@@ -75,6 +75,7 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.materialID}
           required
+          pattern="[A-Za-z0-9]+"
           style={{
             borderRadius: "5px",
             padding: "5px",
@@ -93,6 +94,7 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.name}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
         <br />
@@ -106,6 +108,7 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.type}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
@@ -119,6 +122,7 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.grade}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
@@ -132,6 +136,7 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.supplier}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
@@ -145,6 +150,7 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.unit}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
@@ -153,11 +159,12 @@ function UpdateMaterial() {
         <label style={{ fontSize: "20px" }}>Unitweight</label>
         <br />
         <input
-          type="Number"
+          type="text"
           name="unitweight"
           onChange={handleChange}
           value={inputs.unitweight}
           required
+          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
@@ -166,11 +173,12 @@ function UpdateMaterial() {
         <label style={{ fontSize: "20px" }}>Unitcost</label>
         <br />
         <input
-          type="Number"
+          type="text"
           name="unitcost"
           onChange={handleChange}
           value={inputs.unitcost}
           required
+          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -179,11 +187,12 @@ function UpdateMaterial() {
         <label style={{ fontSize: "20px" }}>Quantity</label>
         <br />
         <input
-          type="Number"
+          type="text"
           name="quantity"
           onChange={handleChange}
           value={inputs.quantity}
           required
+          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -197,6 +206,7 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.description}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />

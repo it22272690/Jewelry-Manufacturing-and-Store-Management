@@ -71,6 +71,7 @@ function UpdateReserve() {
           onChange={handleChange}
           value={inputs.reserveID}
           required
+          pattern="[A-Za-z0-9]+"
           style={{
             borderRadius: "5px",
             padding: "5px",
@@ -89,6 +90,7 @@ function UpdateReserve() {
           onChange={handleChange}
           value={inputs.OrderId}
           required
+          pattern="[A-Za-z0-9]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
         <br />
@@ -102,6 +104,7 @@ function UpdateReserve() {
           onChange={handleChange}
           value={inputs.productID}
           required
+          pattern="[A-Za-z0-9]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
@@ -110,11 +113,12 @@ function UpdateReserve() {
         <label style={{ fontSize: "20px" }}>Quantity</label>
         <br />
         <input
-          type="Number"
+          type="text"
           name="quantity"
           onChange={handleChange}
           value={inputs.quantity}
           required
+          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -128,6 +132,7 @@ function UpdateReserve() {
           onChange={handleChange}
           value={inputs.description}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
@@ -141,6 +146,7 @@ function UpdateReserve() {
           onChange={handleChange}
           value={inputs.status}
           required
+          pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
