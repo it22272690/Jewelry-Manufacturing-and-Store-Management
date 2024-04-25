@@ -138,7 +138,7 @@ function AddMaterialout() {
           name="gold"
           onChange={handleChange}
           value={inputs.gold}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
@@ -152,7 +152,7 @@ function AddMaterialout() {
           name="silver"
           onChange={handleChange}
           value={inputs.silver}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -166,7 +166,7 @@ function AddMaterialout() {
           name="pladium"
           onChange={handleChange}
           value={inputs.pladium}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -180,7 +180,7 @@ function AddMaterialout() {
           name="platinum"
           onChange={handleChange}
           value={inputs.platinum}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -194,7 +194,7 @@ function AddMaterialout() {
           name="thairuby"
           onChange={handleChange}
           value={inputs.thairuby}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -208,7 +208,7 @@ function AddMaterialout() {
           name="burmeseruby"
           onChange={handleChange}
           value={inputs.burmeseruby}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -222,7 +222,7 @@ function AddMaterialout() {
           name="bluesapphire"
           onChange={handleChange}
           value={inputs.bluesapphire}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -236,7 +236,7 @@ function AddMaterialout() {
           name="purplesapphire"
           onChange={handleChange}
           value={inputs.purplesapphire}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -250,7 +250,7 @@ function AddMaterialout() {
           name="starsapphire"
           onChange={handleChange}
           value={inputs.starsapphire}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -264,7 +264,7 @@ function AddMaterialout() {
           name="whitesapphire"
           onChange={handleChange}
           value={inputs.whitesapphire}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -278,7 +278,7 @@ function AddMaterialout() {
           name="blooddiamond"
           onChange={handleChange}
           value={inputs.blooddiamond}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -292,7 +292,7 @@ function AddMaterialout() {
           name="pinkstardiamond"
           onChange={handleChange}
           value={inputs.pinkstardiamond}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -306,7 +306,7 @@ function AddMaterialout() {
           name="regentdiamond"
           onChange={handleChange}
           value={inputs.regentdiamond}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -320,7 +320,7 @@ function AddMaterialout() {
           name="colombianaquamarine"
           onChange={handleChange}
           value={inputs.colombianaquamarine}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -334,7 +334,7 @@ function AddMaterialout() {
           name="madagascaraquamarine"
           onChange={handleChange}
           value={inputs.madagascaraquamarine}
-          required
+          
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
@@ -348,7 +348,7 @@ function AddMaterialout() {
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          required
+          
           pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />

@@ -174,7 +174,7 @@ function UpdateSupplier() {
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          required
+          
           pattern="[a-zA-Z]+"
           style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
