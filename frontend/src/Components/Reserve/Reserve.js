@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Reserve(props) {
-  const { _id, reserveID,customerID,productID,quantity, description, status } = props.reserve;
+  const { _id, reserveID,OrderId,productID,quantity, description, status } = props.reserve;
 
   const history = useNavigate();
 
@@ -27,7 +27,7 @@ function Reserve(props) {
   return (
     <tr>
       <td>{reserveID}</td>
-      <td>{customerID}</td>
+      <td>{OrderId}</td>
       <td>{productID}</td>
       <td>{quantity}</td>
       <td>{description}</td>

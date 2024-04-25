@@ -15,7 +15,7 @@ const reserveSchema=new Schema({
         required:true, //validate
     },
     quantity:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     description:{

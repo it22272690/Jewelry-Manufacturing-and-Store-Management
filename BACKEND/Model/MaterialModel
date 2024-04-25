@@ -19,7 +19,7 @@ const materialSchema=new Schema({
         required:true, //validate
     },
     supplier:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     unit:{
@@ -27,15 +27,15 @@ const materialSchema=new Schema({
         required:true, //validate
     },
     unitweight:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     unitcost:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     quantity:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     description:{

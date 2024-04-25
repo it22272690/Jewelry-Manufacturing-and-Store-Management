@@ -206,7 +206,7 @@ function AddMaterial() {
           onChange={handleChange}
           value={inputs.description}
           
-          pattern="[a-zA-Z]+"
+          
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />

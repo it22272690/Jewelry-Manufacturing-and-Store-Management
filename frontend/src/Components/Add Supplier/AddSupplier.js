@@ -126,7 +126,7 @@ function AddSupplier() {
         <label style={{ fontSize: "20px" }}>Phone</label>
         <br />
         <input
-          type="Number"
+          type="text"
           name="phone"
           onChange={handleChange}
           value={inputs.phone}

@@ -48,19 +48,23 @@ function Reserves() {
   const [noResults, setNoResults] = useState(false);
   const [sortOrder, setSortOrder] = useState("asc"); // State to track sorting order
   const [showAll, setShowAll] = useState(false); // State to track whether to show all data
+  const [filterStatus, setFilterStatus] = useState("All"); // State to track filter status
 
   useEffect(() => {
     fetchHandler().then((data) => {
       setReserves(data.reserves);
-      setFilteredReserves(data.reserves);
+      setFilteredReserves(data.reserves.filter(reserve => reserve.status === filterStatus || filterStatus === "All"));
       setTotalPages(Math.ceil(data.reserves.length / RESERVES_PER_PAGE));
     });
-  }, []);
+  }, [filterStatus]);
 
   const handleSearch = (query) => {
-    const filtered = reserves.filter((Reserve) => {
-      return Object.values(Reserve).some((val) =>
-        val.toString().toLowerCase().includes(query.toLowerCase())
+    const filtered = reserves.filter((reserve) => {
+      return (
+        Object.values(reserve).some((val) =>
+          val.toString().toLowerCase().includes(query.toLowerCase())
+        ) &&
+        (filterStatus === "All" || reserve.status === filterStatus)
       );
     });
     setFilteredReserves(filtered);
@@ -127,6 +131,41 @@ function Reserves() {
         />
       </div>
 
+      <div>
+        <label style={{ fontSize: "20px" }}>Filter by Status:</label>
+        <br />
+        <input
+          type="radio"
+          id="filterAll"
+          name="filterStatus"
+          value="All"
+          checked={filterStatus === "All"}
+          onChange={() => setFilterStatus("All")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterAll" style={{ marginRight: "10px" }}>All</label>
+        <input
+          type="radio"
+          id="filterDelivered"
+          name="filterStatus"
+          value="Delivered"
+          checked={filterStatus === "Delivered"}
+          onChange={() => setFilterStatus("Delivered")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterDelivered" style={{ marginRight: "10px" }}>Delivered</label>
+        <input
+          type="radio"
+          id="filterNotDelivered"
+          name="filterStatus"
+          value="Not Delivered"
+          checked={filterStatus === "Not Delivered"}
+          onChange={() => setFilterStatus("Not Delivered")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterNotDelivered">Not Delivered</label>
+      </div>
+
       <br />
 
       {noResults ? (
@@ -138,8 +177,8 @@ function Reserves() {
           <table className="table">
             <thead>
               <tr>              
-              <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                ReserveID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                <th onClick={handleSort} style={{ cursor: "pointer" }}>
+                  ReserveID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
                 <th>OrderID</th>
                 <th>ProductID</th>

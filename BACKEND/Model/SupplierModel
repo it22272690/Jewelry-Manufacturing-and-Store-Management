@@ -19,7 +19,7 @@ const supplierSchema=new Schema({
         required:true, //validate
     },
     phone:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     address:{

@@ -135,19 +135,31 @@ function AddReserve() {
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Status</label>
-        <br />
-        <input
-          type="text"
-          name="status"
-          onChange={handleChange}
-          value={inputs.status}
-          required
-          pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
-        />
-        <br />
-        <br />
+        <div>
+  <label style={{ fontSize: "20px" }}>Status</label>
+  <br />
+  <input
+    type="radio"
+    id="delivered"
+    name="status"
+    value="Delivered"
+    checked={inputs.status === "Delivered"}
+    onChange={handleChange}
+    style={{ fontSize: "20px" }}
+  />
+  <label htmlFor="delivered" style={{ marginRight: "10px" }}>Delivered</label>
+  <input
+    type="radio"
+    id="notDelivered"
+    name="status"
+    value="Not Delivered"
+    checked={inputs.status === "Not Delivered"}
+    onChange={handleChange}
+    style={{ fontSize: "20px" }}
+  />
+  <label htmlFor="notDelivered">Not Delivered</label>
+</div>
+
 
         <button
           type="submit"

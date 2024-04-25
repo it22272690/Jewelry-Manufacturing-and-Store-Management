@@ -15,63 +15,63 @@ const materialinSchema=new Schema({
         required:true, //validate
     },
     gold:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     silver:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     pladium:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     platinum:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     thairuby:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     burmeseruby:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     bluesapphire:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     purplesapphire:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     starsapphire:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     whitesapphire:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     blooddiamond:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     pinkstardiamond:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     regentdiamond:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     colombianaquamarine:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     madagascaraquamarine:{
-        type:Number, //data type
+        type:String, //data type
         required:true, //validate
     },
     value:{
