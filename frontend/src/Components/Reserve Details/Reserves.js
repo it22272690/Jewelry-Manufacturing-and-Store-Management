@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     width: '20%',
     textAlign: 'center',
     padding: 5,
-    fontWeight: 'bold', // Add bold style here
+    fontWeight: 'bold', 
   },
 });
 
@@ -80,8 +80,8 @@ function Reserves() {
 
   const handleSort = () => {
     const sortedReserves = [...filteredReserves].sort((a, b) => {
-      const nameA = a.description.toLowerCase();
-      const nameB = b.description.toLowerCase();
+      const nameA = a.reserveID.toLowerCase();
+      const nameB = b.reserveID.toLowerCase();
       if (nameA < nameB) {
         return sortOrder === "asc" ? -1 : 1;
       }
@@ -137,15 +137,14 @@ function Reserves() {
         <div>
           <table className="table">
             <thead>
-              <tr>
-                <th>Id</th>
-                <th>ReserveID</th>
-                <th>CustomerID</th>
-                <th>ProductID</th>
-                <th>Quantity</th>
-                <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                Description {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+              <tr>              
+              <th onClick={handleSort} style={{ cursor: "pointer" }}>
+                ReserveID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
+                <th>OrderID</th>
+                <th>ProductID</th>
+                <th>Quantity</th>              
+                <th>Description</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
@@ -170,7 +169,7 @@ function Reserves() {
                 <Text style={styles.heading}>Diamonds.lk-Jewelry Manufacture and Management System<br/><br/></Text>
                 <View style={styles.row}>
                   <Text style={styles.cell}>ReserveID</Text>
-                  <Text style={styles.cell}>CustomerID</Text>
+                  <Text style={styles.cell}>OrderID</Text>
                   <Text style={styles.cell}>ProductID</Text>
                   <Text style={styles.cell}>Quantity</Text>
                   <Text style={styles.cell}>Description</Text>
@@ -181,7 +180,7 @@ function Reserves() {
                   reserves.map((reserve, i) => (
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{reserve.reserveID}</Text>
-                      <Text style={styles.cell}>{reserve.customerID}</Text>
+                      <Text style={styles.cell}>{reserve.orderID}</Text>
                       <Text style={styles.cell}>{reserve.productID}</Text>
                       <Text style={styles.cell}>{reserve.quantity}</Text>
                       <Text style={styles.cell}>{reserve.description}</Text>
@@ -193,7 +192,7 @@ function Reserves() {
                   paginateReserves().map((reserve, i) => (
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{reserve.reserveID}</Text>
-                      <Text style={styles.cell}>{reserve.customerID}</Text>
+                      <Text style={styles.cell}>{reserve.orderID}</Text>
                       <Text style={styles.cell}>{reserve.productID}</Text>
                       <Text style={styles.cell}>{reserve.quantity}</Text>
                       <Text style={styles.cell}>{reserve.description}</Text>

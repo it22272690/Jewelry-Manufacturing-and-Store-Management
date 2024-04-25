@@ -26,7 +26,6 @@ function Supplier(props) {
 
   return (
     <tr>
-      <td>{_id}</td>
       <td>{supplierID}</td>
       <td>{name}</td>
       <td>{nic}</td>

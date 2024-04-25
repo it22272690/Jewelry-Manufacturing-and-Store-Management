@@ -80,8 +80,8 @@ function Materialins() {
 
   const handleSort = () => {
     const sortedMaterialins = [...filteredMaterialins].sort((a, b) => {
-      const nameA = a.supplierID.toLowerCase();
-      const nameB = b.supplierID.toLowerCase();
+      const nameA = a.materialinID.toLowerCase();
+      const nameB = b.materialinID.toLowerCase();
       if (nameA < nameB) {
         return sortOrder === "asc" ? -1 : 1;
       }
@@ -138,10 +138,10 @@ function Materialins() {
           <table className="table">
             <thead>
               <tr>
-                <th>Id</th>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                SupplierID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                MaterialinID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
+                <th>SupplierID</th>
                 <th>Date</th>
                 <th>Gold</th>
                 <th>Silver</th>
@@ -181,6 +181,7 @@ function Materialins() {
               <Page size="A4" style={styles.page}>
                 <Text style={styles.heading}>Diamonds.lk-Jewelry Manufacture and Management System<br/><br/></Text>
                 <View style={styles.row}>
+                <Text style={styles.cell}>MaterialinID</Text>
                   <Text style={styles.cell}>SupplierID</Text>
                   <Text style={styles.cell}>Date</Text>
                   <Text style={styles.cell}>Gold</Text>
@@ -204,6 +205,7 @@ function Materialins() {
                   // Render all materialins if showAll is true
                   materialins.map((materialin, i) => (
                     <View key={i} style={styles.row}>
+                      <Text style={styles.cell}>{materialin.materialinID}</Text>
                       <Text style={styles.cell}>{materialin.supplierID}</Text>
                       <Text style={styles.cell}>{materialin.date}</Text>
                       <Text style={styles.cell}>{materialin.gold}</Text>
@@ -228,6 +230,7 @@ function Materialins() {
                   // Otherwise, paginate the users
                   paginateMaterialins().map((materialin, i) => (
                     <View key={i} style={styles.row}>
+                      <Text style={styles.cell}>{materialin.materialinID}</Text>
                       <Text style={styles.cell}>{materialin.supplierID}</Text>
                       <Text style={styles.cell}>{materialin.date}</Text>
                       <Text style={styles.cell}>{materialin.gold}</Text>

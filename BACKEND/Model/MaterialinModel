@@ -2,6 +2,10 @@ const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 
 const materialinSchema=new Schema({
+    materialinID:{
+        type:String, //data type
+        required:true, //validate
+    },
     supplierID:{
         type:String, //data type
         required:true, //validate
@@ -15,8 +19,8 @@ const materialinSchema=new Schema({
         required:true, //validate
     },
     silver:{
-        type:Number,
-        required:true,
+        type:Number, //data type
+        required:true, //validate
     },
     pladium:{
         type:Number, //data type

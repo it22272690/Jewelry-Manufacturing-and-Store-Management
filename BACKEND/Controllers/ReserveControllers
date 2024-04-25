@@ -21,12 +21,12 @@ const getAllReserves=async(req,res,next)=>{
 //data insert
 const addReserves=async(req,res,next)=>{
 
-    const{reserveID,customerID,productID,quantity,description,status} =req.body;
+    const{reserveID,OrderId,productID,quantity,description,status} =req.body;
 
     let reserves;
 
     try{
-        reserves=new Reserve({reserveID,customerID,productID,quantity,description,status});
+        reserves=new Reserve({reserveID,OrderId,productID,quantity,description,status});
         await reserves.save();
     }catch(err){
         console.log(err);
@@ -63,13 +63,13 @@ const getById=async(req,res,next)=>{
 const updateReserve=async(req,res,next)=>{
 
     const id=req.params.id;
-    const{reserveID,customerID,productID,quantity,description,status} =req.body;
+    const{reserveID,OrderId,productID,quantity,description,status} =req.body;
 
     //variable name
     let reserves;
 
     try{
-        reserves=await Reserve.findByIdAndUpdate(id,{reserveID:reserveID,customerID:customerID,productID:productID,quantity:quantity,description:description,status:status});
+        reserves=await Reserve.findByIdAndUpdate(id,{reserveID:reserveID,OrderId:OrderId,productID:productID,quantity:quantity,description:description,status:status});
         reserves=await reserves.save();
     }catch(err){
         console.log(err);

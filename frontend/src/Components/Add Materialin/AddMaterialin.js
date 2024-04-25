@@ -6,6 +6,7 @@ import React, { useState } from "react";
 function AddMaterialin() {
   const history = useNavigate();
   const [inputs, setInputs] = useState({
+    materialinID:"",
     supplierID:"",
     date:"",
     gold: "",
@@ -43,6 +44,7 @@ function AddMaterialin() {
   const sendRequest = async () => {
     await axios
       .post("http://localhost:5000/materialins", {
+        materialinID: String(inputs.materialinID),
         supplierID: String(inputs.supplierID),
         date: String(inputs.date),
         gold: String(inputs.gold),
@@ -83,6 +85,25 @@ function AddMaterialin() {
           backgroundColor: "lightgray",
         }}
       >
+
+      <label style={{ fontSize: "20px" }}>MaterialinID</label>
+        <br />
+        <input
+          type="text"
+          name="materialinID"
+          onChange={handleChange}
+          value={inputs.materialinID}
+          required
+          style={{
+            borderRadius: "5px",
+            padding: "5px",
+            width: "100%",
+            fontSize: "20px", // Adjust the font size as needed
+          }}
+        />
+        <br />
+        <br />
+
         <label style={{ fontSize: "20px" }}>SupplierID</label>
         <br />
         <input
@@ -98,7 +119,6 @@ function AddMaterialin() {
             fontSize: "20px", // Adjust the font size as needed
           }}
         />
-
         <br />
         <br />
 

@@ -6,7 +6,7 @@ const reserveSchema=new Schema({
         type:String, //data type
         required:true, //validate
     },
-    customerID:{
+    OrderId:{
         type:String, //data type
         required:true, //validate
     },
@@ -19,8 +19,8 @@ const reserveSchema=new Schema({
         required:true, //validate
     },
     description:{
-        type:String,
-        required:true,
+        type:String, //data type
+        required:true, //validate
     },
     status:{
         type:String, //data type

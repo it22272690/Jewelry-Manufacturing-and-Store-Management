@@ -79,10 +79,9 @@ function UpdateMaterial() {
             borderRadius: "5px",
             padding: "5px",
             width: "100%",
-            fontSize: "20px", // Adjust the font size as needed
+            fontSize: "20px", 
           }}
         />
-
         <br />
         <br />
 

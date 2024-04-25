@@ -23,8 +23,8 @@ const supplierSchema=new Schema({
         required:true, //validate
     },
     address:{
-        type:String,
-        required:true,
+        type:String, //data type
+        required:true, //validate
     },
     bankdetails:{
         type:String, //data type

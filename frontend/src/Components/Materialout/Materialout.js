@@ -26,7 +26,6 @@ function Materialout(props) {
 
   return (
     <tr>
-      <td>{_id}</td>
       <td>{materialoutID}</td>
       <td>{JobId}</td>
       <td>{date}</td>

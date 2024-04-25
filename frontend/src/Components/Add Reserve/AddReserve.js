@@ -7,10 +7,9 @@ function AddReserve() {
   const history = useNavigate();
   const [inputs, setInputs] = useState({
     reserveID:"",
-    customerID:"",
+    OrderId:"",
     productID:"",
     quantity: "",
-    gmail: "",
     description: "",
     status: "",
   });
@@ -33,7 +32,7 @@ function AddReserve() {
     await axios
       .post("http://localhost:5000/reserves", {
         reserveID: String(inputs.reserveID),
-        customerID: String(inputs.customerID),
+        OrderId: String(inputs.OrderId),
         productID: String(inputs.productID),
         quantity: String(inputs.quantity),
         description: String(inputs.description),
@@ -79,13 +78,13 @@ function AddReserve() {
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>CustomerID</label>
+        <label style={{ fontSize: "20px" }}>OrderID</label>
         <br />
         <input
           type="text"
-          name="customerID"
+          name="OrderId"
           onChange={handleChange}
-          value={inputs.customerID}
+          value={inputs.OrderId}
           required
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />

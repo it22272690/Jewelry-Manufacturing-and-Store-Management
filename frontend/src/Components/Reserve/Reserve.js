@@ -26,7 +26,6 @@ function Reserve(props) {
 
   return (
     <tr>
-      <td>{_id}</td>
       <td>{reserveID}</td>
       <td>{customerID}</td>
       <td>{productID}</td>

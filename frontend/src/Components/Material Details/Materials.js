@@ -138,7 +138,6 @@ function Materials() {
           <table className="table">
             <thead>
               <tr>
-                <th>Id</th>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
                 MaterialID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>

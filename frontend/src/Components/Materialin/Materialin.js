@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Materialin(props) {
-  const { _id, supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} = props.materialin;
+  const { _id, materialinID,supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} = props.materialin;
 
   const history = useNavigate();
 
@@ -26,7 +26,7 @@ function Materialin(props) {
 
   return (
     <tr>
-      <td>{_id}</td>
+      <td>{materialinID}</td>
       <td>{supplierID}</td>
       <td>{date}</td>
       <td>{gold}</td>

@@ -26,7 +26,6 @@ function Material(props) {
 
   return (
     <tr>
-      <td>{_id}</td>
       <td>{materialID}</td>
       <td>{name}</td>
       <td>{type}</td>

@@ -22,6 +22,7 @@ function UpdateMaterialin() {
   const sendRequest = async () => {
     await axios
       .put(`http://localhost:5000/materialins/${id}`, {
+        materialinID: String(inputs.materialinID),
         supplierID: String(inputs.supplierID),
         date: String(inputs.date),
         gold: String(inputs.gold),
@@ -75,6 +76,24 @@ function UpdateMaterialin() {
           backgroundColor: "lightgray",
         }}
       >
+        <label style={{ fontSize: "20px" }}>MaterialinID</label>
+        <br />
+        <input
+          type="text"
+          name="materialinID"
+          onChange={handleChange}
+          value={inputs.materialinID}
+          required
+          style={{
+            borderRadius: "5px",
+            padding: "5px",
+            width: "100%",
+            fontSize: "20px", 
+          }}
+        />
+        <br />
+        <br />
+
         <label style={{ fontSize: "20px" }}>SupplierID</label>
         <br />
         <input
@@ -87,10 +106,9 @@ function UpdateMaterialin() {
             borderRadius: "5px",
             padding: "5px",
             width: "100%",
-            fontSize: "20px", // Adjust the font size as needed
+            fontSize: "20px", 
           }}
         />
-
         <br />
         <br />
 

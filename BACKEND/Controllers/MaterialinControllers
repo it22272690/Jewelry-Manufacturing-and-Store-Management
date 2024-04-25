@@ -21,12 +21,12 @@ const getAllMaterialins=async(req,res,next)=>{
 //data insert
 const addMaterialins=async(req,res,next)=>{
 
-    const{supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} =req.body;
+    const{materialinID,supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} =req.body;
 
     let materialins;
 
     try{
-        materialins=new Materialin({supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value});
+        materialins=new Materialin({materialinID,supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value});
         await materialins.save();
     }catch(err){
         console.log(err);
@@ -63,13 +63,13 @@ const getById=async(req,res,next)=>{
 const updateMaterialin=async(req,res,next)=>{
 
     const id=req.params.id;
-    const{supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} =req.body;
+    const{materialinID,supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} =req.body;
 
     //variable name
     let materialins;
 
     try{
-        materialins=await Materialin.findByIdAndUpdate(id,{supplierID:supplierID,date:date,gold:gold,silver:silver,pladium:pladium,platinum:platinum,thairuby:thairuby,burmeseruby:burmeseruby,bluesapphire:bluesapphire,purplesapphire:purplesapphire,starsapphire:starsapphire,whitesapphire:whitesapphire,blooddiamond:blooddiamond,pinkstardiamond:pinkstardiamond,regentdiamond:regentdiamond,colombianaquamarine:colombianaquamarine,madagascaraquamarine:madagascaraquamarine,value:value});
+        materialins=await Materialin.findByIdAndUpdate(id,{materialinID:materialinID,supplierID:supplierID,date:date,gold:gold,silver:silver,pladium:pladium,platinum:platinum,thairuby:thairuby,burmeseruby:burmeseruby,bluesapphire:bluesapphire,purplesapphire:purplesapphire,starsapphire:starsapphire,whitesapphire:whitesapphire,blooddiamond:blooddiamond,pinkstardiamond:pinkstardiamond,regentdiamond:regentdiamond,colombianaquamarine:colombianaquamarine,madagascaraquamarine:madagascaraquamarine,value:value});
         materialins=await materialins.save();
     }catch(err){
         console.log(err);

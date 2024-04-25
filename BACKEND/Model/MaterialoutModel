@@ -19,8 +19,8 @@ const materialoutSchema=new Schema({
         required:true, //validate
     },
     silver:{
-        type:Number,
-        required:true,
+        type:Number, //data type
+        required:true, //validate
     },
     pladium:{
         type:Number, //data type
@@ -75,8 +75,8 @@ const materialoutSchema=new Schema({
         required:true, //validate
     },
     description:{
-        type:String,
-        required:true,
+        type:String, //data type
+        required:true, //validate
     }
 });
 

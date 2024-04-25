@@ -23,7 +23,7 @@ function UpdateReserve() {
     await axios
       .put(`http://localhost:5000/reserves/${id}`, {
         reserveID: String(inputs.reserveID),
-        customerID: String(inputs.customerID),
+        OrderId: String(inputs.OrderId),
         productID: String(inputs.productID),
         quantity: String(inputs.quantity),
         description: String(inputs.description),
@@ -75,20 +75,19 @@ function UpdateReserve() {
             borderRadius: "5px",
             padding: "5px",
             width: "100%",
-            fontSize: "20px", // Adjust the font size as needed
+            fontSize: "20px", 
           }}
         />
-
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>CustomerID</label>
+        <label style={{ fontSize: "20px" }}>OrderID</label>
         <br />
         <input
           type="text"
-          name="customerID"
+          name="OrderId"
           onChange={handleChange}
-          value={inputs.customerID}
+          value={inputs.OrderId}
           required
           style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
