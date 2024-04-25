@@ -36,7 +36,7 @@ function CusDetails() {
         format: 'a2'
     });
     const tableRows = [];
-    const columns = ["ID", "First Name", "Last Name", "Account Username", "Mobile Number", "Address", "City", "Province", "Zip", "Order Number", "Choose Item", "Choose Design", "Material 1", "Material Weight 1", "Material 2", "Material Weight 2", "Material 3", "Material Weight 3", "Attribute Type", "Dimension", "Choose Stone Type", "Choose Stone", "Stone Weight"];
+    const columns = ["ID", "First Name", "Last Name", "Account Username", "Mobile Number", "Address", "City", "Province", "Zip",  "Choose Item", "Choose Design", "Material 1", "Material Weight 1", "Material 2", "Material Weight 2", "Material 3", "Material Weight 3", "Attribute Type", "Dimension", "Choose Stone Type", "Choose Stone", "Stone Weight"];
 
     cuss.forEach((cus) => {
         const row = [];
