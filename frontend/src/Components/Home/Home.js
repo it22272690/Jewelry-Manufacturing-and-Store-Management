@@ -11,17 +11,16 @@ function Home() {
       <h1>Home Page</h1>
 
       <Link to="/materialdetails"><h1>Material Page</h1></Link>
-      
-      <Link to="/productdetails"><h1>Product Page</h1></Link>
-
-      <Link to="/supplierdetails"><h1>Supplier Page</h1></Link>
-
-      <Link to="/reservedetails"><h1>Reserve Page</h1></Link>
-
-      <Link to="/materialoutdetails"><h1>Materialout Page</h1></Link>
 
       <Link to="/materialindetails"><h1>Materialin Page</h1></Link>
 
+      <Link to="/materialoutdetails"><h1>Materialout Page</h1></Link>
+      
+      {/* Product Page */}
+
+      <Link to="/reservedetails"><h1>Reserve Page</h1></Link>
+
+      <Link to="/supplierdetails"><h1>Supplier Page</h1></Link>
 
     </div>
   )
