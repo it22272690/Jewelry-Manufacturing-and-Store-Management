@@ -50,24 +50,14 @@ function UpdateMaterial() {
   };
 
   return (
-    <div style={{ fontFamily: "Arial" }}>
+    <div>
       <NavM />
       <center>
         <h1>Update Material</h1>
       </center>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          border: "2px solid",
-          borderRadius: "15px",
-          padding: "20px",
-          maxWidth: "400px",
-          margin: "auto",
-          backgroundColor: "lightgray",
-        }}
-      >
-        <label style={{ fontSize: "20px" }}>MaterialID</label>
+      <form onSubmit={handleSubmit}>
+        <label>MaterialID</label>
         <br />
         <input
           type="text"
@@ -76,17 +66,11 @@ function UpdateMaterial() {
           value={inputs.materialID}
           required
           pattern="[A-Za-z0-9]+"
-          style={{
-            borderRadius: "5px",
-            padding: "5px",
-            width: "100%",
-            fontSize: "20px", 
-          }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Name</label>
+        <label>Name</label>
         <br />
         <input
           type="text"
@@ -95,12 +79,11 @@ function UpdateMaterial() {
           value={inputs.name}
           required
           pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Type</label>
+        <label>Type</label>
         <br />
         <input
           type="text"
@@ -109,12 +92,11 @@ function UpdateMaterial() {
           value={inputs.type}
           required
           pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Grade</label>
+        <label>Grade</label>
         <br />
         <input
           type="text"
@@ -123,12 +105,11 @@ function UpdateMaterial() {
           value={inputs.grade}
           required
           pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Supplier</label>
+        <label>Supplier</label>
         <br />
         <input
           type="text"
@@ -137,12 +118,11 @@ function UpdateMaterial() {
           value={inputs.supplier}
           required
           pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Unit</label>
+        <label>Unit</label>
         <br />
         <input
           type="text"
@@ -151,12 +131,11 @@ function UpdateMaterial() {
           value={inputs.unit}
           required
           pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Unitweight</label>
+        <label>Unitweight</label>
         <br />
         <input
           type="text"
@@ -165,12 +144,11 @@ function UpdateMaterial() {
           value={inputs.unitweight}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Unitcost</label>
+        <label>Unitcost</label>
         <br />
         <input
           type="text"
@@ -179,12 +157,11 @@ function UpdateMaterial() {
           value={inputs.unitcost}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Quantity</label>
+        <label>Quantity</label>
         <br />
         <input
           type="text"
@@ -193,38 +170,23 @@ function UpdateMaterial() {
           value={inputs.quantity}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Description</label>
+        <label>Description</label>
         <br />
         <input
           type="text"
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          
           pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
 
-        <button
-          type="submit"
-          style={{
-            backgroundColor: "green",
-            color: "white",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "10px",
-            cursor: "pointer",
-          }}
-        >
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

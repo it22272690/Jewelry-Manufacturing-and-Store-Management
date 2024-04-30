@@ -6,9 +6,9 @@ import React, { useState } from "react";
 function AddReserve() {
   const history = useNavigate();
   const [inputs, setInputs] = useState({
-    reserveID:"",
-    OrderId:"",
-    productID:"",
+    reserveID: "",
+    OrderId: "",
+    productID: "",
     quantity: "",
     description: "",
     status: "",
@@ -42,24 +42,14 @@ function AddReserve() {
   };
 
   return (
-    <div style={{ fontFamily: "arial" }}>
+    <div>
       <NavR />
       <center>
         <h1>Add Reserve</h1>
       </center>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          border: "2px solid",
-          borderRadius: "15px",
-          padding: "20px",
-          maxWidth: "400px",
-          margin: "auto",
-          backgroundColor: "lightgray",
-        }}
-      >
-        <label style={{ fontSize: "20px" }}>ReserveID</label>
+      <form onSubmit={handleSubmit}>
+        <label>ReserveID</label>
         <br />
         <input
           type="text"
@@ -68,18 +58,12 @@ function AddReserve() {
           value={inputs.reserveID}
           required
           pattern="[A-Za-z0-9]+"
-          style={{
-            borderRadius: "5px",
-            padding: "5px",
-            width: "100%",
-            fontSize: "20px", // Adjust the font size as needed
-          }}
         />
 
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>OrderID</label>
+        <label>OrderID</label>
         <br />
         <input
           type="text"
@@ -88,12 +72,11 @@ function AddReserve() {
           value={inputs.OrderId}
           required
           pattern="[A-Za-z0-9]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px",  }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>ProductID</label>
+        <label>ProductID</label>
         <br />
         <input
           type="text"
@@ -102,12 +85,11 @@ function AddReserve() {
           value={inputs.productID}
           required
           pattern="[A-Za-z0-9]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%",fontSize: "20px", }}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Quantity</label>
+        <label>Quantity</label>
         <br />
         <input
           type="text"
@@ -116,64 +98,46 @@ function AddReserve() {
           value={inputs.quantity}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
 
-        <label style={{ fontSize: "20px" }}>Description</label>
+        <label>Description</label>
         <br />
         <input
           type="text"
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          
           pattern="[a-zA-Z]+"
-          style={{ borderRadius: "5px", padding: "5px", width: "100%" ,fontSize: "20px",}}
         />
         <br />
         <br />
 
         <div>
-  <label style={{ fontSize: "20px" }}>Status</label>
-  <br />
-  <input
-    type="radio"
-    id="delivered"
-    name="status"
-    value="Delivered"
-    checked={inputs.status === "Delivered"}
-    onChange={handleChange}
-    style={{ fontSize: "20px" }}
-  />
-  <label htmlFor="delivered" style={{ marginRight: "10px" }}>Delivered</label>
-  <input
-    type="radio"
-    id="notDelivered"
-    name="status"
-    value="Not Delivered"
-    checked={inputs.status === "Not Delivered"}
-    onChange={handleChange}
-    style={{ fontSize: "20px" }}
-  />
-  <label htmlFor="notDelivered">Not Delivered</label>
-</div>
+          <label>Status</label>
+          <br />
+          <input
+            type="radio"
+            id="delivered"
+            name="status"
+            value="Delivered"
+            checked={inputs.status === "Delivered"}
+            onChange={handleChange}
+          />
+          <label htmlFor="delivered">Delivered</label>
+          <input
+            type="radio"
+            id="notDelivered"
+            name="status"
+            value="Not Delivered"
+            checked={inputs.status === "Not Delivered"}
+            onChange={handleChange}
+          />
+          <label htmlFor="notDelivered">Not Delivered</label>
+        </div>
 
-
-        <button
-          type="submit"
-          style={{
-            backgroundColor: "green",
-            color: "white",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "10px",
-            cursor: "pointer",
-          }}
-        >
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
