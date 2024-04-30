@@ -105,7 +105,7 @@ function Suppliers() {
   };
 
   return (
-    <div style={{ fontFamily: "arial" }}>
+    <div >
       <NavS />
       <center>
         <h1>Supplier Details Display Page</h1>

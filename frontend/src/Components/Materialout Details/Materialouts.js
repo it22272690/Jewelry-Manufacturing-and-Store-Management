@@ -105,7 +105,7 @@ function Materialouts() {
   };
 
   return (
-    <div style={{ fontFamily: "arial" }}>
+    <div >
       <NavMO />
       <center>
         <h1>Materialout Details Display Page</h1>

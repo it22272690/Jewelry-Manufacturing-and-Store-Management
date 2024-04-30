@@ -105,7 +105,7 @@ function Materials() {
   };
 
   return (
-    <div style={{ fontFamily: "arial" }}>
+    <div >
       <NavM />
       <center>
         <h1>Material Details Display Page</h1>

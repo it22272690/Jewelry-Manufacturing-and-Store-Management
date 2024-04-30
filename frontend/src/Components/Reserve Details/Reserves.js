@@ -109,7 +109,7 @@ function Reserves() {
   };
 
   return (
-    <div style={{ fontFamily: "arial" }}>
+    <div >
       <NavR />
       <center>
         <h1>Reserve Details Display Page</h1>
