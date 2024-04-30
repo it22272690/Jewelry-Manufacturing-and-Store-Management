@@ -4,7 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Reserve(props) {
-  const { _id, reserveID,OrderId,productID,quantity, description, status } = props.reserve;
+  const { _id, reserveID, OrderId, productID, quantity, description, status } =
+    props.reserve;
 
   const history = useNavigate();
 
@@ -33,36 +34,10 @@ function Reserve(props) {
       <td>{description}</td>
       <td>{status}</td>
       <td>
-      <Link to={`/reservedetails/${_id}`}>
-        <button
-          style={{
-            backgroundColor: "yellow",
-            borderRadius: "5px",
-            color: "black",
-            padding: "10px",
-            marginRight: "10px",
-            border: "none",
-            cursor: "pointer",
-            fontSize:"16px",
-          }}
-        >
-          Update
-        </button>
-      </Link>
-      <button
-        onClick={deleteHandler}
-        style={{
-          backgroundColor: "red",
-          borderRadius: "5px",
-          color: "white",
-          padding: "10px",
-          border: "none",
-          cursor: "pointer",
-          fontSize:"16px",
-        }}
-      >
-        Delete
-      </button>
+        <Link to={`/reservedetails/${_id}`}>
+          <button>Update</button>
+        </Link>
+        <button onClick={deleteHandler}>Delete</button>
       </td>
     </tr>
   );

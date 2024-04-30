@@ -4,7 +4,19 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Material(props) {
-  const { _id, materialID,name,type,grade,supplier,unit,unitweight,unitcost,quantity,description } = props.material;
+  const {
+    _id,
+    materialID,
+    name,
+    type,
+    grade,
+    supplier,
+    unit,
+    unitweight,
+    unitcost,
+    quantity,
+    description,
+  } = props.material;
 
   const history = useNavigate();
 
@@ -37,36 +49,10 @@ function Material(props) {
       <td>{quantity}</td>
       <td>{description}</td>
       <td>
-      <Link to={`/materialdetails/${_id}`}>
-        <button
-          style={{
-            backgroundColor: "yellow",
-            borderRadius: "5px",
-            color: "black",
-            padding: "10px",
-            marginRight: "10px",
-            border: "none",
-            cursor: "pointer",
-            fontSize:"16px",
-          }}
-        >
-          Update
-        </button>
-      </Link>
-      <button
-        onClick={deleteHandler}
-        style={{
-          backgroundColor: "red",
-          borderRadius: "5px",
-          color: "white",
-          padding: "10px",
-          border: "none",
-          cursor: "pointer",
-          fontSize:"16px",
-        }}
-      >
-        Delete
-      </button>
+        <Link to={`/materialdetails/${_id}`}>
+          <button>Update</button>
+        </Link>
+        <button onClick={deleteHandler}>Delete</button>
       </td>
     </tr>
   );

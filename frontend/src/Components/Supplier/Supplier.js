@@ -4,7 +4,17 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Supplier(props) {
-  const { _id, supplierID,name,nic,email,phone,address,bankdetails,description } = props.supplier;
+  const {
+    _id,
+    supplierID,
+    name,
+    nic,
+    email,
+    phone,
+    address,
+    bankdetails,
+    description,
+  } = props.supplier;
 
   const history = useNavigate();
 
@@ -35,36 +45,10 @@ function Supplier(props) {
       <td>{bankdetails}</td>
       <td>{description}</td>
       <td>
-      <Link to={`/supplierdetails/${_id}`}>
-        <button
-          style={{
-            backgroundColor: "yellow",
-            borderRadius: "5px",
-            color: "black",
-            padding: "10px",
-            marginRight: "10px",
-            border: "none",
-            cursor: "pointer",
-            fontSize:"16px",
-          }}
-        >
-          Update
-        </button>
-      </Link>
-      <button
-        onClick={deleteHandler}
-        style={{
-          backgroundColor: "red",
-          borderRadius: "5px",
-          color: "white",
-          padding: "10px",
-          border: "none",
-          cursor: "pointer",
-          fontSize:"16px",
-        }}
-      >
-        Delete
-      </button>
+        <Link to={`/supplierdetails/${_id}`}>
+          <button>Update</button>
+        </Link>
+        <button onClick={deleteHandler}>Delete</button>
       </td>
     </tr>
   );

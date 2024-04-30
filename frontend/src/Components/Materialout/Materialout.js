@@ -4,7 +4,28 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Materialout(props) {
-  const { _id, materialoutID, JobId, date, gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description } = props.materialout;
+  const {
+    _id,
+    materialoutID,
+    JobId,
+    date,
+    gold,
+    silver,
+    pladium,
+    platinum,
+    thairuby,
+    burmeseruby,
+    bluesapphire,
+    purplesapphire,
+    starsapphire,
+    whitesapphire,
+    blooddiamond,
+    pinkstardiamond,
+    regentdiamond,
+    colombianaquamarine,
+    madagascaraquamarine,
+    description,
+  } = props.materialout;
 
   const history = useNavigate();
 
@@ -46,36 +67,10 @@ function Materialout(props) {
       <td>{madagascaraquamarine}</td>
       <td>{description}</td>
       <td>
-      <Link to={`/materialoutdetails/${_id}`}>
-        <button
-          style={{
-            backgroundColor: "yellow",
-            borderRadius: "5px",
-            color: "black",
-            padding: "10px",
-            marginRight: "10px",
-            border: "none",
-            cursor: "pointer",
-            fontSize:"16px",
-          }}
-        >
-          Update
-        </button>
-      </Link>
-      <button
-        onClick={deleteHandler}
-        style={{
-          backgroundColor: "red",
-          borderRadius: "5px",
-          color: "white",
-          padding: "10px",
-          border: "none",
-          cursor: "pointer",
-          fontSize:"16px",
-        }}
-      >
-        Delete
-      </button>
+        <Link to={`/materialoutdetails/${_id}`}>
+          <button>Update</button>
+        </Link>
+        <button onClick={deleteHandler}>Delete</button>
       </td>
     </tr>
   );
