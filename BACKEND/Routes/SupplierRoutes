@@ -1,10 +1,11 @@
+// Import required modules
 const express=require("express");
 const routerS=express.Router();
 
-//Insert Model
+// Import Supplier Model
 const Supplier=require("../Model/SupplierModel");
 
-//Insert Supplier Controller
+// Import Supplier Controller
 const SupplierController=require("../Controllers/SupplierControllers");
 
 routerS.get("/",SupplierController.getAllSuppliers);
@@ -13,6 +14,5 @@ routerS.get("/:id",SupplierController.getById);
 routerS.put("/:id",SupplierController.updateSupplier);
 routerS.delete("/:id",SupplierController.deleteSupplier);
 
-//export
+// Export routerS
 module.exports=routerS;
-

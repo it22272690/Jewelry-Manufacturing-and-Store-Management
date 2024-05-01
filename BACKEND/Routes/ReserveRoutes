@@ -1,10 +1,11 @@
+// Import required modules
 const express=require("express");
 const routerR=express.Router();
 
-//Insert Model
+// Import Reserve Model
 const Reserve=require("../Model/ReserveModel");
 
-//Insert Reserve Controller
+// Import Reserve Controller
 const ReserveController=require("../Controllers/ReserveControllers");
 
 routerR.get("/",ReserveController.getAllReserves);
@@ -13,6 +14,5 @@ routerR.get("/:id",ReserveController.getById);
 routerR.put("/:id",ReserveController.updateReserve);
 routerR.delete("/:id",ReserveController.deleteReserve);
 
-//export
+// Export routerR
 module.exports=routerR;
-
