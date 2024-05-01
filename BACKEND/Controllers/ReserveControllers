@@ -1,111 +1,92 @@
-const Reserve=require("../Model/ReserveModel");
+// Importing Reserve Model
+const Reserve = require("../Model/ReserveModel");
 
-//data display
-const getAllReserves=async(req,res,next)=>{
-    let Reserves;
-    //Get all reserves
-    try{
-        reserves=await Reserve.find();
-    }catch(err){
+// Retrieve all reserves
+const getAllReserves = async (req, res, next) => {
+    let reserves;
+    try {
+        reserves = await Reserve.find();
+    } catch (err) {
         console.log(err);
     }
-    //If not found
-    if(!reserves){
-        return res.status(404).json({Message:"Reserve not found!"});
+    // If no reserves found
+    if (!reserves) {
+        return res.status(404).json({ Message: "Reserve not found!" });
     }
-
-    //Display all reserves
-    return res.status(200).json({reserves});
+    // Display all reserves
+    return res.status(200).json({ reserves });
 };
 
-//data insert
-const addReserves=async(req,res,next)=>{
-
-    const{reserveID,OrderId,productID,quantity,description,status} =req.body;
-
+// Add new reserves
+const addReserves = async (req, res, next) => {
+    const { reserveID, OrderId, productID, quantity, description, status } = req.body;
     let reserves;
-
-    try{
-        reserves=new Reserve({reserveID,OrderId,productID,quantity,description,status});
+    try {
+        reserves = new Reserve({ reserveID, OrderId, productID, quantity, description, status });
         await reserves.save();
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
-
-    //If not insert data
-    if(!reserves){
-        return res.status(404).json({message:"unable to add reserves"});
+    // If unable to add reserves
+    if (!reserves) {
+        return res.status(404).json({ message: "Unable to add reserves" });
     }
-    return res.status(200).json({reserves});
+    return res.status(200).json({ reserves });
 };
 
-
-//Get by ID
-const getById=async(req,res,next)=>{
-
-    const id=req.params.id;
+// Retrieve reserve by ID
+const getById = async (req, res, next) => {
+    const id = req.params.id;
     let reserve;
-
-    try{
-        reserve=await Reserve.findById(id);
-    }catch(err){
+    try {
+        reserve = await Reserve.findById(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If not available data
-    if(!reserve){
-        return res.status(404).json({message:"reserve not found"});
+    // If reserve not found
+    if (!reserve) {
+        return res.status(404).json({ message: "Reserve not found" });
     }
-    return res.status(200).json({reserve});
-}
+    return res.status(200).json({ reserve });
+};
 
-//Update reserve details
-const updateReserve=async(req,res,next)=>{
-
-    const id=req.params.id;
-    const{reserveID,OrderId,productID,quantity,description,status} =req.body;
-
-    //variable name
+// Update reserve details
+const updateReserve = async (req, res, next) => {
+    const id = req.params.id;
+    const { reserveID, OrderId, productID, quantity, description, status } = req.body;
     let reserves;
-
-    try{
-        reserves=await Reserve.findByIdAndUpdate(id,{reserveID:reserveID,OrderId:OrderId,productID:productID,quantity:quantity,description:description,status:status});
-        reserves=await reserves.save();
-    }catch(err){
+    try {
+        reserves = await Reserve.findByIdAndUpdate(id, { reserveID, OrderId, productID, quantity, description, status });
+        reserves = await reserves.save();
+    } catch (err) {
         console.log(err);
     }
-    //If can't update reserve
-    if(!reserves){
-        return res.status(404).json({message:"Unable to update reserve details"});
+    // If unable to update reserve
+    if (!reserves) {
+        return res.status(404).json({ message: "Unable to update reserve details" });
     }
-    return res.status(200).json({reserves});
+    return res.status(200).json({ reserves });
+};
 
-}
-
-//Delete reserve details
-const deleteReserve=async(req,res,next)=>{
-
-    const id=req.params.id;
-
+// Delete reserve details
+const deleteReserve = async (req, res, next) => {
+    const id = req.params.id;
     let reserve;
-
-    try{
-        reserve=await Reserve.findByIdAndDelete(id);
-    }catch(err){
+    try {
+        reserve = await Reserve.findByIdAndDelete(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If can't delete reserve
-    if(!reserve){
-        return res.status(404).json({message:"Unable to delete reserve details"});
+    // If unable to delete reserve
+    if (!reserve) {
+        return res.status(404).json({ message: "Unable to delete reserve details" });
     }
-    return res.status(200).json({reserve});
+    return res.status(200).json({ reserve });
+};
 
-}
-
-
-exports.addReserves=addReserves;
-exports.getAllReserves=getAllReserves;
-exports.getById=getById;
-exports.updateReserve=updateReserve;
-exports.deleteReserve=deleteReserve;
+// Export functions
+exports.addReserves = addReserves;
+exports.getAllReserves = getAllReserves;
+exports.getById = getById;
+exports.updateReserve = updateReserve;
+exports.deleteReserve = deleteReserve;

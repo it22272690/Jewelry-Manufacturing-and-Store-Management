@@ -1,111 +1,92 @@
-const Material=require("../Model/MaterialModel");
+// Importing Material Model
+const Material = require("../Model/MaterialModel");
 
-//data display
-const getAllMaterials=async(req,res,next)=>{
-    let Materials;
-    //Get all materials
-    try{
-        materials=await Material.find();
-    }catch(err){
+// Get all materials
+const getAllMaterials = async (req, res, next) => {
+    let materials;
+    try {
+        materials = await Material.find();
+    } catch (err) {
         console.log(err);
     }
-    //If not found
-    if(!materials){
-        return res.status(404).json({Message:"Material not found!"});
+    // If no materials found
+    if (!materials) {
+        return res.status(404).json({ Message: "Material not found!" });
     }
-
-    //Display all materials
-    return res.status(200).json({materials});
+    // Display all materials
+    return res.status(200).json({ materials });
 };
 
-//data insert
-const addMaterials=async(req,res,next)=>{
-
-    const{materialID,name,type,grade,supplier,unit,unitweight,unitcost,quantity,description} =req.body;
-
+// Add new materials
+const addMaterials = async (req, res, next) => {
+    const { materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description } = req.body;
     let materials;
-
-    try{
-        materials=new Material({materialID,name,type,grade,supplier,unit,unitweight,unitcost,quantity,description});
+    try {
+        materials = new Material({ materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description });
         await materials.save();
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
-
-    //If not insert data
-    if(!materials){
-        return res.status(404).json({message:"unable to add materials"});
+    // If unable to add materials
+    if (!materials) {
+        return res.status(404).json({ message: "Unable to add materials" });
     }
-    return res.status(200).json({materials});
+    return res.status(200).json({ materials });
 };
 
-
-//Get by ID
-const getById=async(req,res,next)=>{
-
-    const id=req.params.id;
+// Get material by ID
+const getById = async (req, res, next) => {
+    const id = req.params.id;
     let material;
-
-    try{
-        material=await Material.findById(id);
-    }catch(err){
+    try {
+        material = await Material.findById(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If not available data
-    if(!material){
-        return res.status(404).json({message:"material not found"});
+    // If material not found
+    if (!material) {
+        return res.status(404).json({ message: "Material not found" });
     }
-    return res.status(200).json({material});
-}
+    return res.status(200).json({ material });
+};
 
-//Update material details
-const updateMaterial=async(req,res,next)=>{
-
-    const id=req.params.id;
-    const{materialID,name,type,grade,supplier,unit,unitweight,unitcost,quantity,description} =req.body;
-
-    //variable name
+// Update material details
+const updateMaterial = async (req, res, next) => {
+    const id = req.params.id;
+    const { materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description } = req.body;
     let materials;
-
-    try{
-        materials=await Material.findByIdAndUpdate(id,{materialID:materialID,name:name,type:type,grade:grade,supplier:supplier,unit:unit,unitweight:unitweight,unitcost:unitcost,quantity:quantity,description:description});
-        materials=await materials.save();
-    }catch(err){
+    try {
+        materials = await Material.findByIdAndUpdate(id, { materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description });
+        materials = await materials.save();
+    } catch (err) {
         console.log(err);
     }
-    //If can't update material
-    if(!materials){
-        return res.status(404).json({message:"Unable to update material details"});
+    // If unable to update material
+    if (!materials) {
+        return res.status(404).json({ message: "Unable to update material details" });
     }
-    return res.status(200).json({materials});
+    return res.status(200).json({ materials });
+};
 
-}
-
-//Delete material details
-const deleteMaterial=async(req,res,next)=>{
-
-    const id=req.params.id;
-
+// Delete material details
+const deleteMaterial = async (req, res, next) => {
+    const id = req.params.id;
     let material;
-
-    try{
-        material=await Material.findByIdAndDelete(id);
-    }catch(err){
+    try {
+        material = await Material.findByIdAndDelete(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If can't delete material
-    if(!material){
-        return res.status(404).json({message:"Unable to delete material details"});
+    // If unable to delete material
+    if (!material) {
+        return res.status(404).json({ message: "Unable to delete material details" });
     }
-    return res.status(200).json({material});
+    return res.status(200).json({ material });
+};
 
-}
-
-
-exports.addMaterials=addMaterials;
-exports.getAllMaterials=getAllMaterials;
-exports.getById=getById;
-exports.updateMaterial=updateMaterial;
-exports.deleteMaterial=deleteMaterial;
+// Exporting functions
+exports.addMaterials = addMaterials;
+exports.getAllMaterials = getAllMaterials;
+exports.getById = getById;
+exports.updateMaterial = updateMaterial;
+exports.deleteMaterial = deleteMaterial;

@@ -1,111 +1,92 @@
-const Materialout=require("../Model/MaterialoutModel");
+// Importing Materialout Model
+const Materialout = require("../Model/MaterialoutModel");
 
-//data display
-const getAllMaterialouts=async(req,res,next)=>{
-    let Materialouts;
-    //Get all materialouts
-    try{
-        materialouts=await Materialout.find();
-    }catch(err){
+// Retrieve all materialouts
+const getAllMaterialouts = async (req, res, next) => {
+    let materialouts;
+    try {
+        materialouts = await Materialout.find();
+    } catch (err) {
         console.log(err);
     }
-    //If not found
-    if(!materialouts){
-        return res.status(404).json({Message:"Materialout not found!"});
+    // If no materialouts found
+    if (!materialouts) {
+        return res.status(404).json({ Message: "Materialout not found!" });
     }
-
-    //Display all materialouts
-    return res.status(200).json({materialouts});
+    // Display all materialouts
+    return res.status(200).json({ materialouts });
 };
 
-//data insert
-const addMaterialouts=async(req,res,next)=>{
-
-    const{materialoutID,JobId,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description} =req.body;
-
+// Add new materialouts
+const addMaterialouts = async (req, res, next) => {
+    const { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description } = req.body;
     let materialouts;
-
-    try{
-        materialouts=new Materialout({materialoutID,JobId,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description});
+    try {
+        materialouts = new Materialout({ materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description });
         await materialouts.save();
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
-
-    //If not insert data
-    if(!materialouts){
-        return res.status(404).json({message:"unable to add materialouts"});
+    // If unable to add materialouts
+    if (!materialouts) {
+        return res.status(404).json({ message: "Unable to add materialouts" });
     }
-    return res.status(200).json({materialouts});
+    return res.status(200).json({ materialouts });
 };
 
-
-//Get by ID
-const getById=async(req,res,next)=>{
-
-    const id=req.params.id;
+// Retrieve materialout by ID
+const getById = async (req, res, next) => {
+    const id = req.params.id;
     let materialout;
-
-    try{
-        materialout=await Materialout.findById(id);
-    }catch(err){
+    try {
+        materialout = await Materialout.findById(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If not available data
-    if(!materialout){
-        return res.status(404).json({message:"materialout not found"});
+    // If materialout not found
+    if (!materialout) {
+        return res.status(404).json({ message: "Materialout not found" });
     }
-    return res.status(200).json({materialout});
-}
+    return res.status(200).json({ materialout });
+};
 
-//Update materialout details
-const updateMaterialout=async(req,res,next)=>{
-
-    const id=req.params.id;
-    const{materialoutID,JobId,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,description} =req.body;
-
-    //variable name
+// Update materialout details
+const updateMaterialout = async (req, res, next) => {
+    const id = req.params.id;
+    const { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description } = req.body;
     let materialouts;
-
-    try{
-        materialouts=await Materialout.findByIdAndUpdate(id,{materialoutID:materialoutID,JobId:JobId,date:date,gold:gold,silver:silver,pladium:pladium,platinum:platinum,thairuby:thairuby,burmeseruby:burmeseruby,bluesapphire:bluesapphire,purplesapphire:purplesapphire,starsapphire:starsapphire,whitesapphire:whitesapphire,blooddiamond:blooddiamond,pinkstardiamond:pinkstardiamond,regentdiamond:regentdiamond,colombianaquamarine:colombianaquamarine,madagascaraquamarine:madagascaraquamarine,description:description});
-        materialouts=await materialouts.save();
-    }catch(err){
+    try {
+        materialouts = await Materialout.findByIdAndUpdate(id, { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description });
+        materialouts = await materialouts.save();
+    } catch (err) {
         console.log(err);
     }
-    //If can't update materialout
-    if(!materialouts){
-        return res.status(404).json({message:"Unable to update materialout details"});
+    // If unable to update materialout
+    if (!materialouts) {
+        return res.status(404).json({ message: "Unable to update materialout details" });
     }
-    return res.status(200).json({materialouts});
+    return res.status(200).json({ materialouts });
+};
 
-}
-
-//Delete materialout details
-const deleteMaterialout=async(req,res,next)=>{
-
-    const id=req.params.id;
-
+// Delete materialout details
+const deleteMaterialout = async (req, res, next) => {
+    const id = req.params.id;
     let materialout;
-
-    try{
-        materialout=await Materialout.findByIdAndDelete(id);
-    }catch(err){
+    try {
+        materialout = await Materialout.findByIdAndDelete(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If can't delete materialout
-    if(!materialout){
-        return res.status(404).json({message:"Unable to delete materialout details"});
+    // If unable to delete materialout
+    if (!materialout) {
+        return res.status(404).json({ message: "Unable to delete materialout details" });
     }
-    return res.status(200).json({materialout});
+    return res.status(200).json({ materialout });
+};
 
-}
-
-
-exports.addMaterialouts=addMaterialouts;
-exports.getAllMaterialouts=getAllMaterialouts;
-exports.getById=getById;
-exports.updateMaterialout=updateMaterialout;
-exports.deleteMaterialout=deleteMaterialout;
+// Export functions
+exports.addMaterialouts = addMaterialouts;
+exports.getAllMaterialouts = getAllMaterialouts;
+exports.getById = getById;
+exports.updateMaterialout = updateMaterialout;
+exports.deleteMaterialout = deleteMaterialout;

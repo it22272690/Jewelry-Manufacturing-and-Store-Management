@@ -1,111 +1,92 @@
-const Materialin=require("../Model/MaterialinModel");
+// Importing Materialin Model
+const Materialin = require("../Model/MaterialinModel");
 
-//data display
-const getAllMaterialins=async(req,res,next)=>{
-    let Materialins;
-    //Get all materialins
-    try{
-        materialins=await Materialin.find();
-    }catch(err){
+// Retrieve all materialins
+const getAllMaterialins = async (req, res, next) => {
+    let materialins;
+    try {
+        materialins = await Materialin.find();
+    } catch (err) {
         console.log(err);
     }
-    //If not found
-    if(!materialins){
-        return res.status(404).json({Message:"Materialin not found!"});
+    // If no materialins found
+    if (!materialins) {
+        return res.status(404).json({ Message: "Materialin not found!" });
     }
-
-    //Display all materialins
-    return res.status(200).json({materialins});
+    // Display all materialins
+    return res.status(200).json({ materialins });
 };
 
-//data insert
-const addMaterialins=async(req,res,next)=>{
-
-    const{materialinID,supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} =req.body;
-
+// Add new materialins
+const addMaterialins = async (req, res, next) => {
+    const { materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value } = req.body;
     let materialins;
-
-    try{
-        materialins=new Materialin({materialinID,supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value});
+    try {
+        materialins = new Materialin({ materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value });
         await materialins.save();
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
-
-    //If not insert data
-    if(!materialins){
-        return res.status(404).json({message:"unable to add materialins"});
+    // If unable to add materialins
+    if (!materialins) {
+        return res.status(404).json({ message: "Unable to add materialins" });
     }
-    return res.status(200).json({materialins});
+    return res.status(200).json({ materialins });
 };
 
-
-//Get by ID
-const getById=async(req,res,next)=>{
-
-    const id=req.params.id;
+// Retrieve materialin by ID
+const getById = async (req, res, next) => {
+    const id = req.params.id;
     let materialin;
-
-    try{
-        materialin=await Materialin.findById(id);
-    }catch(err){
+    try {
+        materialin = await Materialin.findById(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If not available data
-    if(!materialin){
-        return res.status(404).json({message:"materialin not found"});
+    // If materialin not found
+    if (!materialin) {
+        return res.status(404).json({ message: "Materialin not found" });
     }
-    return res.status(200).json({materialin});
-}
+    return res.status(200).json({ materialin });
+};
 
-//Update materialin details
-const updateMaterialin=async(req,res,next)=>{
-
-    const id=req.params.id;
-    const{materialinID,supplierID,date,gold,silver,pladium,platinum,thairuby,burmeseruby,bluesapphire,purplesapphire,starsapphire,whitesapphire,blooddiamond,pinkstardiamond,regentdiamond,colombianaquamarine,madagascaraquamarine,value} =req.body;
-
-    //variable name
+// Update materialin details
+const updateMaterialin = async (req, res, next) => {
+    const id = req.params.id;
+    const { materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value } = req.body;
     let materialins;
-
-    try{
-        materialins=await Materialin.findByIdAndUpdate(id,{materialinID:materialinID,supplierID:supplierID,date:date,gold:gold,silver:silver,pladium:pladium,platinum:platinum,thairuby:thairuby,burmeseruby:burmeseruby,bluesapphire:bluesapphire,purplesapphire:purplesapphire,starsapphire:starsapphire,whitesapphire:whitesapphire,blooddiamond:blooddiamond,pinkstardiamond:pinkstardiamond,regentdiamond:regentdiamond,colombianaquamarine:colombianaquamarine,madagascaraquamarine:madagascaraquamarine,value:value});
-        materialins=await materialins.save();
-    }catch(err){
+    try {
+        materialins = await Materialin.findByIdAndUpdate(id, { materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value });
+        materialins = await materialins.save();
+    } catch (err) {
         console.log(err);
     }
-    //If can't update materialin
-    if(!materialins){
-        return res.status(404).json({message:"Unable to update materialin details"});
+    // If unable to update materialin
+    if (!materialins) {
+        return res.status(404).json({ message: "Unable to update materialin details" });
     }
-    return res.status(200).json({materialins});
+    return res.status(200).json({ materialins });
+};
 
-}
-
-//Delete materialin details
-const deleteMaterialin=async(req,res,next)=>{
-
-    const id=req.params.id;
-
+// Delete materialin details
+const deleteMaterialin = async (req, res, next) => {
+    const id = req.params.id;
     let materialin;
-
-    try{
-        materialin=await Materialin.findByIdAndDelete(id);
-    }catch(err){
+    try {
+        materialin = await Materialin.findByIdAndDelete(id);
+    } catch (err) {
         console.log(err);
     }
-
-    //If can't delete materialin
-    if(!materialin){
-        return res.status(404).json({message:"Unable to delete materialin details"});
+    // If unable to delete materialin
+    if (!materialin) {
+        return res.status(404).json({ message: "Unable to delete materialin details" });
     }
-    return res.status(200).json({materialin});
+    return res.status(200).json({ materialin });
+};
 
-}
-
-
-exports.addMaterialins=addMaterialins;
-exports.getAllMaterialins=getAllMaterialins;
-exports.getById=getById;
-exports.updateMaterialin=updateMaterialin;
-exports.deleteMaterialin=deleteMaterialin;
+// Export functions
+exports.addMaterialins = addMaterialins;
+exports.getAllMaterialins = getAllMaterialins;
+exports.getById = getById;
+exports.updateMaterialin = updateMaterialin;
+exports.deleteMaterialin = deleteMaterialin;
