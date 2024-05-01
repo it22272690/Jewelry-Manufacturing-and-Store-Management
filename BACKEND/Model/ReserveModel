@@ -1,36 +1,40 @@
-const mongoose=require("mongoose");
-const Schema=mongoose.Schema;
+// Importing mongoose library for MongoDB operations
+const mongoose = require("mongoose");
+// Getting the Schema class from mongoose
+const Schema = mongoose.Schema;
 
-const reserveSchema=new Schema({
-    reserveID:{
-        type:String, //data type
-        required:true, //validate
-    },
-    OrderId:{
-        type:String, //data type
-        required:true, //validate
-    },
-    productID:{
-        type:String, //data type
-        required:true, //validate
-    },
-    quantity:{
-        type:String, //data type
-        required:true, //validate
-    },
-    description:{
-        type:String, //data type
-        required:true, //validate
-    },
-    status:{
-        type:String, //data type
-        required:true, //validate
-    },
+// Defining the schema for the 'reserve' collection
+const reserveSchema = new Schema({
+  // Unique identifier for each reserve
+  reserveID: {
+    type: String, // Value stored in this field will be a string
+    required: true, // Field is mandatory and must have a value
+  },
+  // Order ID associated with the reserve
+  OrderId: {
+    type: String,
+    required: true,
+  },
+  // Product ID associated with the reserve
+  productID: {
+    type: String,
+    required: true,
+  },
+  // Quantity reserved
+  quantity: {
+    type: Number, // Value stored in this field will be a number
+    required: true,
+  },
+  // Description of the reserve (optional)
+  description: {
+    type: String,
+  },
+  // Status of the reserve
+  status: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports=mongoose.model(
-    "ReserveModel", //file name
-    reserveSchema //function name
-)
-
- 
+// Creating a model based on the schema and exporting it
+module.exports = mongoose.model("ReserveModel", reserveSchema);

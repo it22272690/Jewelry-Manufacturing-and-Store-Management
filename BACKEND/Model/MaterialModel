@@ -1,52 +1,60 @@
-const mongoose=require("mongoose");
-const Schema=mongoose.Schema;
+// Importing mongoose library for MongoDB operations
+const mongoose = require("mongoose");
+// Getting the Schema class from mongoose
+const Schema = mongoose.Schema;
 
-const materialSchema=new Schema({
-    materialID:{
-        type:String, //data type
-        required:true, //validate
-    },
-    name:{
-        type:String, //data type
-        required:true, //validate
-    },
-    type:{
-        type:String, //data type
-        required:true, //validate
-    },
-    grade:{
-        type:String, //data type
-        required:true, //validate
-    },
-    supplier:{
-        type:String, //data type
-        required:true, //validate
-    },
-    unit:{
-        type:String, //data type
-        required:true, //validate
-    },
-    unitweight:{
-        type:String, //data type
-        required:true, //validate
-    },
-    unitcost:{
-        type:String, //data type
-        required:true, //validate
-    },
-    quantity:{
-        type:String, //data type
-        required:true, //validate
-    },
-    description:{
-        type:String, //data type
-        //required:true, //validate
-    },
+// Defining the schema for the 'material' collection
+const materialSchema = new Schema({
+  // Unique identifier for each material
+  materialID: {
+    type: String, // Value stored in this field will be a string
+    required: true, // Field is mandatory and must have a value
+  },
+  // Name of the material
+  name: {
+    type: String,
+    required: true,
+  },
+  // Type of material
+  type: {
+    type: String,
+    required: true,
+  },
+  // Grade of the material
+  grade: {
+    type: String,
+    required: true,
+  },
+  // Supplier of the material
+  supplier: {
+    type: String,
+    required: true,
+  },
+  // Unit of measurement for the material
+  unit: {
+    type: String,
+    required: true,
+  },
+  // Weight of one unit of the material
+  unitweight: {
+    type: Number,
+    required: true,
+  },
+  // Cost of one unit of the material
+  unitcost: {
+    type: Number,
+    required: true,
+  },
+  // Quantity of the material available
+  quantity: {
+    type: Number,
+    required: true,
+  },
+  // Description of the material (optional)
+  description: {
+    type: String,
+  },
 });
 
-module.exports=mongoose.model(
-    "MaterialModel", //file name
-    materialSchema //function name
-)
-
- 
+// Creating a model based on the schema and exporting it
+module.exports = mongoose.model("MaterialModel", materialSchema);
