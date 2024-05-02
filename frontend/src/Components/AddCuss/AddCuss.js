@@ -5,9 +5,6 @@ import axios from "axios";
 import "./addcuss.css";
 import "./footer.css";
 import { FloatingLabel, Form, Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-
 import { Tab, Nav, Container } from 'react-bootstrap';
 
 function AddCuss() {
@@ -24,12 +21,8 @@ function AddCuss() {
     OrderNum: "",
     ChooseItem: "",
     ChooseDesign: "",
-    Material1: "",
-    MaterialWeight1: "",
-    Material2: "",
-    MaterialWeight2: "",
-    Material3: "",
-    MaterialWeight3: "",
+    NumberOfMaterials: "", // New field
+    Materials: [], // Array to store material type and weight
     AttributeType: "",
     Dimension: "",
     ChooseStoneType: "",
@@ -37,13 +30,7 @@ function AddCuss() {
     StoneWeight: "",
   });
 
-  // Prices of materials
-  const materialPrices = {
-    gold: 160000,
-    platinum: 200000,
-    silver: 50000,
-    palladium: 120000,
-  };
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -67,6 +54,13 @@ function AddCuss() {
         [name]: value,
       });
     }
+  };
+
+  const handleMaterialChange = (index, e) => {
+    const { name, value } = e.target;
+    const materials = [...inputs.Materials];
+    materials[index] = { ...materials[index], [name]: value };
+    setInputs({ ...inputs, Materials: materials });
   };
 
   const handleSubmit = (e) => {
@@ -216,7 +210,53 @@ function AddCuss() {
     imitation: ["imitation1.jpg", "imitation2.jpg", "imitation3.jpg"],
   };
 
-  const [key, setKey] = useState("home");
+  
+  const renderMaterialFields = () => {
+    const { NumberOfMaterials, Materials } = inputs;
+    const fields = [];
+    for (let i = 0; i < NumberOfMaterials; i++) {
+      fields.push(
+        <div key={i}>
+          <Row className="mb-3">
+            <Col md={6}>
+              <Form.Group controlId={`MaterialType${i}`}>
+                <Form.Label className="addcus-label">Material Type {i + 1}</Form.Label>
+                <Form.Select
+                  aria-label="Floating label select example"
+                  name={`MaterialType${i}`}
+                  onChange={(e) => handleMaterialChange(i, e)}
+                  value={Materials[i]?.MaterialType || ""}
+                  required
+                >
+                  <option value=""></option>
+                  <option value="gold">Gold</option>
+                  <option value="palladium">Palladium</option>
+                  <option value="silver">Silver</option>
+                  <option value="platinum">Platinum</option>
+                </Form.Select>
+              </Form.Group>
+            </Col>
+            <Col md={6}>
+              <Form.Group controlId={`MaterialWeight${i}`}>
+                <Form.Label className="addcus-label">Material Weight {i + 1}</Form.Label>
+                <Form.Control
+                  type="text"
+                  name={`MaterialWeight${i}`}
+                  className="addcus-input"
+                  onChange={(e) => handleMaterialChange(i, e)}
+                  value={Materials[i]?.MaterialWeight || ""}
+                  placeholder={`Enter material weight ${i + 1}`}
+                  required
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <br/>
+        </div>
+      );
+    }
+    return fields;
+  };
 
   // Function to render design options based on selected item
   const renderDesignOptions = () => {
@@ -331,7 +371,8 @@ function AddCuss() {
           <span className="circle two"></span>
 
           <Form id="survey-form" onSubmit={handleSubmit}>
-            <h2>Personal details</h2>
+            <h1 style={{fontSize:'25px'}}>Personal details</h1>
+            <br/>
   <Row className="mb-3">
     <Col md={6}>
       <Form.Group controlId="FirstName">
@@ -342,7 +383,7 @@ function AddCuss() {
           className="form-control addcus-input"
           onChange={handleChange}
           value={inputs.FirstName}
-          placeholder="Enter your first name"
+          placeholder="First name"
           required
         />
       </Form.Group>
@@ -356,7 +397,7 @@ function AddCuss() {
           className="form-control addcus-input"
           onChange={handleChange}
           value={inputs.LastName}
-          placeholder="Enter your last name"
+          placeholder="Last name"
           required
         />
       </Form.Group>
@@ -373,7 +414,7 @@ function AddCuss() {
           className="form-control addcus-input"
           onChange={handleChange}
           value={inputs.AccountUsername}
-          placeholder="Enter your account username"
+          placeholder="Account username"
           required
         />
       </Form.Group>
@@ -387,7 +428,7 @@ function AddCuss() {
           className="form-control addcus-input"
           onChange={handleChange}
           value={inputs.MobileNumber}
-          placeholder="Enter your mobile number"
+          placeholder="Mobile number"
           required
         />
       </Form.Group>
@@ -498,9 +539,7 @@ function AddCuss() {
     <div className="row">
       <div className="col-md-3">
         <Nav variant="pills" className="flex-column nav-pills-custom">
-          <Nav.Item className="btnHome1" style={{background:'#420d6e'}}>
-            <Nav.Link eventKey="home" className="nav-link-custom" style={{color:'white' ,fontStyle:'bold'}}>Persanol Details</Nav.Link>
-          </Nav.Item>
+        
           <Nav.Item className="btnHome">
             <Nav.Link eventKey="profile" className="nav-link-custom" style={{color:'white'}}>Design Customizing</Nav.Link>
           </Nav.Item>
@@ -512,14 +551,9 @@ function AddCuss() {
       <div className="col-md-9">
         <Tab.Content  >
           
-
-          
           <Tab.Pane eventKey="profile" className="tab-pane-custom">
             
-            
-
-
-          <div className="container">
+          <div className="tabcontainer">
             <header className="header">
                 <h1 id="title" className="text-center">Customizing jewelry design</h1>
                 
@@ -569,112 +603,24 @@ function AddCuss() {
         
         </Row>
         <Row className="mb-3">
-   
-        <Form.Group controlId="Material1">
-            <Form.Label className="addcus-label">Material 1</Form.Label>
-            <Form.Select
-                      aria-label="Floating label select example"
-                      name="Material1"
+                <Col md={6}>
+                  <Form.Group controlId="NumberOfMaterials">
+                    <Form.Label className="addcus-label">Number of Materials</Form.Label>
+                    <Form.Control
+                      type="number"
+                      name="NumberOfMaterials"
+                      className="form-control addcus-input"
                       onChange={handleChange}
-                      value={inputs.Material1}
+                      value={inputs.NumberOfMaterials}
+                      placeholder="Enter number of materials"
                       required
-                    >
-                      <option></option>
-                      <option value="gold">Gold</option>
-                      <option value="palladium">Palladium</option>
-                      <option value="silver">Silver</option>
-                      <option value="platinum">Platinum</option>
-                    </Form.Select>
-        </Form.Group>
-    
-    
-        <Form.Group controlId="MaterialWeight1">
-            <Form.Label className="addcus-label">Material Weight 1</Form.Label>
-            <Form.Control
-                type="text"
-                name="MaterialWeight1"
-                className="addcus-input"
-                onChange={handleChange}
-                value={inputs.MaterialWeight1}
-                placeholder="Enter material weight 1"
-                required
-            />
-        </Form.Group>
-  
-</Row>
-
-    <Row className="mb-3">
-        <Col md={6}>
-            <Form.Group controlId="Material2">
-                <Form.Label className="addcus-label">Material 2</Form.Label>
-                <Form.Select
-                      aria-label="Floating label select example"
-                      name="Material2"
-                      onChange={handleChange}
-                      value={inputs.Material2}
-                      required
-                    >
-                      <option></option>
-                      <option value="gold">Gold</option>
-                      <option value="palladium">Palladium</option>
-                      <option value="silver">Silver</option>
-                      <option value="platinum">Platinum</option>
-                      <option value="none">None</option>
-                    </Form.Select>
-            </Form.Group>
-        </Col>
-        <Col md={6}>
-            <Form.Group controlId="MaterialWeight2">
-                <Form.Label className="addcus-label">Material Weight 2</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="MaterialWeight2"
-                    className="addcus-input"
-                    onChange={handleChange}
-                    value={inputs.MaterialWeight2}
-                    placeholder="Enter material weight 2"
-                    required
-                />
-            </Form.Group>
-        </Col>
-    </Row>
-
-    <Row className="mb-3">
-        <Col md={6}>
-            <Form.Group controlId="Material3">
-                <Form.Label className="addcus-label">Material 3</Form.Label>
-                <Form.Select
-                      aria-label="Floating label select example"
-                      name="Material3"
-                      onChange={handleChange}
-                      value={inputs.Material3}
-                      required
-                    >
-                      <option></option>
-                      <option value="gold">Gold</option>
-                      <option value="palladium">Palladium</option>
-                      <option value="silver">Silver</option>
-                      <option value="platinum">Platinum</option>
-                      <option value="none">None</option>
-                    </Form.Select>
-            </Form.Group>
-        </Col>
-        <Col md={6}>
-            <Form.Group controlId="MaterialWeight3">
-                <Form.Label className="addcus-label">Material Weight 3</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="MaterialWeight3"
-                    className="addcus-input"
-                    onChange={handleChange}
-                    value={inputs.MaterialWeight3}
-                    placeholder="Enter material weight 3"
-                    required
-                />
-            </Form.Group>
-        </Col>
-    </Row>
-
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+              {/* Render Material Fields */}
+              {renderMaterialFields()}
+              <br />
     <Row className="mb-3">
         <Col md={6}>
             <Form.Group controlId="AttributeType">
