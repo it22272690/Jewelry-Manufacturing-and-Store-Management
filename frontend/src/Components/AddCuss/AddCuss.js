@@ -31,6 +31,7 @@ function AddCuss() {
   });
 
  
+  const [key, setKey] = useState("profile");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -298,7 +299,7 @@ function AddCuss() {
   };
 
   return (
-    <div className="addcus-maincontainer">
+    <div className="addcustomizemaincontainer">
       <NavCus />
       <br></br> 
       <br></br>
@@ -314,9 +315,12 @@ function AddCuss() {
 
 
             <div className="photo"> 
-              <img src="images/16774.jpg" style={{width:'100%'}}></img>
+              <img src="images/cus.jpg" style={{width:'100%'}}></img>
               </div>
-
+              <br/>
+              <br/>
+              <br/>
+              <br/>
 
 
 

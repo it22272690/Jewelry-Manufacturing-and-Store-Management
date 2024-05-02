@@ -16,11 +16,11 @@ class Navbar extends React.Component {
               <div className="contact_links">
                 <div className="contact_icon">
                   <img src="https://sudip-bhowmick.github.io/images/img/mail.svg" alt="mail" />
-                  <a href="mailto:sudipbhowmick80@gmail.com">sudipbhowmick80@gmail.com</a>
+                  <a href="mailto:sudipbhowmick80@gmail.com">diamonds.lk@gmail.com</a>
                 </div>
                 <div className="contact_icon">
                   <img src="https://sudip-bhowmick.github.io/images/img/call.svg" alt="call" />
-                  <a href="tel:918898244769">+91 88982447698</a>
+                  <a href="tel:918898244769">+94712345678</a>
                 </div>
               </div>
               <div className="social_links">
