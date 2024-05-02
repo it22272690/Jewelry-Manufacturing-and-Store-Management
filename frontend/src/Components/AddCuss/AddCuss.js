@@ -26,6 +26,7 @@ function AddCuss() {
     OrderNum: "",
     ChooseItem: "",
     ChooseDesign: "",
+    InputNumberOfMaterials: "",
     Material1: "",
     MaterialWeight1: "",
     Material2: "",
@@ -252,6 +253,51 @@ function AddCuss() {
       </label>
     ));
   };
+
+
+
+  const renderMaterialInputs = () => {
+    const numMaterials = parseInt(inputs.InputNumberOfMaterials);
+    const materialInputs = [];
+    for (let i = 1; i <= numMaterials; i++) {
+      materialInputs.push(
+        <div key={i}>
+          <Form.Group controlId={`Material${i}`}>
+            <Form.Label className="addcus-label">Material {i}</Form.Label>
+            <Form.Select
+              aria-label={`Material ${i}`}
+              name={`Material${i}`}
+              onChange={handleChange}
+              value={inputs[`Material${i}`]}
+              required
+            >
+              <option value="">Choose Material</option>
+              <option value="gold">Gold</option>
+              <option value="palladium">Palladium</option>
+              <option value="silver">Silver</option>
+              <option value="platinum">Platinum</option>
+              {/* Add more options if needed */}
+            </Form.Select>
+          </Form.Group>
+          <Form.Group controlId={`MaterialWeight${i}`}>
+            <Form.Label className="addcus-label">Material Weight {i}</Form.Label>
+            <Form.Control
+              type="text"
+              name={`MaterialWeight${i}`}
+              className="addcus-input"
+              onChange={handleChange}
+              value={inputs[`MaterialWeight${i}`]}
+              placeholder={`Enter material weight ${i}`}
+              pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+              required
+            />
+          </Form.Group>
+        </div>
+      );
+    }
+    return materialInputs;
+  };
+  
 
   return (
     <div className="addcus-container">
@@ -510,6 +556,28 @@ function AddCuss() {
         
         </Row>
         <Row className="mb-3">
+
+          <Row>
+          <Form.Group controlId="InputNumberOfMaterials">
+  <Form.Label className="addcus-label">Number of Materials</Form.Label>
+  <Form.Control
+    type="number"
+    name="InputNumberOfMaterials"
+    className="addcus-input"
+    onChange={handleChange}
+    value={inputs.InputNumberOfMaterials}
+    placeholder="Enter number of materials"
+    min="1"
+    required
+  />
+</Form.Group>
+<Row className="mb-3">
+  {renderMaterialInputs()}
+  <br/>
+</Row>
+
+
+          </Row>
    
         <Form.Group controlId="Material1">
             <Form.Label className="addcus-label">Material 1</Form.Label>
@@ -841,6 +909,7 @@ function AddCuss() {
 
 
      </div>
+     
      
   );
 }

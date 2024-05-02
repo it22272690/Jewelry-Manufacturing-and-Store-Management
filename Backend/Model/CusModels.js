@@ -43,6 +43,10 @@ const cusSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  MaterialNumber: {
+    type: String,
+    required: true,
+  },
   Material1: {
     type: String,
     required: true,
