@@ -10,7 +10,7 @@ function AddMaterial() {
     name: "",
     type: "",
     grade: "",
-    supplier: "",
+    supplierID: "",
     unit: "",
     unitweight: "",
     unitcost: "",
@@ -39,7 +39,7 @@ function AddMaterial() {
         name: String(inputs.name),
         type: String(inputs.type),
         grade: String(inputs.grade),
-        supplier: String(inputs.supplier),
+        supplierID: String(inputs.supplierID),
         unit: String(inputs.unit),
         unitweight: String(inputs.unitweight),
         unitcost: String(inputs.unitcost),
@@ -85,37 +85,61 @@ function AddMaterial() {
 
         <label>Type</label>
         <br />
-        <input
-          type="text"
+        <select
           name="type"
           onChange={handleChange}
           value={inputs.type}
           required
-          pattern="[a-zA-Z]+"
-        />
+        >
+          <option value="">Select Type</option>
+          <option value="Metal">Metal</option>
+          <option value="Gem">Gem</option>
+          <option value="Diamond">Diamond</option>
+        </select>
         <br />
         <br />
 
         <label>Grade</label>
         <br />
-        <input
-          type="text"
+        <select
           name="grade"
           onChange={handleChange}
           value={inputs.grade}
           required
-          pattern="[a-zA-Z]+"
-        />
+        >
+          <option value="">Select Grade</option>
+          {inputs.type === "Metal" && (
+            <>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </>
+          )}
+          {inputs.type === "Gem" && (
+            <>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </>
+          )}
+          {inputs.type === "Diamond" && (
+            <>
+              <option value="G">G</option>
+              <option value="H">H</option>
+              <option value="I">I</option>
+            </>
+          )}
+        </select>
         <br />
         <br />
 
-        <label>Supplier</label>
+        <label>SupplierID</label>
         <br />
         <input
           type="text"
-          name="supplier"
+          name="supplierID"
           onChange={handleChange}
-          value={inputs.supplier}
+          value={inputs.supplierID}
           required
           pattern="[a-zA-Z]+"
         />
@@ -124,14 +148,24 @@ function AddMaterial() {
 
         <label>Unit</label>
         <br />
-        <input
-          type="text"
+        <select
           name="unit"
           onChange={handleChange}
           value={inputs.unit}
           required
-          pattern="[a-zA-Z]+"
-        />
+        >
+          <option value="">Select Unit</option>
+          {inputs.type === "Metal" && (
+            <>
+              <option value="grams">Grams</option>
+            </>
+          )}
+          {(inputs.type === "Gem" || inputs.type === "Diamond") && (
+            <>
+              <option value="carats">Carats</option>
+            </>
+          )}
+        </select>
         <br />
         <br />
 
@@ -176,12 +210,13 @@ function AddMaterial() {
 
         <label>Description</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="description"
           onChange={handleChange}
           value={inputs.description}
-        />
+          rows="4"
+          cols="50"
+        ></textarea>
         <br />
         <br />
 

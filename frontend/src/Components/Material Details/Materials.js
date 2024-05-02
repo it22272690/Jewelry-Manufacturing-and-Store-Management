@@ -144,7 +144,7 @@ function Materials() {
                 <th>Name</th>
                 <th>Type</th>
                 <th>Grade</th>
-                <th>Supplier</th>
+                <th>SupplierID</th>
                 <th>Unit</th>
                 <th>Unitweight</th>
                 <th>Unitcost</th>
@@ -176,7 +176,7 @@ function Materials() {
                   <Text style={styles.cell}>Name</Text>
                   <Text style={styles.cell}>Type</Text>
                   <Text style={styles.cell}>Grade</Text>
-                  <Text style={styles.cell}>Supplier</Text>
+                  <Text style={styles.cell}>SupplierID</Text>
                   <Text style={styles.cell}>Unit</Text>
                   <Text style={styles.cell}>Unitweight</Text>
                   <Text style={styles.cell}>Unitcost</Text>
@@ -191,7 +191,7 @@ function Materials() {
                       <Text style={styles.cell}>{material.name}</Text>
                       <Text style={styles.cell}>{material.type}</Text>
                       <Text style={styles.cell}>{material.grade}</Text>
-                      <Text style={styles.cell}>{material.supplier}</Text>
+                      <Text style={styles.cell}>{material.supplierID}</Text>
                       <Text style={styles.cell}>{material.unit}</Text>
                       <Text style={styles.cell}>{material.unitweight}</Text>
                       <Text style={styles.cell}>{material.unitcost}</Text>
@@ -207,7 +207,7 @@ function Materials() {
                       <Text style={styles.cell}>{material.name}</Text>
                       <Text style={styles.cell}>{material.type}</Text>
                       <Text style={styles.cell}>{material.grade}</Text>
-                      <Text style={styles.cell}>{material.supplier}</Text>
+                      <Text style={styles.cell}>{material.supplierID}</Text>
                       <Text style={styles.cell}>{material.unit}</Text>
                       <Text style={styles.cell}>{material.unitweight}</Text>
                       <Text style={styles.cell}>{material.unitcost}</Text>

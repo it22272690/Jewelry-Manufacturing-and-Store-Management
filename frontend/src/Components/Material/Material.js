@@ -10,7 +10,7 @@ function Material(props) {
     name,
     type,
     grade,
-    supplier,
+    supplierID,
     unit,
     unitweight,
     unitcost,
@@ -42,7 +42,7 @@ function Material(props) {
       <td>{name}</td>
       <td>{type}</td>
       <td>{grade}</td>
-      <td>{supplier}</td>
+      <td>{supplierID}</td>
       <td>{unit}</td>
       <td>{unitweight}</td>
       <td>{unitcost}</td>

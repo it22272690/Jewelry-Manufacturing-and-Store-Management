@@ -26,7 +26,7 @@ function UpdateMaterial() {
         name: String(inputs.name),
         type: String(inputs.type),
         grade: String(inputs.grade),
-        supplier: String(inputs.supplier),
+        supplierID: String(inputs.supplierID),
         unit: String(inputs.unit),
         unitweight: String(inputs.unitweight),
         unitcost: String(inputs.unitcost),
@@ -109,13 +109,13 @@ function UpdateMaterial() {
         <br />
         <br />
 
-        <label>Supplier</label>
+        <label>SupplierID</label>
         <br />
         <input
           type="text"
-          name="supplier"
+          name="supplierID"
           onChange={handleChange}
-          value={inputs.supplier}
+          value={inputs.supplierID}
           required
           pattern="[a-zA-Z]+"
         />

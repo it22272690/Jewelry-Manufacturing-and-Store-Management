@@ -19,10 +19,10 @@ const getAllMaterials = async (req, res, next) => {
 
 // Add new materials
 const addMaterials = async (req, res, next) => {
-    const { materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description } = req.body;
+    const { materialID, name, type, grade, supplierID, unit, unitweight, unitcost, quantity, description } = req.body;
     let materials;
     try {
-        materials = new Material({ materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description });
+        materials = new Material({ materialID, name, type, grade, supplierID, unit, unitweight, unitcost, quantity, description });
         await materials.save();
     } catch (err) {
         console.log(err);
@@ -53,10 +53,10 @@ const getById = async (req, res, next) => {
 // Update material details
 const updateMaterial = async (req, res, next) => {
     const id = req.params.id;
-    const { materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description } = req.body;
+    const { materialID, name, type, grade, supplierID, unit, unitweight, unitcost, quantity, description } = req.body;
     let materials;
     try {
-        materials = await Material.findByIdAndUpdate(id, { materialID, name, type, grade, supplier, unit, unitweight, unitcost, quantity, description });
+        materials = await Material.findByIdAndUpdate(id, { materialID, name, type, grade, supplierID, unit, unitweight, unitcost, quantity, description });
         materials = await materials.save();
     } catch (err) {
         console.log(err);
