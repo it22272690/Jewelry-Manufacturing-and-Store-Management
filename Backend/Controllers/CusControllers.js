@@ -20,9 +20,9 @@ const addCus = async (req, res, next) => {
         City, 
         Province, 
         Zip, 
+        
         ChooseItem, 
         ChooseDesign, 
-        MaterialNumber,
         Material1, 
         MaterialWeight1, 
         Material2, 
@@ -48,7 +48,6 @@ const addCus = async (req, res, next) => {
              
             ChooseItem, 
             ChooseDesign, 
-            MaterialNumber,
             Material1, 
             MaterialWeight1, 
             Material2, 

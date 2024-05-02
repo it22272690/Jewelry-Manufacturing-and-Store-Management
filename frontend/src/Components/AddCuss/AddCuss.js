@@ -4,16 +4,14 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import "./addcuss.css";
 import "./footer.css";
-import {  Form, Row, Col } from "react-bootstrap";
-import { Link } from 'react-router-dom';
-
-
+import { FloatingLabel, Form, Button, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 import { Tab, Nav, Container } from 'react-bootstrap';
 
 function AddCuss() {
-  const history = useNavigate();  
+  const history = useNavigate();
   const [inputs, setInputs] = useState({
     FirstName: "",
     LastName: "",
@@ -26,7 +24,6 @@ function AddCuss() {
     OrderNum: "",
     ChooseItem: "",
     ChooseDesign: "",
-    InputNumberOfMaterials: "",
     Material1: "",
     MaterialWeight1: "",
     Material2: "",
@@ -238,6 +235,31 @@ function AddCuss() {
     ));
   };
 
+
+
+
+
+  const [focused, setFocused] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    message: false,
+  });
+
+  const handleFocus = (field) => {
+    setFocused((prev) => ({ ...prev, [field]: true }));
+  };
+
+  const handleBlur = (field, value) => {
+    if (!value) {
+      setFocused((prev) => ({ ...prev, [field]: false }));
+    }
+  };
+
+
+
+
+
   // Function to render stone options
   const renderStoneOptions = () => {
     const stones = stoneTypes[inputs.ChooseStoneType] || [];
@@ -254,55 +276,8 @@ function AddCuss() {
     ));
   };
 
-
-
-  const renderMaterialInputs = () => {
-    const numMaterials = parseInt(inputs.InputNumberOfMaterials);
-    const materialInputs = [];
-    for (let i = 1; i <= numMaterials; i++) {
-      materialInputs.push(
-        <div key={i}>
-          <Form.Group controlId={`Material${i}`}>
-            <Form.Label className="addcus-label">Material {i}</Form.Label>
-            <Form.Select
-              aria-label={`Material ${i}`}
-              name={`Material${i}`}
-              onChange={handleChange}
-              value={inputs[`Material${i}`]}
-              required
-            >
-              <option value="">Choose Material</option>
-              <option value="gold">Gold</option>
-              <option value="palladium">Palladium</option>
-              <option value="silver">Silver</option>
-              <option value="platinum">Platinum</option>
-              {/* Add more options if needed */}
-            </Form.Select>
-          </Form.Group>
-          <Form.Group controlId={`MaterialWeight${i}`}>
-            <Form.Label className="addcus-label">Material Weight {i}</Form.Label>
-            <Form.Control
-              type="text"
-              name={`MaterialWeight${i}`}
-              className="addcus-input"
-              onChange={handleChange}
-              value={inputs[`MaterialWeight${i}`]}
-              placeholder={`Enter material weight ${i}`}
-              pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-              required
-            />
-          </Form.Group>
-        </div>
-      );
-    }
-    return materialInputs;
-  };
-  
-
   return (
-    <div className="addcus-container">
-
-<div className="main-container">
+    <div className="addcus-maincontainer">
       <NavCus />
       <br></br> 
       <br></br>
@@ -310,13 +285,150 @@ function AddCuss() {
      
             <header className="header">
                 <h1 id="title" className="text-center">Make your own customizing jewelry</h1>
-               
+                <p id="description" className="text-center">
+                    Thank you for taking the time to help us improve the platform
+                </p>
             </header>
                  
 
+
             <div className="photo"> 
-              <img src="images/16774.jpg"></img>
+              <img src="images/16774.jpg" style={{width:'100%'}}></img>
               </div>
+
+
+
+
+
+            <div className="fcontainer">
+      <span className="big-circle"></span>
+      <img src="img/shape.png" className="square" alt="" />
+      <div className="form">
+        <div className="contact-info">
+          <h3 className="title">Let's get in touch</h3>
+          <p className="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
+          </p>
+
+          <div className="info">
+            <div className="information">
+              <i className="fas fa-map-marker-alt"></i> &nbsp &nbsp
+              <p>92 Cherry Drive Uniondale, NY 11553</p>
+            </div>
+            <div className="information">
+              <i className="fas fa-envelope"></i> &nbsp &nbsp
+              <p>lorem@ipsum.com</p>
+            </div>
+            <div className="information">
+              <i className="fas fa-phone"></i>&nbsp&nbsp
+              <p>123-456-789</p>
+            </div>
+          </div>
+
+          <div className="social-media">
+            <p>Connect with us :</p>
+            <div className="social-icons">
+              <a href="#">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="contact-form">
+          <span className="circle one"></span>
+          <span className="circle two"></span>
+
+          <form action="index.html" autoComplete="off">
+            <h3 className="title">Contact us</h3>
+            <div className="input-container">
+              <input
+                type="text"
+                name="name"
+                className="input"
+                onFocus={() => handleFocus("name")}
+                onBlur={(e) => handleBlur("name", e.target.value)}
+              />
+              <label htmlFor="">Username</label>
+              <span
+                className={focused.name ? "focused" : ""}
+              >
+                Username
+              </span>
+            </div>
+            <div className="input-container">
+              <input
+                type="email"
+                name="email"
+                className="input"
+                onFocus={() => handleFocus("email")}
+                onBlur={(e) => handleBlur("email", e.target.value)}
+              />
+              <label htmlFor="">Email</label>
+              <span
+                className={focused.email ? "focused" : ""}
+              >
+                Email
+              </span>
+            </div>
+            <div className="input-container">
+              <input
+                type="tel"
+                name="phone"
+                className="input"
+                onFocus={() => handleFocus("phone")}
+                onBlur={(e) => handleBlur("phone", e.target.value)}
+              />
+              <label htmlFor="">Phone</label>
+              <span
+                className={focused.phone ? "focused" : ""}
+              >
+                Phone
+              </span>
+            </div>
+            <div className="input-container textarea">
+              <textarea
+                name="message"
+                className="input"
+                onFocus={() => handleFocus("message")}
+                onBlur={(e) => handleBlur("message", e.target.value)}
+              ></textarea>
+              <label htmlFor="">Message</label>
+              <span
+                className={focused.message ? "focused" : ""}
+              >
+                Message
+              </span>
+            </div>
+            <input type="submit" value="Send" className="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -326,22 +438,22 @@ function AddCuss() {
     <div className="row">
       <div className="col-md-3">
         <Nav variant="pills" className="flex-column nav-pills-custom">
-          <Nav.Item className="btnHome1">
-            <Nav.Link eventKey="home" className="nav-link-custom">Persanol Details</Nav.Link>
+          <Nav.Item className="btnHome1" style={{background:'#420d6e'}}>
+            <Nav.Link eventKey="home" className="nav-link-custom" style={{color:'white' ,fontStyle:'bold'}}>Persanol Details</Nav.Link>
           </Nav.Item>
           <Nav.Item className="btnHome">
-            <Nav.Link eventKey="profile" className="nav-link-custom">Design Customizing</Nav.Link>
+            <Nav.Link eventKey="profile" className="nav-link-custom" style={{color:'white'}}>Design Customizing</Nav.Link>
           </Nav.Item>
           <Nav.Item className="btnHome">
-            <Nav.Link eventKey="contact" className="nav-link-custom">Stone Customizing</Nav.Link>
+            <Nav.Link eventKey="contact" className="nav-link-custom" style={{color:'white'}}>Stone Customizing</Nav.Link>
           </Nav.Item>
         </Nav>
       </div>
       <div className="col-md-9">
-        <Tab.Content>
-          <Tab.Pane eventKey="home" className="tab-pane-custom">
+        <Tab.Content  >
+          <Tab.Pane eventKey="home" className="tab-pane-custom"  >
             
-          <div className="container">
+          <div className="container" >
             <header className="header">
                 <h1 id="title" className="text-center">Enter Persanol Details</h1>
                 
@@ -359,7 +471,6 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.FirstName}
           placeholder="Enter your first name"
-          pattern="[a-zA-Z]+"
           required
         />
       </Form.Group>
@@ -374,7 +485,6 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.LastName}
           placeholder="Enter your last name"
-          pattern="[a-zA-Z]+"
           required
         />
       </Form.Group>
@@ -392,7 +502,6 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.AccountUsername}
           placeholder="Enter your account username"
-          pattern="[A-Za-z0-9]+"
           required
         />
       </Form.Group>
@@ -407,7 +516,6 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.MobileNumber}
           placeholder="Enter your mobile number"
-          pattern="^0\d{9}$"
           required
         />
       </Form.Group>
@@ -425,7 +533,6 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.Address}
           placeholder="Enter your address"
-          pattern="[A-Za-z0-9]+"
           required
         />
       </Form.Group>
@@ -440,7 +547,6 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.City}
           placeholder="Enter your city"
-          pattern="[a-zA-Z]+"
           required
         />
       </Form.Group>
@@ -488,7 +594,6 @@ function AddCuss() {
           onChange={handleChange}
           value={inputs.Zip}
           placeholder="Enter your zip code"
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
           required
         />
       </Form.Group>
@@ -556,28 +661,6 @@ function AddCuss() {
         
         </Row>
         <Row className="mb-3">
-
-          <Row>
-          <Form.Group controlId="InputNumberOfMaterials">
-  <Form.Label className="addcus-label">Number of Materials</Form.Label>
-  <Form.Control
-    type="number"
-    name="InputNumberOfMaterials"
-    className="addcus-input"
-    onChange={handleChange}
-    value={inputs.InputNumberOfMaterials}
-    placeholder="Enter number of materials"
-    min="1"
-    required
-  />
-</Form.Group>
-<Row className="mb-3">
-  {renderMaterialInputs()}
-  <br/>
-</Row>
-
-
-          </Row>
    
         <Form.Group controlId="Material1">
             <Form.Label className="addcus-label">Material 1</Form.Label>
@@ -606,7 +689,6 @@ function AddCuss() {
                 onChange={handleChange}
                 value={inputs.MaterialWeight1}
                 placeholder="Enter material weight 1"
-                pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                 required
             />
         </Form.Group>
@@ -643,7 +725,6 @@ function AddCuss() {
                     onChange={handleChange}
                     value={inputs.MaterialWeight2}
                     placeholder="Enter material weight 2"
-                    pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                     required
                 />
             </Form.Group>
@@ -680,7 +761,6 @@ function AddCuss() {
                     onChange={handleChange}
                     value={inputs.MaterialWeight3}
                     placeholder="Enter material weight 3"
-                    pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                     required
                 />
             </Form.Group>
@@ -712,7 +792,6 @@ function AddCuss() {
                     onChange={handleChange}
                     value={inputs.Dimension}
                     placeholder="Enter dimension"
-                    pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
                     required
                 />
             </Form.Group>
@@ -776,7 +855,6 @@ function AddCuss() {
             onChange={handleChange}
             value={inputs.StoneWeight}
             placeholder="Enter stone weight"
-            pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
             required
         />
     </Form.Group>
@@ -800,16 +878,10 @@ function AddCuss() {
 
 
 
-</div>
 
 
 
 
-  <Link to="/Video" className ="video">
-  <button className="video">
-    Video Call
-    </button>
-    </Link>
 
 
 
@@ -824,29 +896,6 @@ function AddCuss() {
 
 
 
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
 <div className="footer">
       <footer className="footernew">
         <svg className="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
@@ -981,9 +1030,29 @@ function AddCuss() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
      </div>
-     
-     
   );
 }
 

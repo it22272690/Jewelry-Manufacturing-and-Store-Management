@@ -1,47 +1,72 @@
-import React from 'react';
+
+      import React from 'react';
 import "./NavCus.css";
 
 class Navbar extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-custom navbar-mainbg">
-        <a className="navbar-brand navbar-logo" href="#">Daimonds.lk</a>
-        <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <i className="fas fa-bars text-white"></i>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
-            <div className="hori-selector"><div className="left"></div><div className="right"></div></div>
-            <li className="nav-item">
-            <a href="/mainhome" className="nav-link active cus-a">
-  <i className="far fa-clone"></i>Home
-</a>
+      <header>
+      <div className="container">
+        <div className="header_flex">
+          <div>
+            <a href="/"><img src="https://sudip-bhowmick.github.io/images/img/logo.svg" alt="logo" className="logo" /></a>
+          </div>
+          <div className="d_flex gap_26">
+            <div className="d_flex gap_26">
+              <div className="contact_links">
+                <div className="contact_icon">
+                  <img src="https://sudip-bhowmick.github.io/images/img/mail.svg" alt="mail" />
+                  <a href="mailto:sudipbhowmick80@gmail.com">sudipbhowmick80@gmail.com</a>
+                </div>
+                <div className="contact_icon">
+                  <img src="https://sudip-bhowmick.github.io/images/img/call.svg" alt="call" />
+                  <a href="tel:918898244769">+91 88982447698</a>
+                </div>
+              </div>
+              <div className="social_links">
+                <a href="#" target="_blank"><img src="https://sudip-bhowmick.github.io/images/img/linkedin.svg" alt="linkedin" /></a>
+                <a href="#" target="_blank"><img src="https://sudip-bhowmick.github.io/images/img/facebook.svg" alt="facebook" /></a>
+                <a href="#" target="_blank"><img src="https://sudip-bhowmick.github.io/images/img/twitter.svg" alt="twitter" /></a>
+              </div>
+            </div>
+            <div className="header_cta">
+              <a href="javascript:void(0)" className="btn_one">Book a call</a>
+            </div>
 
+            <button type="button" className="burger" id="burger">
+              <span className="burger_line"></span>
+              <span className="burger_line"></span>
+              <span className="burger_line"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="overlay"></div>
+      <nav className="dark_bg" id="menu">
+        <div className="container">
+          <ul>
+            <li><a href="javascript:void(0)" className="active">Home</a></li>
+            <li><a href="/AddCuss" >Customize Order</a></li>
+            <li><a href="javascript:void(0)">Services</a></li>
+            <li><a href="javascript:void(0)">Forms</a></li>
+            <li>
+              <a className="has_sub_menu" href="javascript:void(0)">Calculators</a>
+              <ul className="sub_menu">
+                <li><a className="menu-link" href="javascript:void(0)">Tax calulator</a></li>
+                <li><a className="menu-link" href="javascript:void(0)">TDS calulator</a></li>
+              </ul>
             </li>
-            <li className="nav-item ">
-            <a href="/AddCuss" className="nav-link active cus-a"><i className="far fa-copyt"></i>
-  Cutomize order</a>
-            </li>
-            <li className="nav-item">
-            <a href="/CusDetails" className="nav-link active cus-a">
-            <i className="far fa-chart-bar"></i>Details
-</a>
-
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="javascript:void(0);"><i className="far fa-calendar-alt"></i>Calendar</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="javascript:void(0);"><i className="far fa-chart-bar"></i>Charts</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="javascript:void(0);"><i className="far fa-copy"></i>Documents</a>
-            </li>
+            <li><a href="javascript:void(0)">Insights</a></li>
+            <li><a href="javascript:void(0)">Ebooks</a></li>
+            <li><a href="javascript:void(0)">Contact us</a></li>
           </ul>
         </div>
       </nav>
+    </header>
     );
   }
 }
 
 export default Navbar;
+
+  

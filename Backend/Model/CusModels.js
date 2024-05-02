@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const cusSchema = new mongoose.Schema({
   FirstName: {
-    type: String, // data type
+    type: String,
     required: true,
   },
   LastName: {
@@ -40,10 +40,6 @@ const cusSchema = new mongoose.Schema({
     required: true,
   },
   ChooseDesign: {
-    type: String,
-    required: true,
-  },
-  MaterialNumber: {
     type: String,
     required: true,
   },
