@@ -239,25 +239,6 @@ function AddCuss() {
 
 
 
-  const [focused, setFocused] = useState({
-    name: false,
-    email: false,
-    phone: false,
-    message: false,
-  });
-
-  const handleFocus = (field) => {
-    setFocused((prev) => ({ ...prev, [field]: true }));
-  };
-
-  const handleBlur = (field, value) => {
-    if (!value) {
-      setFocused((prev) => ({ ...prev, [field]: false }));
-    }
-  };
-
-
-
 
 
   // Function to render stone options
@@ -349,117 +330,8 @@ function AddCuss() {
           <span className="circle one"></span>
           <span className="circle two"></span>
 
-          <form action="index.html" autoComplete="off">
-            <h3 className="title">Contact us</h3>
-            <div className="input-container">
-              <input
-                type="text"
-                name="name"
-                className="input"
-                onFocus={() => handleFocus("name")}
-                onBlur={(e) => handleBlur("name", e.target.value)}
-              />
-              <label htmlFor="">Username</label>
-              <span
-                className={focused.name ? "focused" : ""}
-              >
-                Username
-              </span>
-            </div>
-            <div className="input-container">
-              <input
-                type="email"
-                name="email"
-                className="input"
-                onFocus={() => handleFocus("email")}
-                onBlur={(e) => handleBlur("email", e.target.value)}
-              />
-              <label htmlFor="">Email</label>
-              <span
-                className={focused.email ? "focused" : ""}
-              >
-                Email
-              </span>
-            </div>
-            <div className="input-container">
-              <input
-                type="tel"
-                name="phone"
-                className="input"
-                onFocus={() => handleFocus("phone")}
-                onBlur={(e) => handleBlur("phone", e.target.value)}
-              />
-              <label htmlFor="">Phone</label>
-              <span
-                className={focused.phone ? "focused" : ""}
-              >
-                Phone
-              </span>
-            </div>
-            <div className="input-container textarea">
-              <textarea
-                name="message"
-                className="input"
-                onFocus={() => handleFocus("message")}
-                onBlur={(e) => handleBlur("message", e.target.value)}
-              ></textarea>
-              <label htmlFor="">Message</label>
-              <span
-                className={focused.message ? "focused" : ""}
-              >
-                Message
-              </span>
-            </div>
-            <input type="submit" value="Send" className="btn" />
-          </form>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <Container className="tab-container">
-  <Tab.Container activeKey={key} onSelect={(k) => setKey(k)}>
-    <div className="row">
-      <div className="col-md-3">
-        <Nav variant="pills" className="flex-column nav-pills-custom">
-          <Nav.Item className="btnHome1" style={{background:'#420d6e'}}>
-            <Nav.Link eventKey="home" className="nav-link-custom" style={{color:'white' ,fontStyle:'bold'}}>Persanol Details</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="btnHome">
-            <Nav.Link eventKey="profile" className="nav-link-custom" style={{color:'white'}}>Design Customizing</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="btnHome">
-            <Nav.Link eventKey="contact" className="nav-link-custom" style={{color:'white'}}>Stone Customizing</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </div>
-      <div className="col-md-9">
-        <Tab.Content  >
-          <Tab.Pane eventKey="home" className="tab-pane-custom"  >
-            
-          <div className="container" >
-            <header className="header">
-                <h1 id="title" className="text-center">Enter Persanol Details</h1>
-                
-            </header>
-                  <div className="form-wrap">
-                  <Form id="survey-form" onSubmit={handleSubmit}>
+          <Form id="survey-form" onSubmit={handleSubmit}>
+            <h2>Personal details</h2>
   <Row className="mb-3">
     <Col md={6}>
       <Form.Group controlId="FirstName">
@@ -600,12 +472,48 @@ function AddCuss() {
     </Col>
   </Row>
 </Form>
+        </div>
+      </div>
+    </div>
 
 
-            </div>
-            </div>
 
-          </Tab.Pane>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <Container className="tab-container">
+  <Tab.Container activeKey={key} onSelect={(k) => setKey(k)}>
+    <div className="row">
+      <div className="col-md-3">
+        <Nav variant="pills" className="flex-column nav-pills-custom">
+          <Nav.Item className="btnHome1" style={{background:'#420d6e'}}>
+            <Nav.Link eventKey="home" className="nav-link-custom" style={{color:'white' ,fontStyle:'bold'}}>Persanol Details</Nav.Link>
+          </Nav.Item>
+          <Nav.Item className="btnHome">
+            <Nav.Link eventKey="profile" className="nav-link-custom" style={{color:'white'}}>Design Customizing</Nav.Link>
+          </Nav.Item>
+          <Nav.Item className="btnHome">
+            <Nav.Link eventKey="contact" className="nav-link-custom" style={{color:'white'}}>Stone Customizing</Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </div>
+      <div className="col-md-9">
+        <Tab.Content  >
+          
+
+          
           <Tab.Pane eventKey="profile" className="tab-pane-custom">
             
             
