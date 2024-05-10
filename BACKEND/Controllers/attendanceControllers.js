@@ -8,7 +8,7 @@ const moment = require("moment");
 exports.attendancepost = async (req, res) => {
 
     try {
-        const { employeeID, intime, outtime, workingtime } = req.body;
+        const { employeeID, intime, outtime, workingtime, attdate } = req.body;
 
         // Check if all required fields are provided
         if (!employeeID || !intime ) {
@@ -21,6 +21,7 @@ exports.attendancepost = async (req, res) => {
             intime, 
             outtime, 
             workingtime,
+            attdate,
             datecreated: moment().format("YYYY-MM-DD hh:mm:ss"),
         });
 

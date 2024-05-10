@@ -23,6 +23,10 @@ const attendanceSchema = new mongoose.Schema({
         type: String,
         default: null
     },
+    attdate: {
+        type: Date,
+        required: true
+    },
     
     datecreated:Date,
     dateUpdated:Date
