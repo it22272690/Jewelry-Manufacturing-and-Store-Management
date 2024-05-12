@@ -79,7 +79,7 @@ function UpdateReserve() {
         <br />
         <br />
 
-        <label>productID</label>
+        <label>ProductID</label>
         <br />
         <input
           type="text"
