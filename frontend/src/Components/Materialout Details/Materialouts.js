@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     width: '20%',
     textAlign: 'center',
     padding: 5,
-    fontWeight: 'bold', // Add bold style here
+    fontWeight: 'bold',
   },
 });
 
@@ -46,8 +46,9 @@ function Materialouts() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [noResults, setNoResults] = useState(false);
-  const [sortOrder, setSortOrder] = useState("asc"); // State to track sorting order
-  const [showAll, setShowAll] = useState(false); // State to track whether to show all data
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [showAll, setShowAll] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(""); // State to hold the selected date
 
   useEffect(() => {
     fetchHandler().then((data) => {
@@ -57,21 +58,48 @@ function Materialouts() {
     });
   }, []);
 
-  const handleSearch = (query) => {
-    const filtered = materialouts.filter((materialout) => {
-      return Object.values(materialout).some((val) =>
-        val.toString().toLowerCase().includes(query.toLowerCase())
-      );
-    });
+  useEffect(() => {
+    filterMaterialoutsByDate(selectedDate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedDate]);
+
+  const filterMaterialoutsByDate = (date) => {
+    if (!date) {
+      setFilteredMaterialouts(materialouts);
+      setTotalPages(Math.ceil(materialouts.length / MATERIALOUTS_PER_PAGE));
+      setNoResults(false);
+      return;
+    }
+
+    const filtered = materialouts.filter((materialout) => materialout.date === date);
     setFilteredMaterialouts(filtered);
-    setCurrentPage(1);
     setTotalPages(Math.ceil(filtered.length / MATERIALOUTS_PER_PAGE));
     setNoResults(filtered.length === 0);
+  };
+
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
   };
 
   const handleInputChange = (e) => {
     const query = e.target.value;
     handleSearch(query);
+  };
+
+  const handleSearch = (query) => {
+    try {
+      const filtered = materialouts.filter((materialout) => {
+        return Object.values(materialout).some((val) =>
+          val && val.toString().toLowerCase().includes(query.toLowerCase())
+        );
+      });
+      setFilteredMaterialouts(filtered);
+      setCurrentPage(1);
+      setTotalPages(Math.ceil(filtered.length / MATERIALOUTS_PER_PAGE));
+      setNoResults(filtered.length === 0);
+    } catch (error) {
+      console.error("Error occurred during search:", error);
+    }
   };
 
   const handlePageChange = (page) => {
@@ -91,7 +119,7 @@ function Materialouts() {
       return 0;
     });
     setFilteredMaterialouts(sortedMaterialouts);
-    setSortOrder((order) => (order === "asc" ? "desc" : "asc")); // Toggle sorting order
+    setSortOrder((order) => (order === "asc" ? "desc" : "asc"));
   };
 
   const paginateMaterialouts = () => {
@@ -101,11 +129,11 @@ function Materialouts() {
   };
 
   const handleViewAll = () => {
-    setShowAll(true); // Set showAll state to true to display all data
+    setShowAll(true);
   };
 
   return (
-    <div >
+    <div>
       <NavMO />
       <center>
         <h1>Materialout Details Display Page</h1>
@@ -117,6 +145,20 @@ function Materialouts() {
           type="text"
           name="search"
           placeholder="Search Materialout Details"
+          style={{
+            borderRadius: "8px",
+            padding: "10px",
+            marginRight: "10px",
+            cursor: "pointer",
+            fontSize: "16px",
+          }}
+        />
+        
+        {/* Date Picker */}
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={handleDateChange}
           style={{
             borderRadius: "8px",
             padding: "10px",
@@ -139,7 +181,7 @@ function Materialouts() {
             <thead>
               <tr>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                MaterialoutID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                  MaterialoutID {sortOrder === "asc" ? "↑" : "↓"}
                 </th>
                 <th>JobID</th>
                 <th>Date</th>
@@ -150,23 +192,18 @@ function Materialouts() {
                 <th>Thai Ruby</th>
                 <th>Burmese Ruby</th>
                 <th>Blue Sapphire</th>
-                
                 <th>Blood Diamond</th>
-                
                 <th>Regent Diamond</th>
-                
                 <th>Description</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {showAll ? (
-                // Render all materialouts if showAll is true
                 materialouts.map((materialout, i) => (
                   <Materialout key={i} materialout={materialout} />
                 ))
               ) : (
-                // Otherwise, paginate the materialouts
                 paginateMaterialouts().map((materialout, i) => (
                   <Materialout key={i} materialout={materialout} />
                 ))
@@ -188,55 +225,44 @@ function Materialouts() {
                   <Text style={styles.cell}>Thai Ruby</Text>
                   <Text style={styles.cell}>Burmese Ruby</Text>
                   <Text style={styles.cell}>Blue Sapphire</Text>
-                  
                   <Text style={styles.cell}>Blood Diamond</Text>
-                 
                   <Text style={styles.cell}>Regent Diamond</Text>
-                  
                   <Text style={styles.cell}>Description</Text>
                 </View>
                 {showAll ? (
-                  // Render all materialouts if showAll is true
                   materialouts.map((materialout, i) => (
                     <View key={i} style={styles.row}>
-                  <Text style={styles.cell}>{materialout.materialoutID}</Text>
-                  <Text style={styles.cell}>{materialout.JobID}</Text>
-                  <Text style={styles.cell}>{materialout.date}</Text>
-                  <Text style={styles.cell}>{materialout.gold}</Text>
+                      <Text style={styles.cell}>{materialout.materialoutID}</Text>
+                      <Text style={styles.cell}>{materialout.JobID}</Text>
+                      <Text style={styles.cell}>{materialout.date}</Text>
+                      <Text style={styles.cell}>{materialout.gold}</Text>
                       <Text style={styles.cell}>{materialout.silver}</Text>
                       <Text style={styles.cell}>{materialout.pladium}</Text>
                       <Text style={styles.cell}>{materialout.platinum}</Text>
                       <Text style={styles.cell}>{materialout.thairuby}</Text>
                       <Text style={styles.cell}>{materialout.burmeseruby}</Text>
                       <Text style={styles.cell}>{materialout.bluesapphire}</Text>
-                      
                       <Text style={styles.cell}>{materialout.blooddiamond}</Text>
-                     
                       <Text style={styles.cell}>{materialout.regentdiamond}</Text>
-                      
-                  <Text style={styles.cell}>{materialout.description}</Text>
-                </View>
+                      <Text style={styles.cell}>{materialout.description}</Text>
+                    </View>
                   ))
                 ) : (
-                  // Otherwise, paginate the materialouts
                   paginateMaterialouts().map((materialout, i) => (
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{materialout.materialoutID}</Text>
-                  <Text style={styles.cell}>{materialout.JobID}</Text>
-                  <Text style={styles.cell}>{materialout.date}</Text>
-                  <Text style={styles.cell}>{materialout.gold}</Text>
+                      <Text style={styles.cell}>{materialout.JobID}</Text>
+                      <Text style={styles.cell}>{materialout.date}</Text>
+                      <Text style={styles.cell}>{materialout.gold}</Text>
                       <Text style={styles.cell}>{materialout.silver}</Text>
                       <Text style={styles.cell}>{materialout.pladium}</Text>
                       <Text style={styles.cell}>{materialout.platinum}</Text>
                       <Text style={styles.cell}>{materialout.thairuby}</Text>
                       <Text style={styles.cell}>{materialout.burmeseruby}</Text>
                       <Text style={styles.cell}>{materialout.bluesapphire}</Text>
-                      
                       <Text style={styles.cell}>{materialout.blooddiamond}</Text>
-                      
                       <Text style={styles.cell}>{materialout.regentdiamond}</Text>
-                      
-                  <Text style={styles.cell}>{materialout.description}</Text>
+                      <Text style={styles.cell}>{materialout.description}</Text>
                     </View>
                   ))
                 )}
@@ -247,7 +273,7 @@ function Materialouts() {
               <button disabled={loading}>{loading ? 'Generating PDF...' : 'Download PDF'}</button>
             )}
           </PDFDownloadLink>
-          <button onClick={handleViewAll}>View All</button> {/* Button to view all data */}
+          <button onClick={handleViewAll}>View All</button>
         </div>
       )}
       <br />
@@ -261,7 +287,7 @@ function Materialouts() {
         <span>{currentPage}</span>
         <button
           onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages || noResults} // Disable button when there are no results
+          disabled={currentPage === totalPages || noResults}
         >
           Next
         </button>
