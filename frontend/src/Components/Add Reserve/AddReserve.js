@@ -109,7 +109,8 @@ function AddReserve() {
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          pattern="[a-zA-Z]+"
+          pattern="[a-zA-Z ]+"
+
         />
         <br />
         <br />

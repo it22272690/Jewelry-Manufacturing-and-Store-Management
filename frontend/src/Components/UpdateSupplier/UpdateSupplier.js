@@ -76,7 +76,7 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.name}
           required
-          pattern="[a-zA-Z]+"
+          pattern="[a-zA-Z ]+"
         />
         <br />
         <br />
@@ -127,7 +127,7 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.address}
           required
-          pattern="[A-Za-z0-9]+"
+          pattern="[A-Za-z0-9 ]+"
         />
         <br />
         <br />
@@ -140,7 +140,7 @@ function UpdateSupplier() {
           onChange={handleChange}
           value={inputs.bankdetails}
           required
-          pattern="[A-Za-z0-9]+"
+          pattern="[A-Za-z0-9 ]+"
         />
         <br />
         <br />
@@ -152,7 +152,7 @@ function UpdateSupplier() {
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          pattern="[a-zA-Z]+"
+          pattern="[a-zA-Z ]+"
         />
         <br />
         <br />
