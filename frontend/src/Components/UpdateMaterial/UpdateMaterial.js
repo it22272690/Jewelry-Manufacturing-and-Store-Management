@@ -78,7 +78,8 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.name}
           required
-          pattern="[a-zA-Z]+"
+          pattern="[a-zA-Z ]+"
+
         />
         <br />
         <br />
@@ -134,17 +135,21 @@ function UpdateMaterial() {
         <br />
 
         <label>SupplierID</label>
-        <br />
-        <input
-          type="text"
-          name="supplierID"
-          onChange={handleChange}
-          value={inputs.supplierID}
-          required
-          pattern="[A-Za-z0-9]+"
-        />
-        <br />
-        <br />
+<br />
+<select
+  name="supplierID"
+  onChange={handleChange}
+  value={inputs.supplierID}
+  required
+>
+  <option value="">Select Supplier</option>
+  <option value="S001">S001</option>
+  <option value="S002">S002</option>
+  <option value="S003">S003</option>
+</select>
+<br />
+<br />
+
 
         <label>Unit</label>
         <br />
@@ -183,17 +188,18 @@ function UpdateMaterial() {
         <br />
 
         <label>Unitcost</label>
-        <br />
-        <input
-          type="text"
-          name="unitcost"
-          onChange={handleChange}
-          value={inputs.unitcost}
-          required
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-        />
-        <br />
-        <br />
+<br />
+<input
+  type="text"
+  name="unitcost"
+  onChange={handleChange}
+  value={inputs.unitcost}
+  required
+  pattern="^\d+(\.\d{1,2})?$"
+/>
+<br />
+<br />
+
 
         <label>Quantity</label>
         <br />
