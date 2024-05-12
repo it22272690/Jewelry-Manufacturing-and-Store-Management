@@ -220,8 +220,7 @@ function UpdateMaterial() {
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          rows="4"
-          cols="50"
+          
         ></textarea>
         <br />
         <br />

@@ -62,6 +62,7 @@ function AddSupplier() {
           value={inputs.supplierID}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="SupplierID"
         />
         <br />
         <br />
@@ -75,6 +76,7 @@ function AddSupplier() {
           value={inputs.name}
           required
           pattern="[a-zA-Z ]+"
+          placeholder="Name"
         />
         <br />
         <br />
@@ -88,6 +90,7 @@ function AddSupplier() {
           value={inputs.nic}
           required
           pattern="^\d{9}(v|V)|\d{12}$"
+          placeholder="NIC"
         />
         <br />
         <br />
@@ -100,6 +103,7 @@ function AddSupplier() {
           onChange={handleChange}
           value={inputs.email}
           required
+          placeholder="Email"
         />
         <br />
         <br />
@@ -113,45 +117,43 @@ function AddSupplier() {
           value={inputs.phone}
           required
           pattern="^0\d{9}$"
+          placeholder="Phone"
         />
         <br />
         <br />
 
         <label>Address</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="address"
           onChange={handleChange}
           value={inputs.address}
           required
-          pattern="[A-Za-z0-9 ]+"
-        />
+          placeholder="Address"
+        ></textarea>
         <br />
         <br />
 
         <label>Bankdetails</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="bankdetails"
           onChange={handleChange}
           value={inputs.bankdetails}
           required
-          pattern="[A-Za-z0-9 ]+"
-        />
+          placeholder="Bankdetails"
+        ></textarea>
         <br />
         <br />
 
         <label>Description</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          pattern="[a-zA-Z ]+"
-        />
+          placeholder="Description"
+        ></textarea>
         <br />
         <br />
 

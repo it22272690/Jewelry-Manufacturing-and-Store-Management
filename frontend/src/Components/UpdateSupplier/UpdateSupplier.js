@@ -121,39 +121,33 @@ function UpdateSupplier() {
 
         <label>Address</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="address"
           onChange={handleChange}
           value={inputs.address}
           required
-          pattern="[A-Za-z0-9 ]+"
-        />
+        ></textarea>
         <br />
         <br />
 
         <label>Bankdetails</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="bankdetails"
           onChange={handleChange}
           value={inputs.bankdetails}
           required
-          pattern="[A-Za-z0-9 ]+"
-        />
+        ></textarea>
         <br />
         <br />
 
         <label>Description</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          pattern="[a-zA-Z ]+"
-        />
+        ></textarea>
         <br />
         <br />
 

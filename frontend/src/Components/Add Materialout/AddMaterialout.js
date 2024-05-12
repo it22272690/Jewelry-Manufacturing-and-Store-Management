@@ -16,11 +16,11 @@ function AddMaterialout() {
     thairuby: "",
     burmeseruby: "",
     bluesapphire: "",
-    
+
     blooddiamond: "",
-    
+
     regentdiamond: "",
-    
+
     description: "",
   });
 
@@ -51,11 +51,11 @@ function AddMaterialout() {
         thairuby: String(inputs.thairuby),
         burmeseruby: String(inputs.burmeseruby),
         bluesapphire: String(inputs.bluesapphire),
-       
+
         blooddiamond: String(inputs.blooddiamond),
-        
+
         regentdiamond: String(inputs.regentdiamond),
-        
+
         description: String(inputs.description),
       })
       .then((res) => res.data);
@@ -78,6 +78,7 @@ function AddMaterialout() {
           value={inputs.materialoutID}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="MaterialoutID "
         />
         <br />
         <br />
@@ -91,6 +92,7 @@ function AddMaterialout() {
           value={inputs.JobId}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="JobID "
         />
         <br />
         <br />
@@ -103,6 +105,7 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.date}
           required
+          placeholder="Date "
         />
         <br />
         <br />
@@ -115,6 +118,7 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.gold}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Gold "
         />
         <br />
         <br />
@@ -127,6 +131,7 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.silver}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Silver "
         />
         <br />
         <br />
@@ -139,6 +144,7 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.pladium}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Pladium "
         />
         <br />
         <br />
@@ -151,6 +157,7 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.platinum}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Platinum "
         />
         <br />
         <br />
@@ -163,6 +170,7 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.thairuby}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Thai Ruby "
         />
         <br />
         <br />
@@ -175,6 +183,7 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.burmeseruby}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Burmese Ruby "
         />
         <br />
         <br />
@@ -187,11 +196,10 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.bluesapphire}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Blue Sapphire "
         />
         <br />
         <br />
-
-        
 
         <label>Blood Diamond</label>
         <br />
@@ -201,11 +209,10 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.blooddiamond}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Blood Diamond "
         />
         <br />
         <br />
-
-        
 
         <label>Regent Diamond</label>
         <br />
@@ -215,21 +222,19 @@ function AddMaterialout() {
           onChange={handleChange}
           value={inputs.regentdiamond}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Regent Diamond "
         />
         <br />
         <br />
-
-        
 
         <label>Description</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          pattern="[a-zA-Z ]+"
-        />
+          placeholder="Description "
+        ></textarea>
         <br />
         <br />
 

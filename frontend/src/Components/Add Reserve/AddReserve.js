@@ -58,6 +58,7 @@ function AddReserve() {
           value={inputs.reserveID}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="ReserveID"
         />
 
         <br />
@@ -72,6 +73,7 @@ function AddReserve() {
           value={inputs.OrderId}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="OrderID "
         />
         <br />
         <br />
@@ -85,6 +87,7 @@ function AddReserve() {
           value={inputs.productID}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="ProductID "
         />
         <br />
         <br />
@@ -98,20 +101,19 @@ function AddReserve() {
           value={inputs.quantity}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Quantity "
         />
         <br />
         <br />
 
         <label>Description</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          pattern="[a-zA-Z ]+"
-
-        />
+          placeholder="Description "
+        ></textarea>
         <br />
         <br />
 

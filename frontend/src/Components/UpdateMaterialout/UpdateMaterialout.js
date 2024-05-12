@@ -216,17 +216,15 @@ function UpdateMaterialout() {
        
 
         <label>Description</label>
-        <br />
-        <input
-          type="text"
-          name="description"
-          onChange={handleChange}
-          value={inputs.description}
-          pattern="[a-zA-Z ]+"
+<br />
+<textarea
+  name="description"
+  onChange={handleChange}
+  value={inputs.description}
+></textarea>
+<br />
+<br />
 
-        />
-        <br />
-        <br />
 
         <button type="submit">Submit</button>
       </form>

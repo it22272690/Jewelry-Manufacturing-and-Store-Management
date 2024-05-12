@@ -66,6 +66,7 @@ function AddMaterial() {
           value={inputs.materialID}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="MaterialID "
         />
         <br />
         <br />
@@ -79,7 +80,7 @@ function AddMaterial() {
           value={inputs.name}
           required
           pattern="[a-zA-Z ]+"
-
+          placeholder="Name "
         />
         <br />
         <br />
@@ -91,6 +92,7 @@ function AddMaterial() {
           onChange={handleChange}
           value={inputs.type}
           required
+          placeholder="Type "
         >
           <option value="">Select Type</option>
           <option value="Metal">Metal</option>
@@ -107,6 +109,7 @@ function AddMaterial() {
           onChange={handleChange}
           value={inputs.grade}
           required
+          placeholder="Grade "
         >
           <option value="">Select Grade</option>
           {inputs.type === "Metal" && (
@@ -141,6 +144,7 @@ function AddMaterial() {
   onChange={handleChange}
   value={inputs.supplierID}
   required
+  placeholder="SupplierID "
 >
   <option value="">Select Supplier</option>
   <option value="S001">S001</option>
@@ -158,6 +162,7 @@ function AddMaterial() {
           onChange={handleChange}
           value={inputs.unit}
           required
+          placeholder="Unit "
         >
           <option value="">Select Unit</option>
           {inputs.type === "Metal" && (
@@ -183,6 +188,7 @@ function AddMaterial() {
           value={inputs.unitweight}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Unitweight "
         />
         <br />
         <br />
@@ -196,6 +202,7 @@ function AddMaterial() {
   value={inputs.unitcost}
   required
   pattern="^\d+(\.\d{1,2})?$"
+  placeholder="Unitcost "
 />
 <br />
 <br />
@@ -210,6 +217,7 @@ function AddMaterial() {
           value={inputs.quantity}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Quantity "
         />
         <br />
         <br />
@@ -220,8 +228,7 @@ function AddMaterial() {
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          rows="4"
-          cols="50"
+          placeholder="Description "
         ></textarea>
         <br />
         <br />

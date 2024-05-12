@@ -72,6 +72,7 @@ function AddMaterialin() {
           value={inputs.materialinID}
           required
           pattern="[A-Za-z0-9]+"
+          placeholder="MaterialinID "
         />
         <br />
         <br />
@@ -83,6 +84,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.supplierID}
           required
+          placeholder="SupplierID "
         >
           <option value="">Select SupplierID</option>
           <option value="S001">S001</option>
@@ -100,6 +102,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.date}
           required
+          placeholder="Date "
         />
         <br />
         <br />
@@ -112,6 +115,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.gold}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Gold "
         />
         <br />
         <br />
@@ -124,6 +128,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.silver}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Silver "
         />
         <br />
         <br />
@@ -136,6 +141,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.pladium}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Pladium "
         />
         <br />
         <br />
@@ -148,6 +154,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.platinum}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Platinum "
         />
         <br />
         <br />
@@ -160,6 +167,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.thairuby}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Thai Ruby "
         />
         <br />
         <br />
@@ -172,6 +180,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.burmeseruby}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Burmese Ruby "
         />
         <br />
         <br />
@@ -184,6 +193,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.bluesapphire}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Blue Sapphire "
         />
         <br />
         <br />
@@ -197,6 +207,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.blooddiamond}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Blood Diamond "
         />
         <br />
         <br />
@@ -210,6 +221,7 @@ function AddMaterialin() {
           onChange={handleChange}
           value={inputs.regentdiamond}
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Regent Diamond "
         />
         <br />
         <br />
@@ -224,6 +236,7 @@ function AddMaterialin() {
           value={inputs.value}
           required
           pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Value "
         />
         <br />
         <br />
