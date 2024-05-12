@@ -62,8 +62,9 @@ function Materialins() {
   const handleSearch = (query) => {
     const filtered = materialins.filter((materialin) => {
       return (
+        materialin &&
         Object.values(materialin).some((val) =>
-          val.toString().toLowerCase().includes(query.toLowerCase())
+          val && val.toString().toLowerCase().includes(query.toLowerCase())
         ) &&
         (filterSupplierID === "All" || materialin.supplierID === filterSupplierID)
       );
@@ -250,37 +251,37 @@ function Materialins() {
                 {showAll ? (
                   materialins.map((materialin, i) => (
                     <View key={i} style={styles.row}>
-                      <Text style={styles.cell}>{materialin.materialinID}</Text>
-                      <Text style={styles.cell}>{materialin.supplierID}</Text>
-                      <Text style={styles.cell}>{materialin.date}</Text>
-                      <Text style={styles.cell}>{materialin.gold}</Text>
-                      <Text style={styles.cell}>{materialin.silver}</Text>
-                      <Text style={styles.cell}>{materialin.pladium}</Text>
-                      <Text style={styles.cell}>{materialin.platinum}</Text>
-                      <Text style={styles.cell}>{materialin.thairuby}</Text>
-                      <Text style={styles.cell}>{materialin.burmeseruby}</Text>
-                      <Text style={styles.cell}>{materialin.bluesapphire}</Text>
-                      <Text style={styles.cell}>{materialin.blooddiamond}</Text>
-                      <Text style={styles.cell}>{materialin.regentdiamond}</Text>
-                      <Text style={styles.cell}>{materialin.value}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.materialinID}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.supplierID}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.date}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.gold}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.silver}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.pladium}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.platinum}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.thairuby}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.burmeseruby}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.bluesapphire}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.blooddiamond}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.regentdiamond}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.value}</Text>
                     </View>
                   ))
                 ) : (
                   paginateMaterialins().map((materialin, i) => (
                     <View key={i} style={styles.row}>
-                      <Text style={styles.cell}>{materialin.materialinID}</Text>
-                      <Text style={styles.cell}>{materialin.supplierID}</Text>
-                      <Text style={styles.cell}>{materialin.date}</Text>
-                      <Text style={styles.cell}>{materialin.gold}</Text>
-                      <Text style={styles.cell}>{materialin.silver}</Text>
-                      <Text style={styles.cell}>{materialin.pladium}</Text>
-                      <Text style={styles.cell}>{materialin.platinum}</Text>
-                      <Text style={styles.cell}>{materialin.thairuby}</Text>
-                      <Text style={styles.cell}>{materialin.burmeseruby}</Text>
-                      <Text style={styles.cell}>{materialin.bluesapphire}</Text>
-                      <Text style={styles.cell}>{materialin.blooddiamond}</Text>
-                      <Text style={styles.cell}>{materialin.regentdiamond}</Text>
-                      <Text style={styles.cell}>{materialin.value}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.materialinID}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.supplierID}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.date}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.gold}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.silver}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.pladium}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.platinum}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.thairuby}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.burmeseruby}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.bluesapphire}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.blooddiamond}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.regentdiamond}</Text>
+                      <Text style={styles.cell}>{materialin && materialin.value}</Text>
                     </View>
                   ))
                 )}
