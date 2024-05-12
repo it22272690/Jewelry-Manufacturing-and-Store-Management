@@ -139,7 +139,7 @@ function Materials() {
         />
       </div>
 
-      <br />
+      
 
       <div>
         <label style={{ fontSize: "20px" }}>Filter by Type:</label>

@@ -141,8 +141,7 @@ function Materialins() {
         />
       </div>
 
-      <br />
-
+      
       <div>
         <label style={{ fontSize: "20px" }}>Filter by SupplierID:</label>
         <br />
