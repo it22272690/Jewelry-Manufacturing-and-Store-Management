@@ -125,6 +125,21 @@ const updateMaterialin = async (req, res, next) => {
 
   let materialin;
   try {
+    // Find the existing materialin document
+    materialin = await MaterialinModel.findById(id);
+
+    // Calculate the difference in quantities
+    const diffGold = gold - materialin.gold;
+    const diffSilver = silver - materialin.silver;
+    const diffPladium = pladium - materialin.pladium;
+    const diffPlatinum = platinum - materialin.platinum;
+    const diffThaiRuby = thairuby - materialin.thairuby;
+    const diffBurmeseRuby = burmeseruby - materialin.burmeseruby;
+    const diffBlueSapphire = bluesapphire - materialin.bluesapphire;
+    const diffBloodDiamond = blooddiamond - materialin.blooddiamond;
+    const diffRegentDiamond = regentdiamond - materialin.regentdiamond;
+
+    // Update the materialin document
     materialin = await MaterialinModel.findByIdAndUpdate(id, {
       materialinID,
       supplierID,
@@ -139,19 +154,34 @@ const updateMaterialin = async (req, res, next) => {
       blooddiamond,
       regentdiamond,
       value,
-    });
-    materialin = await materialin.save();
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ message: "Internal server error." });
+    }, { new: true });
+
+    // Update quantities in the material model
+    const materialsToUpdate = [
+      { name: 'Gold', quantity: diffGold },
+      { name: 'Silver', quantity: diffSilver },
+      { name: 'Pladium', quantity: diffPladium },
+      { name: 'Platinum', quantity: diffPlatinum },
+      { name: 'Thai Ruby', quantity: diffThaiRuby },
+      { name: 'Burmese Ruby', quantity: diffBurmeseRuby },
+      { name: 'Blue Sapphire', quantity: diffBlueSapphire },
+      { name: 'Blood Diamond', quantity: diffBloodDiamond },
+      { name: 'Regent Diamond', quantity: diffRegentDiamond }
+    ];
+
+    // Loop through materialsToUpdate and update quantities
+    for (const material of materialsToUpdate) {
+      await MaterialModel.findOneAndUpdate(
+        { name: material.name },
+        { $inc: { quantity: material.quantity } }
+      );
+    }
+
+    res.status(200).json({ message: "Materialin data updated successfully.", materialin });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
   }
-  // If unable to update materialin
-  if (!materialin) {
-    return res
-      .status(404)
-      .json({ message: "Unable to update materialin details" });
-  }
-  return res.status(200).json({ materialin });
 };
 
 // Delete materialin details
