@@ -46,21 +46,26 @@ function Materialins() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [noResults, setNoResults] = useState(false);
-  const [sortOrder, setSortOrder] = useState("asc"); // State to track sorting order
-  const [showAll, setShowAll] = useState(false); // State to track whether to show all data
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [showAll, setShowAll] = useState(false);
+  const [filterSupplierID, setFilterSupplierID] = useState("All");
 
   useEffect(() => {
     fetchHandler().then((data) => {
       setMaterialins(data.materialins);
-      setFilteredMaterialins(data.materialins);
       setTotalPages(Math.ceil(data.materialins.length / MATERIALINS_PER_PAGE));
+      const filtered = filterMaterialinsBySupplierID(data.materialins, filterSupplierID);
+      setFilteredMaterialins(filtered);
     });
-  }, []);
+  }, [filterSupplierID]);
 
   const handleSearch = (query) => {
     const filtered = materialins.filter((materialin) => {
-      return Object.values(materialin).some((val) =>
-        val.toString().toLowerCase().includes(query.toLowerCase())
+      return (
+        Object.values(materialin).some((val) =>
+          val.toString().toLowerCase().includes(query.toLowerCase())
+        ) &&
+        (filterSupplierID === "All" || materialin.supplierID === filterSupplierID)
       );
     });
     setFilteredMaterialins(filtered);
@@ -91,7 +96,7 @@ function Materialins() {
       return 0;
     });
     setFilteredMaterialins(sortedMaterialins);
-    setSortOrder((order) => (order === "asc" ? "desc" : "asc")); // Toggle sorting order
+    setSortOrder((order) => (order === "asc" ? "desc" : "asc"));
   };
 
   const paginateMaterialins = () => {
@@ -101,11 +106,19 @@ function Materialins() {
   };
 
   const handleViewAll = () => {
-    setShowAll(true); // Set showAll state to true to display all data
+    setShowAll(true);
+  };
+
+  const filterMaterialinsBySupplierID = (materialins, supplierID) => {
+    if (supplierID === "All") {
+      return materialins;
+    } else {
+      return materialins.filter((materialin) => materialin.supplierID === supplierID);
+    }
   };
 
   return (
-    <div >
+    <div>
       <NavMI />
       <center>
         <h1>Materialin Details Display Page</h1>
@@ -129,6 +142,53 @@ function Materialins() {
 
       <br />
 
+      <div>
+        <label style={{ fontSize: "20px" }}>Filter by SupplierID:</label>
+        <br />
+        <input
+          type="radio"
+          id="filterAllSupplierIDs"
+          name="filterSupplierID"
+          value="All"
+          checked={filterSupplierID === "All"}
+          onChange={() => setFilterSupplierID("All")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterAllSupplierIDs" style={{ marginRight: "10px" }}>All</label>
+        <input
+          type="radio"
+          id="filterS001"
+          name="filterSupplierID"
+          value="S001"
+          checked={filterSupplierID === "S001"}
+          onChange={() => setFilterSupplierID("S001")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterS001" style={{ marginRight: "10px" }}>S001</label>
+        <input
+          type="radio"
+          id="filterS002"
+          name="filterSupplierID"
+          value="S002"
+          checked={filterSupplierID === "S002"}
+          onChange={() => setFilterSupplierID("S002")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterS002" style={{ marginRight: "10px" }}>S002</label>
+        <input
+          type="radio"
+          id="filterS003"
+          name="filterSupplierID"
+          value="S003"
+          checked={filterSupplierID === "S003"}
+          onChange={() => setFilterSupplierID("S003")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterS003">S003</label>
+      </div>
+
+      <br/>
+
       {noResults ? (
         <div>
           <p>No Materialins Found</p>
@@ -139,7 +199,7 @@ function Materialins() {
             <thead>
               <tr>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                MaterialinID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                MaterialinID {sortOrder === "asc" ? "↑" : "↓"}
                 </th>
                 <th>SupplierID</th>
                 <th>Date</th>
@@ -151,21 +211,17 @@ function Materialins() {
                 <th>Burmese Ruby</th>
                 <th>Blue Sapphire</th>
                 <th>Blood Diamond</th>
-
                 <th>Regent Diamond</th>
-                
                 <th>Value</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {showAll ? (
-                // Render all materialins if showAll is true
                 materialins.map((materialin, i) => (
                   <Materialin key={i} materialin={materialin} />
                 ))
               ) : (
-                // Otherwise, paginate the materialins
                 paginateMaterialins().map((materialin, i) => (
                   <Materialin key={i} materialin={materialin} />
                 ))
@@ -177,7 +233,7 @@ function Materialins() {
               <Page size="A4" style={styles.page}>
                 <Text style={styles.heading}>Diamonds.lk-Jewelry Manufacture and Management System<br/><br/></Text>
                 <View style={styles.row}>
-                <Text style={styles.cell}>MaterialinID</Text>
+                  <Text style={styles.cell}>MaterialinID</Text>
                   <Text style={styles.cell}>SupplierID</Text>
                   <Text style={styles.cell}>Date</Text>
                   <Text style={styles.cell}>Gold</Text>
@@ -187,15 +243,11 @@ function Materialins() {
                   <Text style={styles.cell}>Thai Ruby</Text>
                   <Text style={styles.cell}>Burmese Ruby</Text>
                   <Text style={styles.cell}>Blue Sapphire</Text>
-                  
                   <Text style={styles.cell}>Blood Diamond</Text>
-                  
                   <Text style={styles.cell}>Regent Diamond</Text>
-                  
                   <Text style={styles.cell}>Value</Text>
                 </View>
                 {showAll ? (
-                  // Render all materialins if showAll is true
                   materialins.map((materialin, i) => (
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{materialin.materialinID}</Text>
@@ -208,16 +260,12 @@ function Materialins() {
                       <Text style={styles.cell}>{materialin.thairuby}</Text>
                       <Text style={styles.cell}>{materialin.burmeseruby}</Text>
                       <Text style={styles.cell}>{materialin.bluesapphire}</Text>
-                      
                       <Text style={styles.cell}>{materialin.blooddiamond}</Text>
-                      
                       <Text style={styles.cell}>{materialin.regentdiamond}</Text>
-                      
                       <Text style={styles.cell}>{materialin.value}</Text>
                     </View>
                   ))
                 ) : (
-                  // Otherwise, paginate the users
                   paginateMaterialins().map((materialin, i) => (
                     <View key={i} style={styles.row}>
                       <Text style={styles.cell}>{materialin.materialinID}</Text>
@@ -230,11 +278,8 @@ function Materialins() {
                       <Text style={styles.cell}>{materialin.thairuby}</Text>
                       <Text style={styles.cell}>{materialin.burmeseruby}</Text>
                       <Text style={styles.cell}>{materialin.bluesapphire}</Text>
-                      
                       <Text style={styles.cell}>{materialin.blooddiamond}</Text>
-                      
                       <Text style={styles.cell}>{materialin.regentdiamond}</Text>
-                      
                       <Text style={styles.cell}>{materialin.value}</Text>
                     </View>
                   ))
@@ -246,7 +291,7 @@ function Materialins() {
               <button disabled={loading}>{loading ? 'Generating PDF...' : 'Download PDF'}</button>
             )}
           </PDFDownloadLink>
-          <button onClick={handleViewAll}>View All</button> {/* Button to view all data */}
+          <button onClick={handleViewAll}>View All</button>
         </div>
       )}
       <br />
@@ -260,7 +305,7 @@ function Materialins() {
         <span>{currentPage}</span>
         <button
           onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages || noResults} // Disable button when there are no results
+          disabled={currentPage === totalPages || noResults}
         >
           Next
         </button>
