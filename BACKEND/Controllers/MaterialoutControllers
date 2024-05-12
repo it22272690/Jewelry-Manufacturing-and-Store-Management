@@ -19,10 +19,10 @@ const getAllMaterialouts = async (req, res, next) => {
 
 // Add new materialouts
 const addMaterialouts = async (req, res, next) => {
-    const { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description } = req.body;
+    const { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, blooddiamond, regentdiamond,  description } = req.body;
     let materialouts;
     try {
-        materialouts = new Materialout({ materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description });
+        materialouts = new Materialout({ materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire,  blooddiamond,  regentdiamond,  description });
         await materialouts.save();
     } catch (err) {
         console.log(err);
@@ -53,10 +53,10 @@ const getById = async (req, res, next) => {
 // Update materialout details
 const updateMaterialout = async (req, res, next) => {
     const id = req.params.id;
-    const { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description } = req.body;
+    const { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire,  blooddiamond,  regentdiamond, description } = req.body;
     let materialouts;
     try {
-        materialouts = await Materialout.findByIdAndUpdate(id, { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, description });
+        materialouts = await Materialout.findByIdAndUpdate(id, { materialoutID, JobId, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire,  blooddiamond,  regentdiamond,  description });
         materialouts = await materialouts.save();
     } catch (err) {
         console.log(err);

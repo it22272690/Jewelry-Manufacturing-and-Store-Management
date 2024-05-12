@@ -48,36 +48,12 @@ const materialinSchema = new Schema({
   bluesapphire: {
     type: Number,
   },
-  // Quantity of purple sapphire received
-  purplesapphire: {
-    type: Number,
-  },
-  // Quantity of star sapphire received
-  starsapphire: {
-    type: Number,
-  },
-  // Quantity of white sapphire received
-  whitesapphire: {
-    type: Number,
-  },
   // Quantity of blood diamond received
   blooddiamond: {
     type: Number,
   },
-  // Quantity of pink star diamond received
-  pinkstardiamond: {
-    type: Number,
-  },
   // Quantity of regent diamond received
   regentdiamond: {
-    type: Number,
-  },
-  // Quantity of Colombian aquamarine received
-  colombianaquamarine: {
-    type: Number,
-  },
-  // Quantity of Madagascar aquamarine received
-  madagascaraquamarine: {
     type: Number,
   },
   // Total value of all materials received

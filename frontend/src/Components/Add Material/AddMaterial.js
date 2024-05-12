@@ -141,7 +141,7 @@ function AddMaterial() {
           onChange={handleChange}
           value={inputs.supplierID}
           required
-          pattern="[a-zA-Z]+"
+          pattern="[A-Za-z0-9]+"
         />
         <br />
         <br />

@@ -32,14 +32,11 @@ function UpdateMaterialout() {
         thairuby: String(inputs.thairuby),
         burmeseruby: String(inputs.burmeseruby),
         bluesapphire: String(inputs.bluesapphire),
-        purplesapphire: String(inputs.purplesapphire),
-        starsapphire: String(inputs.starsapphire),
-        whitesapphire: String(inputs.whitesapphire),
+        
         blooddiamond: String(inputs.blooddiamond),
-        pinkstardiamond: String(inputs.pinkstardiamond),
+        
         regentdiamond: String(inputs.regentdiamond),
-        colombianaquamarine: String(inputs.colombianaquamarine),
-        madagascaraquamarine: String(inputs.madagascaraquamarine),
+        
         description: String(inputs.description),
       })
       .then((res) => res.data);
@@ -188,41 +185,7 @@ function UpdateMaterialout() {
         <br />
         <br />
 
-        <label>Purple Sapphire</label>
-        <br />
-        <input
-          type="text"
-          name="purplesapphire"
-          onChange={handleChange}
-          value={inputs.purplesapphire}
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-        />
-        <br />
-        <br />
-
-        <label>Star Sapphire</label>
-        <br />
-        <input
-          type="text"
-          name="starsapphire"
-          onChange={handleChange}
-          value={inputs.starsapphire}
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-        />
-        <br />
-        <br />
-
-        <label>White Sapphire</label>
-        <br />
-        <input
-          type="text"
-          name="whitesapphire"
-          onChange={handleChange}
-          value={inputs.whitesapphire}
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-        />
-        <br />
-        <br />
+        
 
         <label>Blood Diamond</label>
         <br />
@@ -236,17 +199,7 @@ function UpdateMaterialout() {
         <br />
         <br />
 
-        <label>Pink star Diamond</label>
-        <br />
-        <input
-          type="text"
-          name="pinkstardiamond"
-          onChange={handleChange}
-          value={inputs.pinkstardiamond}
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-        />
-        <br />
-        <br />
+        
 
         <label>Regent Diamond</label>
         <br />
@@ -260,29 +213,7 @@ function UpdateMaterialout() {
         <br />
         <br />
 
-        <label>Colombian Aquamarine</label>
-        <br />
-        <input
-          type="text"
-          name="colombianaquamarine"
-          onChange={handleChange}
-          value={inputs.colombianaquamarine}
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-        />
-        <br />
-        <br />
-
-        <label>Madagascar Aquamarine</label>
-        <br />
-        <input
-          type="text"
-          name="madagascaraquamarine"
-          onChange={handleChange}
-          value={inputs.madagascaraquamarine}
-          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
-        />
-        <br />
-        <br />
+       
 
         <label>Description</label>
         <br />

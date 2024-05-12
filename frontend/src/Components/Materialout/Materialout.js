@@ -16,14 +16,11 @@ function Materialout(props) {
     thairuby,
     burmeseruby,
     bluesapphire,
-    purplesapphire,
-    starsapphire,
-    whitesapphire,
+   
     blooddiamond,
-    pinkstardiamond,
+   
     regentdiamond,
-    colombianaquamarine,
-    madagascaraquamarine,
+    
     description,
   } = props.materialout;
 
@@ -57,14 +54,11 @@ function Materialout(props) {
       <td>{thairuby}</td>
       <td>{burmeseruby}</td>
       <td>{bluesapphire}</td>
-      <td>{purplesapphire}</td>
-      <td>{starsapphire}</td>
-      <td>{whitesapphire}</td>
+      
       <td>{blooddiamond}</td>
-      <td>{pinkstardiamond}</td>
+      
       <td>{regentdiamond}</td>
-      <td>{colombianaquamarine}</td>
-      <td>{madagascaraquamarine}</td>
+      
       <td>{description}</td>
       <td>
         <Link to={`/materialoutdetails/${_id}`}>

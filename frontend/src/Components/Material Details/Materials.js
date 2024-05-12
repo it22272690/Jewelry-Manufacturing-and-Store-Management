@@ -48,19 +48,23 @@ function Materials() {
   const [noResults, setNoResults] = useState(false);
   const [sortOrder, setSortOrder] = useState("asc"); // State to track sorting order
   const [showAll, setShowAll] = useState(false); // State to track whether to show all data
+  const [filterType, setFilterType] = useState("All"); // State to track filter type
 
   useEffect(() => {
     fetchHandler().then((data) => {
       setMaterials(data.materials);
-      setFilteredMaterials(data.materials);
+      setFilteredMaterials(filterMaterialsByType(data.materials, filterType));
       setTotalPages(Math.ceil(data.materials.length / MATERIALS_PER_PAGE));
     });
-  }, []);
+  }, [filterType]);
 
   const handleSearch = (query) => {
     const filtered = materials.filter((material) => {
-      return Object.values(material).some((val) =>
-        val.toString().toLowerCase().includes(query.toLowerCase())
+      return (
+        Object.values(material).some((val) =>
+          val.toString().toLowerCase().includes(query.toLowerCase())
+        ) &&
+        (filterType === "All" || material.type === filterType)
       );
     });
     setFilteredMaterials(filtered);
@@ -104,8 +108,16 @@ function Materials() {
     setShowAll(true); // Set showAll state to true to display all data
   };
 
+  const filterMaterialsByType = (materials, type) => {
+    if (type === "All") {
+      return materials;
+    } else {
+      return materials.filter((material) => material.type === type);
+    }
+  };
+
   return (
-    <div >
+    <div>
       <NavM />
       <center>
         <h1>Material Details Display Page</h1>
@@ -129,6 +141,53 @@ function Materials() {
 
       <br />
 
+      <div>
+        <label style={{ fontSize: "20px" }}>Filter by Type:</label>
+        <br />
+        <input
+          type="radio"
+          id="filterAllTypes"
+          name="filterType"
+          value="All"
+          checked={filterType === "All"}
+          onChange={() => setFilterType("All")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterAllTypes" style={{ marginRight: "10px" }}>All</label>
+        <input
+          type="radio"
+          id="filterMetal"
+          name="filterType"
+          value="Metal"
+          checked={filterType === "Metal"}
+          onChange={() => setFilterType("Metal")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterMetal" style={{ marginRight: "10px" }}>Metal</label>
+        <input
+          type="radio"
+          id="filterGem"
+          name="filterType"
+          value="Gem"
+          checked={filterType === "Gem"}
+          onChange={() => setFilterType("Gem")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterGem" style={{ marginRight: "10px" }}>Gem</label>
+        <input
+          type="radio"
+          id="filterDiamond"
+          name="filterType"
+          value="Diamond"
+          checked={filterType === "Diamond"}
+          onChange={() => setFilterType("Diamond")}
+          style={{ fontSize: "20px" }}
+        />
+        <label htmlFor="filterDiamond">Diamond</label>
+      </div>
+
+      <br />
+
       {noResults ? (
         <div>
           <p>No Materials Found</p>
@@ -139,7 +198,7 @@ function Materials() {
             <thead>
               <tr>
                 <th onClick={handleSort} style={{ cursor: "pointer" }}>
-                MaterialID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
+                  MaterialID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
                 <th>Name</th>
                 <th>Type</th>

@@ -3,85 +3,145 @@ const Materialin = require("../Model/MaterialinModel");
 
 // Retrieve all materialins
 const getAllMaterialins = async (req, res, next) => {
-    let materialins;
-    try {
-        materialins = await Materialin.find();
-    } catch (err) {
-        console.log(err);
-    }
-    // If no materialins found
-    if (!materialins) {
-        return res.status(404).json({ Message: "Materialin not found!" });
-    }
-    // Display all materialins
-    return res.status(200).json({ materialins });
+  let materialins;
+  try {
+    materialins = await Materialin.find();
+  } catch (err) {
+    console.log(err);
+  }
+  // If no materialins found
+  if (!materialins) {
+    return res.status(404).json({ Message: "Materialin not found!" });
+  }
+  // Display all materialins
+  return res.status(200).json({ materialins });
 };
 
 // Add new materialins
 const addMaterialins = async (req, res, next) => {
-    const { materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value } = req.body;
-    let materialins;
-    try {
-        materialins = new Materialin({ materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value });
-        await materialins.save();
-    } catch (err) {
-        console.log(err);
-    }
-    // If unable to add materialins
-    if (!materialins) {
-        return res.status(404).json({ message: "Unable to add materialins" });
-    }
-    return res.status(200).json({ materialins });
+  const {
+    materialinID,
+    supplierID,
+    date,
+    gold,
+    silver,
+    pladium,
+    platinum,
+    thairuby,
+    burmeseruby,
+    bluesapphire,
+    blooddiamond,
+    regentdiamond,
+    value,
+  } = req.body;
+  let materialins;
+  try {
+    materialins = new Materialin({
+      materialinID,
+      supplierID,
+      date,
+      gold,
+      silver,
+      pladium,
+      platinum,
+      thairuby,
+      burmeseruby,
+      bluesapphire,
+      blooddiamond,
+      regentdiamond,
+      value,
+    });
+    await materialins.save();
+  } catch (err) {
+    console.log(err);
+  }
+  // If unable to add materialins
+  if (!materialins) {
+    return res.status(404).json({ message: "Unable to add materialins" });
+  }
+  return res.status(200).json({ materialins });
 };
 
 // Retrieve materialin by ID
 const getById = async (req, res, next) => {
-    const id = req.params.id;
-    let materialin;
-    try {
-        materialin = await Materialin.findById(id);
-    } catch (err) {
-        console.log(err);
-    }
-    // If materialin not found
-    if (!materialin) {
-        return res.status(404).json({ message: "Materialin not found" });
-    }
-    return res.status(200).json({ materialin });
+  const id = req.params.id;
+  let materialin;
+  try {
+    materialin = await Materialin.findById(id);
+  } catch (err) {
+    console.log(err);
+  }
+  // If materialin not found
+  if (!materialin) {
+    return res.status(404).json({ message: "Materialin not found" });
+  }
+  return res.status(200).json({ materialin });
 };
 
 // Update materialin details
 const updateMaterialin = async (req, res, next) => {
-    const id = req.params.id;
-    const { materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value } = req.body;
-    let materialins;
-    try {
-        materialins = await Materialin.findByIdAndUpdate(id, { materialinID, supplierID, date, gold, silver, pladium, platinum, thairuby, burmeseruby, bluesapphire, purplesapphire, starsapphire, whitesapphire, blooddiamond, pinkstardiamond, regentdiamond, colombianaquamarine, madagascaraquamarine, value });
-        materialins = await materialins.save();
-    } catch (err) {
-        console.log(err);
-    }
-    // If unable to update materialin
-    if (!materialins) {
-        return res.status(404).json({ message: "Unable to update materialin details" });
-    }
-    return res.status(200).json({ materialins });
+  const id = req.params.id;
+  const {
+    materialinID,
+    supplierID,
+    date,
+    gold,
+    silver,
+    pladium,
+    platinum,
+    thairuby,
+    burmeseruby,
+    bluesapphire,
+    blooddiamond,
+    regentdiamond,
+    value,
+  } = req.body;
+  let materialins;
+  try {
+    materialins = await Materialin.findByIdAndUpdate(id, {
+      materialinID,
+      supplierID,
+      date,
+      gold,
+      silver,
+      pladium,
+      platinum,
+      thairuby,
+      burmeseruby,
+      bluesapphire,
+      blooddiamond,
+      regentdiamond,
+      value,
+    });
+    materialins = await materialins.save();
+  } catch (err) {
+    console.log(err);
+  }
+  // If unable to update materialin
+  if (!materialins) {
+    return res
+      .status(404)
+      .json({ message: "Unable to update materialin details" });
+  }
+  return res.status(200).json({ materialins });
 };
 
 // Delete materialin details
 const deleteMaterialin = async (req, res, next) => {
-    const id = req.params.id;
-    let materialin;
-    try {
-        materialin = await Materialin.findByIdAndDelete(id);
-    } catch (err) {
-        console.log(err);
-    }
-    // If unable to delete materialin
-    if (!materialin) {
-        return res.status(404).json({ message: "Unable to delete materialin details" });
-    }
-    return res.status(200).json({ materialin });
+  const id = req.params.id;
+  let materialin;
+  try {
+    materialin = await Materialin.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+  }
+  // If unable to delete materialin
+  if (!materialin) {
+    return res
+      .status(404)
+      .json({ message: "Unable to delete materialin details" });
+  }
+  return res.status(200).json({ materialin });
 };
 
 // Export functions

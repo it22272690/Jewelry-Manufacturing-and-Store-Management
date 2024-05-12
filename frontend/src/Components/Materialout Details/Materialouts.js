@@ -142,6 +142,7 @@ function Materialouts() {
                 MaterialoutID {sortOrder === "asc" ? "↑" : "↓"} {/* Display arrow based on sorting order */}
                 </th>
                 <th>JobID</th>
+                <th>Date</th>
                 <th>Gold</th>
                 <th>Silver</th>
                 <th>Pladium</th>
@@ -149,14 +150,11 @@ function Materialouts() {
                 <th>Thai Ruby</th>
                 <th>Burmese Ruby</th>
                 <th>Blue Sapphire</th>
-                <th>Purple Sapphire</th>
-                <th>Star Sapphire</th>
-                <th>White Sapphire</th>
+                
                 <th>Blood Diamond</th>
-                <th>Pink star Diamond</th>
+                
                 <th>Regent Diamond</th>
-                <th>Colombian Aquamarine</th>
-                <th>Madagascar Aquamarine</th>
+                
                 <th>Description</th>
                 <th>Actions</th>
               </tr>
@@ -190,14 +188,11 @@ function Materialouts() {
                   <Text style={styles.cell}>Thai Ruby</Text>
                   <Text style={styles.cell}>Burmese Ruby</Text>
                   <Text style={styles.cell}>Blue Sapphire</Text>
-                  <Text style={styles.cell}>Purple Sapphire</Text>
-                  <Text style={styles.cell}>Star Sapphire</Text>
-                  <Text style={styles.cell}>White Sapphire</Text>
+                  
                   <Text style={styles.cell}>Blood Diamond</Text>
-                  <Text style={styles.cell}>Pink star Diamond</Text>
+                 
                   <Text style={styles.cell}>Regent Diamond</Text>
-                  <Text style={styles.cell}>Colombian Aquamarine</Text>
-                  <Text style={styles.cell}>Madagascar Aquamarine</Text>
+                  
                   <Text style={styles.cell}>Description</Text>
                 </View>
                 {showAll ? (
@@ -214,14 +209,11 @@ function Materialouts() {
                       <Text style={styles.cell}>{materialout.thairuby}</Text>
                       <Text style={styles.cell}>{materialout.burmeseruby}</Text>
                       <Text style={styles.cell}>{materialout.bluesapphire}</Text>
-                      <Text style={styles.cell}>{materialout.purplesapphire}</Text>
-                      <Text style={styles.cell}>{materialout.starsapphire}</Text>
-                      <Text style={styles.cell}>{materialout.whitesapphire}</Text>
+                      
                       <Text style={styles.cell}>{materialout.blooddiamond}</Text>
-                      <Text style={styles.cell}>{materialout.pinkstardiamond}</Text>
+                     
                       <Text style={styles.cell}>{materialout.regentdiamond}</Text>
-                      <Text style={styles.cell}>{materialout.colombianaquamarine}</Text>
-                      <Text style={styles.cell}>{materialout.madagascaraquamarine}</Text>
+                      
                   <Text style={styles.cell}>{materialout.description}</Text>
                 </View>
                   ))
@@ -239,14 +231,11 @@ function Materialouts() {
                       <Text style={styles.cell}>{materialout.thairuby}</Text>
                       <Text style={styles.cell}>{materialout.burmeseruby}</Text>
                       <Text style={styles.cell}>{materialout.bluesapphire}</Text>
-                      <Text style={styles.cell}>{materialout.purplesapphire}</Text>
-                      <Text style={styles.cell}>{materialout.starsapphire}</Text>
-                      <Text style={styles.cell}>{materialout.whitesapphire}</Text>
+                      
                       <Text style={styles.cell}>{materialout.blooddiamond}</Text>
-                      <Text style={styles.cell}>{materialout.pinkstardiamond}</Text>
+                      
                       <Text style={styles.cell}>{materialout.regentdiamond}</Text>
-                      <Text style={styles.cell}>{materialout.colombianaquamarine}</Text>
-                      <Text style={styles.cell}>{materialout.madagascaraquamarine}</Text>
+                      
                   <Text style={styles.cell}>{materialout.description}</Text>
                     </View>
                   ))

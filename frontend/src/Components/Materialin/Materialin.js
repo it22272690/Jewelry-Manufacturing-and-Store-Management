@@ -16,14 +16,8 @@ function Materialin(props) {
     thairuby,
     burmeseruby,
     bluesapphire,
-    purplesapphire,
-    starsapphire,
-    whitesapphire,
     blooddiamond,
-    pinkstardiamond,
     regentdiamond,
-    colombianaquamarine,
-    madagascaraquamarine,
     value,
   } = props.materialin;
 
@@ -57,14 +51,11 @@ function Materialin(props) {
       <td>{thairuby}</td>
       <td>{burmeseruby}</td>
       <td>{bluesapphire}</td>
-      <td>{purplesapphire}</td>
-      <td>{starsapphire}</td>
-      <td>{whitesapphire}</td>
+
       <td>{blooddiamond}</td>
-      <td>{pinkstardiamond}</td>
+
       <td>{regentdiamond}</td>
-      <td>{colombianaquamarine}</td>
-      <td>{madagascaraquamarine}</td>
+
       <td>{value}</td>
       <td>
         <Link to={`/materialindetails/${_id}`}>

@@ -85,27 +85,51 @@ function UpdateMaterial() {
 
         <label>Type</label>
         <br />
-        <input
-          type="text"
+        <select
           name="type"
           onChange={handleChange}
           value={inputs.type}
           required
-          pattern="[a-zA-Z]+"
-        />
+        >
+          <option value="">Select Type</option>
+          <option value="Metal">Metal</option>
+          <option value="Gem">Gem</option>
+          <option value="Diamond">Diamond</option>
+        </select>
         <br />
         <br />
 
         <label>Grade</label>
         <br />
-        <input
-          type="text"
+        <select
           name="grade"
           onChange={handleChange}
           value={inputs.grade}
           required
-          pattern="[a-zA-Z]+"
-        />
+        >
+          <option value="">Select Grade</option>
+          {inputs.type === "Metal" && (
+            <>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </>
+          )}
+          {inputs.type === "Gem" && (
+            <>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </>
+          )}
+          {inputs.type === "Diamond" && (
+            <>
+              <option value="G">G</option>
+              <option value="H">H</option>
+              <option value="I">I</option>
+            </>
+          )}
+        </select>
         <br />
         <br />
 
@@ -117,21 +141,31 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.supplierID}
           required
-          pattern="[a-zA-Z]+"
+          pattern="[A-Za-z0-9]+"
         />
         <br />
         <br />
 
         <label>Unit</label>
         <br />
-        <input
-          type="text"
+        <select
           name="unit"
           onChange={handleChange}
           value={inputs.unit}
           required
-          pattern="[a-zA-Z]+"
-        />
+        >
+          <option value="">Select Unit</option>
+          {inputs.type === "Metal" && (
+            <>
+              <option value="grams">Grams</option>
+            </>
+          )}
+          {(inputs.type === "Gem" || inputs.type === "Diamond") && (
+            <>
+              <option value="carats">Carats</option>
+            </>
+          )}
+        </select>
         <br />
         <br />
 
@@ -176,13 +210,13 @@ function UpdateMaterial() {
 
         <label>Description</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          pattern="[a-zA-Z]+"
-        />
+          rows="4"
+          cols="50"
+        ></textarea>
         <br />
         <br />
 

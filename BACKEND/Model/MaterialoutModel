@@ -48,38 +48,17 @@ const materialoutSchema = new Schema({
   bluesapphire: {
     type: Number,
   },
-  // Quantity of purple sapphire issued
-  purplesapphire: {
-    type: Number,
-  },
-  // Quantity of star sapphire issued
-  starsapphire: {
-    type: Number,
-  },
-  // Quantity of white sapphire issued
-  whitesapphire: {
-    type: Number,
-  },
+  
   // Quantity of blood diamond issued
   blooddiamond: {
     type: Number,
   },
-  // Quantity of pink star diamond issued
-  pinkstardiamond: {
-    type: Number,
-  },
+  
   // Quantity of regent diamond issued
   regentdiamond: {
     type: Number,
   },
-  // Quantity of Colombian aquamarine issued
-  colombianaquamarine: {
-    type: Number,
-  },
-  // Quantity of Madagascar aquamarine issued
-  madagascaraquamarine: {
-    type: Number,
-  },
+  
   // Description of the material outward entry (optional)
   description: {
     type: String,
