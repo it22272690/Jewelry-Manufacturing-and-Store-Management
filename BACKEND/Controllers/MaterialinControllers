@@ -61,15 +61,15 @@ const addMaterialins = async (req, res, next) => {
 
     // Update quantities in the material model
     const materialsToUpdate = [
-      { name: 'Gold', quantity: gold },
-      { name: 'Silver', quantity: silver },
-      { name: 'Pladium', quantity: pladium },
-      { name: 'Platinum', quantity: platinum },
-      { name: 'Thai Ruby', quantity: thairuby },
-      { name: 'Burmese Ruby', quantity: burmeseruby },
-      { name: 'Blue Sapphire', quantity: bluesapphire },
-      { name: 'Blood Diamond', quantity: blooddiamond },
-      { name: 'Regent Diamond', quantity: regentdiamond }
+      { name: "Gold", quantity: gold },
+      { name: "Silver", quantity: silver },
+      { name: "Pladium", quantity: pladium },
+      { name: "Platinum", quantity: platinum },
+      { name: "Thai Ruby", quantity: thairuby },
+      { name: "Burmese Ruby", quantity: burmeseruby },
+      { name: "Blue Sapphire", quantity: bluesapphire },
+      { name: "Blood Diamond", quantity: blooddiamond },
+      { name: "Regent Diamond", quantity: regentdiamond },
     ];
 
     // Loop through materialsToUpdate and update quantities
@@ -80,7 +80,9 @@ const addMaterialins = async (req, res, next) => {
       );
     }
 
-    res.status(201).json({ message: "Materialin data added successfully.", materialins });
+    res
+      .status(201)
+      .json({ message: "Materialin data added successfully.", materialins });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error." });
@@ -140,33 +142,37 @@ const updateMaterialin = async (req, res, next) => {
     const diffRegentDiamond = regentdiamond - materialin.regentdiamond;
 
     // Update the materialin document
-    materialin = await MaterialinModel.findByIdAndUpdate(id, {
-      materialinID,
-      supplierID,
-      date,
-      gold,
-      silver,
-      pladium,
-      platinum,
-      thairuby,
-      burmeseruby,
-      bluesapphire,
-      blooddiamond,
-      regentdiamond,
-      value,
-    }, { new: true });
+    materialin = await MaterialinModel.findByIdAndUpdate(
+      id,
+      {
+        materialinID,
+        supplierID,
+        date,
+        gold,
+        silver,
+        pladium,
+        platinum,
+        thairuby,
+        burmeseruby,
+        bluesapphire,
+        blooddiamond,
+        regentdiamond,
+        value,
+      },
+      { new: true }
+    );
 
     // Update quantities in the material model
     const materialsToUpdate = [
-      { name: 'Gold', quantity: diffGold },
-      { name: 'Silver', quantity: diffSilver },
-      { name: 'Pladium', quantity: diffPladium },
-      { name: 'Platinum', quantity: diffPlatinum },
-      { name: 'Thai Ruby', quantity: diffThaiRuby },
-      { name: 'Burmese Ruby', quantity: diffBurmeseRuby },
-      { name: 'Blue Sapphire', quantity: diffBlueSapphire },
-      { name: 'Blood Diamond', quantity: diffBloodDiamond },
-      { name: 'Regent Diamond', quantity: diffRegentDiamond }
+      { name: "Gold", quantity: diffGold },
+      { name: "Silver", quantity: diffSilver },
+      { name: "Pladium", quantity: diffPladium },
+      { name: "Platinum", quantity: diffPlatinum },
+      { name: "Thai Ruby", quantity: diffThaiRuby },
+      { name: "Burmese Ruby", quantity: diffBurmeseRuby },
+      { name: "Blue Sapphire", quantity: diffBlueSapphire },
+      { name: "Blood Diamond", quantity: diffBloodDiamond },
+      { name: "Regent Diamond", quantity: diffRegentDiamond },
     ];
 
     // Loop through materialsToUpdate and update quantities
@@ -177,7 +183,9 @@ const updateMaterialin = async (req, res, next) => {
       );
     }
 
-    res.status(200).json({ message: "Materialin data updated successfully.", materialin });
+    res
+      .status(200)
+      .json({ message: "Materialin data updated successfully.", materialin });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error." });
@@ -209,5 +217,5 @@ module.exports = {
   addMaterialins,
   getById,
   updateMaterialin,
-  deleteMaterialin
+  deleteMaterialin,
 };
