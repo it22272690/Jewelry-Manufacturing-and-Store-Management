@@ -64,20 +64,18 @@ function UpdateSupplier() {
           value={inputs.supplierID}
           required
           pattern="[A-Za-z0-9]+"
+          disabled
         />
         <br />
         <br />
 
         <label>Name</label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="name"
           onChange={handleChange}
           value={inputs.name}
-          required
-          pattern="[a-zA-Z ]+"
-        />
+        ></textarea>
         <br />
         <br />
 

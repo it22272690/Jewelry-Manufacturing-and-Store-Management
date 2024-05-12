@@ -62,6 +62,7 @@ function UpdateReserve() {
           value={inputs.reserveID}
           required
           pattern="[A-Za-z0-9]+"
+          disabled
         />
         <br />
         <br />
@@ -106,15 +107,14 @@ function UpdateReserve() {
         <br />
 
         <label>Description</label>
-<br />
-<textarea
-  name="description"
-  onChange={handleChange}
-  value={inputs.description}
-></textarea>
-<br />
-<br />
-
+        <br />
+        <textarea
+          name="description"
+          onChange={handleChange}
+          value={inputs.description}
+        ></textarea>
+        <br />
+        <br />
 
         <div>
           <label>Status</label>

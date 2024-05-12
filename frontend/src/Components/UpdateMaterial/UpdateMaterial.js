@@ -66,6 +66,7 @@ function UpdateMaterial() {
           value={inputs.materialID}
           required
           pattern="[A-Za-z0-9]+"
+          disabled
         />
         <br />
         <br />
@@ -79,7 +80,6 @@ function UpdateMaterial() {
           value={inputs.name}
           required
           pattern="[a-zA-Z ]+"
-
         />
         <br />
         <br />
@@ -135,21 +135,20 @@ function UpdateMaterial() {
         <br />
 
         <label>SupplierID</label>
-<br />
-<select
-  name="supplierID"
-  onChange={handleChange}
-  value={inputs.supplierID}
-  required
->
-  <option value="">Select Supplier</option>
-  <option value="S001">S001</option>
-  <option value="S002">S002</option>
-  <option value="S003">S003</option>
-</select>
-<br />
-<br />
-
+        <br />
+        <select
+          name="supplierID"
+          onChange={handleChange}
+          value={inputs.supplierID}
+          required
+        >
+          <option value="">Select Supplier</option>
+          <option value="S001">S001</option>
+          <option value="S002">S002</option>
+          <option value="S003">S003</option>
+        </select>
+        <br />
+        <br />
 
         <label>Unit</label>
         <br />
@@ -188,18 +187,17 @@ function UpdateMaterial() {
         <br />
 
         <label>Unitcost</label>
-<br />
-<input
-  type="text"
-  name="unitcost"
-  onChange={handleChange}
-  value={inputs.unitcost}
-  required
-  pattern="^\d+(\.\d{1,2})?$"
-/>
-<br />
-<br />
-
+        <br />
+        <input
+          type="text"
+          name="unitcost"
+          onChange={handleChange}
+          value={inputs.unitcost}
+          required
+          pattern="^\d+(\.\d{1,2})?$"
+        />
+        <br />
+        <br />
 
         <label>Quantity</label>
         <br />
@@ -220,7 +218,6 @@ function UpdateMaterial() {
           name="description"
           onChange={handleChange}
           value={inputs.description}
-          
         ></textarea>
         <br />
         <br />

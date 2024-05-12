@@ -32,11 +32,11 @@ function UpdateMaterialout() {
         thairuby: String(inputs.thairuby),
         burmeseruby: String(inputs.burmeseruby),
         bluesapphire: String(inputs.bluesapphire),
-        
+
         blooddiamond: String(inputs.blooddiamond),
-        
+
         regentdiamond: String(inputs.regentdiamond),
-        
+
         description: String(inputs.description),
       })
       .then((res) => res.data);
@@ -72,6 +72,7 @@ function UpdateMaterialout() {
           value={inputs.materialoutID}
           required
           pattern="[A-Za-z0-9]+"
+          disabled
         />
         <br />
         <br />
@@ -185,8 +186,6 @@ function UpdateMaterialout() {
         <br />
         <br />
 
-        
-
         <label>Blood Diamond</label>
         <br />
         <input
@@ -198,8 +197,6 @@ function UpdateMaterialout() {
         />
         <br />
         <br />
-
-        
 
         <label>Regent Diamond</label>
         <br />
@@ -213,18 +210,15 @@ function UpdateMaterialout() {
         <br />
         <br />
 
-       
-
         <label>Description</label>
-<br />
-<textarea
-  name="description"
-  onChange={handleChange}
-  value={inputs.description}
-></textarea>
-<br />
-<br />
-
+        <br />
+        <textarea
+          name="description"
+          onChange={handleChange}
+          value={inputs.description}
+        ></textarea>
+        <br />
+        <br />
 
         <button type="submit">Submit</button>
       </form>

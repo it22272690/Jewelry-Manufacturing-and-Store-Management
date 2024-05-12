@@ -32,11 +32,11 @@ function UpdateMaterialin() {
         thairuby: String(inputs.thairuby),
         burmeseruby: String(inputs.burmeseruby),
         bluesapphire: String(inputs.bluesapphire),
-        
+
         blooddiamond: String(inputs.blooddiamond),
-        
+
         regentdiamond: String(inputs.regentdiamond),
-        
+
         value: String(inputs.value),
       })
       .then((res) => res.data);
@@ -72,6 +72,7 @@ function UpdateMaterialin() {
           value={inputs.materialinID}
           required
           pattern="[A-Za-z0-9]+"
+          disabled
         />
         <br />
         <br />
@@ -188,7 +189,6 @@ function UpdateMaterialin() {
         <br />
         <br />
 
-
         <label>Blood Diamond</label>
         <br />
         <input
@@ -201,7 +201,6 @@ function UpdateMaterialin() {
         <br />
         <br />
 
-
         <label>Regent Diamond</label>
         <br />
         <input
@@ -213,7 +212,6 @@ function UpdateMaterialin() {
         />
         <br />
         <br />
-
 
         <label>Value</label>
         <br />
