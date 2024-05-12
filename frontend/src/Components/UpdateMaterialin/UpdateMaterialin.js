@@ -78,13 +78,17 @@ function UpdateMaterialin() {
 
         <label>SupplierID</label>
         <br />
-        <input
-          type="text"
+        <select
           name="supplierID"
           onChange={handleChange}
           value={inputs.supplierID}
           required
-        />
+        >
+          <option value="">Select SupplierID</option>
+          <option value="S001">S001</option>
+          <option value="S002">S002</option>
+          <option value="S003">S003</option>
+        </select>
         <br />
         <br />
 
@@ -184,7 +188,6 @@ function UpdateMaterialin() {
         <br />
         <br />
 
-        
 
         <label>Blood Diamond</label>
         <br />
@@ -198,7 +201,6 @@ function UpdateMaterialin() {
         <br />
         <br />
 
-        
 
         <label>Regent Diamond</label>
         <br />
@@ -212,7 +214,6 @@ function UpdateMaterialin() {
         <br />
         <br />
 
-        
 
         <label>Value</label>
         <br />

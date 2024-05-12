@@ -78,14 +78,17 @@ function AddMaterialin() {
 
         <label>SupplierID</label>
         <br />
-        <input
-          type="text"
+        <select
           name="supplierID"
           onChange={handleChange}
           value={inputs.supplierID}
           required
-          pattern="[A-Za-z0-9]+"
-        />
+        >
+          <option value="">Select SupplierID</option>
+          <option value="S001">S001</option>
+          <option value="S002">S002</option>
+          <option value="S003">S003</option>
+        </select>
         <br />
         <br />
 
