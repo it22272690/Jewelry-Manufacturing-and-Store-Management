@@ -33,7 +33,6 @@ const cusSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   ChooseItem: {
     type: String,
     enum: ['ring', 'chain', 'earring', 'bracelet', 'pendant', 'necklace', 'bangle'],
@@ -43,30 +42,18 @@ const cusSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Material1: {
-    type: String,
+  NumberOfMaterials: {
+    type: Number,
     required: true,
   },
-  MaterialWeight1: {
+  MaterialTypes: [{
     type: String,
     required: true,
-  },
-  Material2: {
+  }],
+  MaterialWeights: [{
     type: String,
     required: true,
-  },
-  MaterialWeight2: {
-    type: String,
-    required: true,
-  },
-  Material3: {
-    type: String,
-    required: true,
-  },
-  MaterialWeight3: {
-    type: String,
-    required: true,
-  },
+  }],
   AttributeType: {
     type: String,
     required: true,

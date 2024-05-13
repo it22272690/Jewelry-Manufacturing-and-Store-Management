@@ -9,7 +9,7 @@ class Navbar extends React.Component {
       <div className="container">
         <div className="header_flex">
           <div>
-            <a href="/"><img src="https://sudip-bhowmick.github.io/images/img/logo.svg" alt="logo" className="logo" /></a>
+            <a href="/"><img src="\images\logo.png" alt="logo" className="logo" style={{width:'300px'}}/></a>
           </div>
           <div className="d_flex gap_26">
             <div className="d_flex gap_26">
@@ -30,7 +30,7 @@ class Navbar extends React.Component {
               </div>
             </div>
             <div className="header_cta">
-              <a href="javascript:void(0)" className="btn_one">Book a call</a>
+              <a href="javascript:void(0)" className="btn_one">Video call</a>
             </div>
 
             <button type="button" className="burger" id="burger">
@@ -47,8 +47,8 @@ class Navbar extends React.Component {
           <ul>
             <li><a href="javascript:void(0)" className="active">Home</a></li>
             <li><a href="/AddCuss" >Customize Order</a></li>
-            <li><a href="javascript:void(0)">Services</a></li>
-            <li><a href="javascript:void(0)">Forms</a></li>
+            <li><a href="/CusDetails">Order Details</a></li>
+            <li><a href="javascript:void(0)">Book Appointment</a></li>
             <li>
               <a className="has_sub_menu" href="javascript:void(0)">Calculators</a>
               <ul className="sub_menu">
