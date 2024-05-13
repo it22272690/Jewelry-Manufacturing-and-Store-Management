@@ -1,6 +1,52 @@
 // Importing Material Model
 const Material = require("../Model/MaterialModel");
 
+const nodemailer = require('nodemailer');
+const cron = require('node-cron');
+
+// Create a transporter object
+const transporter = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "a751e1a269597e",
+      pass: "dc4036d04b659b"
+    }
+});
+
+// Function to send email notification
+const sendEmailNotification = (materialName, materialQuantity) => {
+    const mailOptions = {
+        from: 'yourusername@email.com',
+        to: 'your-email@example.com', // Change to your email
+        subject: 'Material Quantity Notification',
+        text: `Dear Admin,\n\nThe quantity of ${materialName} is now ${materialQuantity}. Please restock.\n\nRegards,\nYour App`
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.error('Error:', error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+};
+
+// Background job to check material quantity and send email notification if below 5
+const checkMaterialQuantityJob = cron.schedule('* * * * *', async () => {
+    try {
+        const materials = await Material.find({ quantity: { $lt: 5 } });
+
+        materials.forEach(material => {
+            sendEmailNotification(material.name, material.quantity);
+        });
+    } catch (err) {
+        console.error('Error checking material quantity:', err);
+    }
+});
+
+checkMaterialQuantityJob.start(); // Start the cron job
+
 // Get all materials
 const getAllMaterials = async (req, res, next) => {
   let materials;
