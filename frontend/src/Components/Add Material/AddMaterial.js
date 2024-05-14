@@ -16,6 +16,7 @@ function AddMaterial() {
     unitcost: "",
     quantity: "",
     description: "",
+    margin: "",
   });
 
   const handleChange = (e) => {
@@ -45,6 +46,7 @@ function AddMaterial() {
         unitcost: String(inputs.unitcost),
         quantity: String(inputs.quantity),
         description: String(inputs.description),
+        margin: String(inputs.margin),
       })
       .then((res) => res.data);
   };
@@ -230,6 +232,20 @@ function AddMaterial() {
           value={inputs.description}
           placeholder="Description "
         ></textarea>
+        <br />
+        <br />
+
+        <label>Margin</label>
+        <br />
+        <input
+          type="text"
+          name="margin"
+          onChange={handleChange}
+          value={inputs.margin}
+          required
+          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+          placeholder="Margin "
+        />
         <br />
         <br />
 

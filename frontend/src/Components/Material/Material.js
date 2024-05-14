@@ -16,6 +16,7 @@ function Material(props) {
     unitcost,
     quantity,
     description,
+    margin,
   } = props.material;
 
   const history = useNavigate();
@@ -48,6 +49,7 @@ function Material(props) {
       <td>{unitcost}</td>
       <td>{quantity}</td>
       <td>{description}</td>
+      <td>{margin}</td>
       <td>
         <Link to={`/materialdetails/${_id}`}>
           <button>Update</button>

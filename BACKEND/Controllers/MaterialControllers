@@ -32,17 +32,19 @@ const sendEmailNotification = (materialName, materialQuantity) => {
     });
 };
 
-// Background job to check material quantity and send email notification if below 5
+// Background job to check material quantity and send email notification if below margin
 const checkMaterialQuantityJob = cron.schedule('* * * * *', async () => {
-    try {
-        const materials = await Material.find({ quantity: { $lt: 5 } });
+  try {
+      const materials = await Material.find();
 
-        materials.forEach(material => {
-            sendEmailNotification(material.name, material.quantity);
-        });
-    } catch (err) {
-        console.error('Error checking material quantity:', err);
-    }
+      materials.forEach(material => {
+          if (material.quantity < material.margin) {
+              sendEmailNotification(material.name, material.quantity);
+          }
+      });
+  } catch (err) {
+      console.error('Error checking material quantity:', err);
+  }
 });
 
 checkMaterialQuantityJob.start(); // Start the cron job
@@ -76,6 +78,7 @@ const addMaterials = async (req, res, next) => {
     unitcost,
     quantity,
     description,
+    margin,
   } = req.body;
   let materials;
   try {
@@ -90,6 +93,7 @@ const addMaterials = async (req, res, next) => {
       unitcost,
       quantity,
       description,
+      margin,
     });
     await materials.save();
   } catch (err) {
@@ -132,6 +136,7 @@ const updateMaterial = async (req, res, next) => {
     unitcost,
     quantity,
     description,
+    margin,
   } = req.body;
   let materials;
   try {
@@ -146,6 +151,7 @@ const updateMaterial = async (req, res, next) => {
       unitcost,
       quantity,
       description,
+      margin,
     });
     materials = await materials.save();
   } catch (err) {

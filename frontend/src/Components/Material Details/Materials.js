@@ -209,6 +209,7 @@ function Materials() {
                 <th>Unitcost</th>
                 <th>Quantity</th>
                 <th>Description</th>
+                <th>Margin</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -241,6 +242,7 @@ function Materials() {
                   <Text style={styles.cell}>Unitcost</Text>
                   <Text style={styles.cell}>Quantity</Text>
                   <Text style={styles.cell}>Description</Text>
+                  <Text style={styles.cell}>Margin</Text>
                 </View>
                 {showAll ? (
                   // Render all materials if showAll is true
@@ -256,6 +258,7 @@ function Materials() {
                       <Text style={styles.cell}>{material.unitcost}</Text>
                       <Text style={styles.cell}>{material.quantity}</Text>
                       <Text style={styles.cell}>{material.description}</Text>
+                      <Text style={styles.cell}>{material.margin}</Text>
                     </View>
                   ))
                 ) : (
@@ -272,6 +275,7 @@ function Materials() {
                       <Text style={styles.cell}>{material.unitcost}</Text>
                       <Text style={styles.cell}>{material.quantity}</Text>
                       <Text style={styles.cell}>{material.description}</Text>
+                      <Text style={styles.cell}>{material.margin}</Text>
                     </View>
                   ))
                 )}

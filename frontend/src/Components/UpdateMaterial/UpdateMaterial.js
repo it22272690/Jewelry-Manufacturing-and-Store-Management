@@ -32,6 +32,7 @@ function UpdateMaterial() {
         unitcost: String(inputs.unitcost),
         quantity: String(inputs.quantity),
         description: String(inputs.description),
+        margin: String(inputs.margin),
       })
       .then((res) => res.data);
   };
@@ -219,6 +220,19 @@ function UpdateMaterial() {
           onChange={handleChange}
           value={inputs.description}
         ></textarea>
+        <br />
+        <br />
+
+        <label>Margin</label>
+        <br />
+        <input
+          type="text"
+          name="margin"
+          onChange={handleChange}
+          value={inputs.margin}
+          required
+          pattern="^(?!-)[0-9]+(\.[0-9]+)?$"
+        />
         <br />
         <br />
 

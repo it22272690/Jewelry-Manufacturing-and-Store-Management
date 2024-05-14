@@ -54,6 +54,10 @@ const materialSchema = new Schema({
   description: {
     type: String,
   },
+  margin: {
+    type: Number,
+    required: true,
+  },
 });
 
 // Creating a model based on the schema and exporting it
