@@ -4,10 +4,10 @@ import React from "react";
 //new
 import { Link } from "react-router-dom";
 
-function Home() {
+function Inventory() {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1>Inventory Page</h1>
 
       <Link to="/materialdetails">
         <h1>Material Page</h1>
@@ -34,4 +34,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Inventory;

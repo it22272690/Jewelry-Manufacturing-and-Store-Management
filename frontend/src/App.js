@@ -1,7 +1,7 @@
 import React from "react";
 import {Route,Routes} from "react-router";
 import "./App.css";
-import Home from "./Components/Home/Home";
+import Inventory from "./Components/Inventory/Inventory";
 import AddMaterial from "./Components/Add Material/AddMaterial";
 import Materials from "./Components/Material Details/Materials";
 import UpdateMaterial from "./Components/UpdateMaterial/UpdateMaterial";
@@ -31,8 +31,8 @@ function App() {
     <div>
       <React.Fragment>
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/mainhome" element={<Home/>}/>
+          <Route path="/" element={<Inventory/>}/>
+          <Route path="/maininventory" element={<Inventory/>}/>
           <Route path="/addmaterial" element={<AddMaterial/>}/>
           <Route path="/materialdetails" element={<Materials/>}/>
           <Route path="/materialdetails/:id" element={<UpdateMaterial/>}/>
