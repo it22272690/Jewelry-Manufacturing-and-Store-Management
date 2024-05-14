@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
     fontWeight: 'bold', // Add bold style here
+    fontSize: 10, // Set the font size here
   },
 });
 
