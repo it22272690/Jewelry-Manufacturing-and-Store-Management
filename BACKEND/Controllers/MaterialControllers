@@ -6,12 +6,12 @@ const cron = require('node-cron');
 
 // Create a transporter object
 const transporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
-    auth: {
-      user: "a751e1a269597e",
-      pass: "dc4036d04b659b"
-    }
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "ea375666bd195a",
+    pass: "b8d213fad5b4bb"
+  }
 });
 
 // Function to send email notification
