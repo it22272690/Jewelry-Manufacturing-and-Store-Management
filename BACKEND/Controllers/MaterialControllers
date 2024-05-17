@@ -9,8 +9,8 @@ const transporter = nodemailer.createTransport({
   host: "sandbox.smtp.mailtrap.io",
   port: 2525,
   auth: {
-    user: "ea375666bd195a",
-    pass: "b8d213fad5b4bb"
+    user: "ea375666bd195a", //first login access was changed; email box had reached the limit.
+    pass: "b8d213fad5b4bb" // also password was reset!
   }
 });
 
