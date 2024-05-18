@@ -20,7 +20,7 @@ const getAllUsers = async (req, res, next) => {
 
 //data insert
 const addUsers = async (req, res, next) => {
-  const { name, DOB, address, phoneNumber, email, username, password, role } =
+  const { name, DOB, address, phoneNumber, email, username, password,nic, role } =
     req.body;
 
   let users;
@@ -34,6 +34,7 @@ const addUsers = async (req, res, next) => {
       email,
       username,
       password,
+      nic,
       role,
     });
     await users.save();
@@ -67,7 +68,7 @@ const getById = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   const id = req.params.id; // Get the user ID from the request parameters
-  const { name, DOB, address, phoneNumber, email, username, role } = req.body; // Destructure user details from the request body
+  const { name, DOB, address, phoneNumber, email, username, nic,role } = req.body; // Destructure user details from the request body
 
   try {
     // Check if the provided ID is a valid ObjectId
@@ -83,6 +84,7 @@ const updateUser = async (req, res, next) => {
       phoneNumber,
       email,
       username,
+      nic,
       role // Exclude password field from the update object
     };
 
@@ -157,6 +159,8 @@ const signIn = async (req, res, next) => {
               DOB: user.DOB,
               phoneNumber:user.phoneNumber,
               username:user.username,
+              id:user.id,
+              nic:user.nic,
               role: user.role
           }
       });
@@ -179,7 +183,7 @@ const signUp = async (req, res, next) => {
       return res.status(400).json({ message: "Admin already registered" });
     }
 
-    const { name, DOB, address, phoneNumber, email, username, password } =
+    const { name, DOB, address, phoneNumber, email, username, password,nic } =
       req.body;
 
     const newUser = new User({
@@ -190,6 +194,7 @@ const signUp = async (req, res, next) => {
       email,
       username,
       password,
+      nic,
       role: "admin"
     });
     await newUser.save();

@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { signout } from '../../../actions/user.action';
-
-
 
 const CustomerDashboard = () => {
   const [user, setUser] = useState(null);
@@ -111,41 +109,35 @@ const CustomerDashboard = () => {
     }
   };
   const handleProductionStatusClick = () => {
-   
-   
     history(`/room/roomId`);
   };
   return (
     <div>
-      <header className="header">
+      <header className="headertitle">
         <h1>{headerTitle}</h1>
       </header>
       <div className="dashboard">
         <div className="sidebar">
           <ul>
             <p align='center' className="name">{user ? user.name : 'Customer'}</p>
-            <li><button onClick={() => handleSidebarButtonClick("Dashboard")}>Dashboard</button></li>
-            <li><button onClick={() => handleSidebarButtonClick("Orders")}>Orders</button></li>
-            <li><button onClick={() => { fetchCustomerDetails(); handleSidebarButtonClick("Account Details") }}>Account Details</button></li>
-            <li><button onClick={() => handleSidebarButtonClick("Settings")}>Settings</button></li>
-            <li><button onClick={() => { setShowDeleteConfirmation(true); handleSidebarButtonClick("Delete Account") }}>Delete Account</button></li>
-            <li><button onClick={logout}>Logout</button></li>
+            <li><button onClick={() => handleSidebarButtonClick("Dashboard")}><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/FFFFFF/dashboard-layout.png" alt="dashboard-layout"/>Dashboard</button></li>
+
+            <li><button onClick={() => { fetchCustomerDetails(); handleSidebarButtonClick("Account Details") }}><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/FFFFFF/guest-male.png" alt="guest-male"/>Account Details</button></li>
+            <li><button onClick={() => { setShowDeleteConfirmation(true); handleSidebarButtonClick("Delete Account") }}><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/FFFFFF/filled-trash.png" alt="filled-trash"/>Delete Account</button></li>
+            <li><button onClick={logout}><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/FFFFFF/exit.png" alt="exit"/>Logout</button></li>
           </ul>
         </div>
 
         {showBigButtons ? (
           <div className="bigButtons">
             <div className="buttonContainer">
-              <p className='summary'>From your account dashboard you can view your recent orders,<br/> manage your wishlist and track production status.</p>
+              <p className='summary'>From your account dashboard you can view your recent orders,<br/> manage your wishlist and track production status through video calls.</p>
               <div className="buttonRow">
                 <button>Orders</button>
-             
                 <button>Wishlist</button>
               </div>
               <div className="buttonRow">
-               
                 <button onClick={handleProductionStatusClick}>Production status</button>
-                
               </div>
             </div>
           </div>
@@ -180,12 +172,17 @@ const CustomerDashboard = () => {
                       <label>Email:</label>
                       {isEditing ? <input type="text" name="email" value={updatedUser.email} onChange={handleChange} /> : <span>{user.email}</span>}
                     </div>
-                    <div className="detail">
+                    <div className="detail" style={{ marginLeft: '20px' }}> {/* Adding margin to create space */}
                       <label>Username:</label>
                       {isEditing ? <input type="text" name="username" value={updatedUser.username} onChange={handleChange} /> : <span>{user.username}</span>}
                     </div>
                   </div>
-  
+                  <div className="row">
+                    <div className="detail">
+                      <label>NIC:</label>
+                      {isEditing ? <input type="text" name="nic" value={updatedUser.nic} onChange={handleChange} /> : <span>{user.nic}</span>}
+                    </div>
+                  </div>
                   {showDeleteConfirmation ? (
                     <div>
                       <p>Are you sure you want to delete your account?</p>

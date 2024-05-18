@@ -2,74 +2,82 @@
 /* style.css */
 
 .headerBar {
-  background-color: #333;
+  background-color:  #000533;;
   color: #fff;
-  padding: 10px;
+  padding: 30px;
   display: flex;
-  justify-content: flex-end; /* Aligns children to the right */
-  align-items: center;
+  justify-content: flex-end; 
+ 
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: 5% center;
+  background-size: auto 30%; 
+  
+  
 }
-
+.logo{
+  margin-left: 80px;
+}
 .spacer {
-  flex-grow: 1; /* This pushes the buttons to the right */
+  flex-grow: 1; 
 }
 
 .loginButton {
-  background-color: #000; /* Black background */
-  color: #fff; /* White text */
+  background-color: #000533; 
+  color: #fff; 
   border: none;
-  padding: 8px 20px; /* Increase padding for larger button */
+  padding: 8px 20px;
   cursor: pointer;
-  border-radius: 8px; /* Make the button slightly rounder */
-  font-family: 'Arial', sans-serif; /* Set font family */
-  font-size: 16px; /* Set font size */
-}
-
-.loginButton:hover {
-  background-color: #333; /* Darken background on hover */
-}
-
-.adminLoginButton {
-  background-color: #000; /* Black background */
-  color: #fff; /* White text */
-  border: none;
-  padding: 8px 20px; /* Increase padding for larger button */
-  cursor: pointer;
-  border-radius: 8px; /* Make the button slightly rounder */
-  font-family: 'Arial', sans-serif; /* Set font family */
-  font-size: 16px; /* Set font size */
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
 }
 
 .signupButton {
-  background-color: #000; /* Black background */
-  color: #fff; /* White text */
+  background-color: #000533; 
+  color: #fff;
   border: none;
-  padding: 8px 20px; /* Increase padding for larger button */
+  padding: 8px 20px;
   cursor: pointer;
-  border-radius: 8px; /* Make the button slightly rounder */
-  font-family: 'Arial', sans-serif; /* Set font family */
-  font-size: 16px; /* Set font size */
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
 }
+
+
+.loginButton:hover {
+  background-color:#02084a /* Darken background on hover */
+}
+
+.adminLoginButton {
+  background-color:  #02084a; /* Black background */
+  color: #fff; 
+  border: none;
+  padding: 8px 20px; 
+  cursor: pointer;
+  border-radius: 8px; 
+  font-family: 'Arial', sans-serif; 
+  font-size: 16px;
+}
+
+
 
 .signupButton:hover {
-  background-color: #333; /* Darken background on hover */
+  background-color: #333; 
 }
 
-/* Rest of the CSS remains the same */
 
 
 
 
 .loginFormContainer {
-  margin-top: 54px;
+ 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('file:///C:/Users/USER/Pictures/image1.avif');
-  background-size: cover; /* Cover the entire container */
-  background-position: center; /* Center the image */
+  background: rgba(97, 97, 97, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,15 +85,15 @@
 }
 
 .loginForm {
-  margin-top: 1px;
-  background: rgba(65, 62, 62, 0.5); /* Transparent background */
-  padding: 100px; /* Decrease padding for smaller form */
-  border-radius: 15px; /* Make the form rounder */
-  box-shadow: 0 0 20px rgba(210, 210, 210, 0.5); /* Darker shadow */
-  max-width: 400px; /* Increase maximum width */
+  margin-top: 30px;
+  background:white;
+  padding: 100px; 
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(81, 80, 80, 0.5); 
+  max-width: 400px; 
   width: 100%;
   height: 50%;
-  display: flex; /* Use flexbox for layout */
+  display: flex; 
 }
 
 .loginFormInputs{
@@ -93,59 +101,55 @@
   margin-bottom: 110px;
 }
 
-/* Style for the login form image */
+.slider-image {
+  width: 100%; 
+  background-size: cover; 
+  background-position: center; 
+}
 
-
-
-/* Style for the login form inputs */
-
-
-/* Rest of your CSS remains the same */
 
 .loginForm h2 {
   margin-top: 1px;
  
   text-align: center;
-  color: #fef9f9; /* Text color */
-  font-family:Georgia;/* Set font family */
-  font-size: 50px; /* Set font size */
+  color: #070059; 
+  font-family:Georgia;
+  font-size: 50px; 
 }
 
 .inputField {
   width: 100%;
   padding: 14px;
-  margin-bottom: 50px; /* Increase margin to add space */
+  margin-bottom: 50px; 
   border: 1px solid #ccc;
   border-radius: 8px;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-  color: #ffffff; /* Text color */
-  font-family: 'Arial', sans-serif; /* Set font family */
-  font-size: 16px; /* Set font size */
+  background-color: rgba(255, 255, 255, 0.2); 
+  color: #000000; 
+  font-family: 'Arial', sans-serif; 
+  font-size: 16px; 
 }
 
 .loginSubmitButton {
-  background: linear-gradient(to right, #0f0f0f, #0f1010); /* Gradient background */
+  background: linear-gradient(to right, #020024, #010437);
   color: white;
   border: none;
-  padding: 12px 24px; /* Increase padding for larger button */
+  padding: 12px 24px; 
   cursor: pointer;
-  border-radius: 8px; /* Make the button slightly rounder */
-  font-family: 'Georgia'; /* Set font family */
-  font-size: 20px; /* Set font size */
+  border-radius: 8px; 
+  font-family: 'Georgia'; 
+  font-size: 20px; 
   width: 100%;
 }
 
 .signupFormContainer {
-  margin-top: 54px;
+ 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('file:///C:/Users/USER/Downloads/cat-han-wZZR8Is6Rtk-unsplash.jpg');
-  background-size: cover; /* Cover the entire container */
-  background-position: center; /* Center the image */
+  background: rgba(97, 97, 97, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,14 +157,14 @@
 
 .signupForm {
   
-  background: rgba(9, 9, 23, 0.5); /* Transparent background */
-  padding: 100px; /* Decrease padding for smaller form */
+  background:white; 
+  padding: 100px; 
   padding-top: 40px;
-  border-radius: 15px; /* Make the form rounder */
-  box-shadow: 0 0 20px rgba(25, 22, 68, 0.5); /* Darker shadow */
-  max-width: 400px; /* Increase maximum width */
+  border-radius: 15px; 
+  box-shadow: 0 0 20px rgba(25, 22, 68, 0.5); 
+  max-width: 400px; 
   width: 100%;
-  height: 65%;
+  height: 79%;
   display: flex; 
 }
 
@@ -169,50 +173,49 @@
   margin-top: 1px;
   margin-bottom: 3px;
   text-align: center;
-  color: #fef9f9; /* Text color */
-  font-family:Georgia;/* Set font family */
-  font-size: 30px;  /* Set font size */
+  color: #010748; 
+  font-family:Georgia;
+  font-size: 30px; 
 }
 
 
 
 
-/* Apply styles to input fields in the sign-up form */
+
 .signupForm .inputField {
   width: 100%;
-  padding: 14px;
-  margin-bottom: 8px; /* Increase margin */
+  padding: 8px;
+  margin-bottom: 8px; 
   border: 1px solid #ccc;
   border-radius: 8px;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-  color: #ffffff; /* Text color */
-  font-family: 'Arial', sans-serif; /* Set font family */
-  font-size: 16px; /* Set font size */
+  background-color: rgba(255, 255, 255, 0.2); 
+  color: #131313;
+  font-family: 'Arial', sans-serif; 
+  font-size: 16px;
 }
 
-/* Apply styles to the submit button in the sign-up form */
 .signupForm .signupSubmitButton {
-  background: linear-gradient(to right, #020024, #010437); /* Gradient background */
+  background: linear-gradient(to right, #020024, #010437); 
   color: white;
   border: none;
-  padding: 12px 24px; /* Increase padding for larger button */
+  padding: 12px 24px; 
   cursor: pointer;
-  border-radius: 8px; /* Make the button slightly rounder */
-  font-family: 'Georgia'; /* Set font family */
-  font-size: 20px; /* Set font size */
+  border-radius: 8px; 
+  font-family: 'Georgia'; 
+  font-size: 20px;
   width: 100%;
 }
 .signupButton1{
-  background: rgba(65, 62, 62, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   border: none;
-  color: #f2ff9a;
+  color: #00006b;
   font-family:Georgia;
 }
 .error{
 
-  color: rgb(255, 255, 255);
+  color: rgb(137, 5, 5);
   font-size: 14px;
   margin-top: 20px;
   text-align: center;
@@ -225,20 +228,270 @@
   text-align: center;
 }
 h4{
-  color:#fef9f9;
+  color:#ffffff;
+  text-align: center;
+}
+h4.noaccount{
+  color:#484646;
   text-align: center;
 }
 .loginDropdown {
-  background-color: #000; /* Black background */
-  color: #fff; /* White text */
+  background-color:  #000533; 
+  color: #fff; 
   border: none;
-  padding: 8px 12px; /* Adjust padding as needed */
+  padding: 8px 12px;
   cursor: pointer;
-  border-radius: 8px; /* Make the dropdown slightly rounder */
-  font-family: 'Arial', sans-serif; /* Set font family */
-  font-size: 16px; /* Set font size */
+  border-radius: 8px; 
+  font-family: 'Arial', sans-serif; 
+  font-size: 16px; 
 }
 
 .loginDropdown:hover {
-  background-color: #333; /* Darken background on hover */
+  background-color: #333; 
+}
+.header {
+  background-image: url("file:///C:/Users/USER/Downloads/isaline-basle-sZtK0ZNREWk-unsplash.jpg");
+  background-position: 90% 20%;
+  background-repeat: no-repeat;
+  background-size: 640px auto;
+  background-color: #1d1e22;
+  color: #ffffff;
+  height:600px;
+  
+}
+
+.divider-shape {
+
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 3px solid rgba(226, 227, 238, 0.15);
+  background-color: #4a3aff;
+  width: 4rem;
+ 
+}
+h1.my-5 {
+  margin-top: 150px;
+  margin-right: 800px;
+  text-align:left;
+  font-size: 2rem;
+}
+.card-title{
+  margin-top:50px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+.intro-cards .card {
+  border-radius: 10px;
+}
+.card-text{
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+footer {
+  color: #fff;
+}
+ul {
+  padding: 0px;
+}
+ol, ul {
+  margin-bottom: 0px;
+}
+
+.social-icon {
+  padding: 0;
+  margin-bottom: 0px;
+      float: right;
+}
+
+.social-icon li {
+  list-style: none;
+  display: inline-block;
+}
+.social-icon li i {
+  font-size: 14px;
+  color: #262725;
+  border: solid 2px #ffffff;
+  height: 31px;
+  width: 31px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 100px;
+  line-height: 27px;
+  margin-right: 15px;
+  transition: 1s;
+  background: #fff;
+}
+.social-icon li i:hover {
+  border: solid 2px #262725;
+  color: #ffffff;
+  background: #262725;
+}
+
+.phone-no i {
+  position: relative;
+  margin-right: 14px;
+  font-size: 43px;
+  top: 5px;
+}
+.phone-no {
+  margin-top: -22px;
+  text-align: right;
+}
+.footer-day-time {
+  padding-bottom: 30px;
+  border-bottom: 2px solid #7a6f6f;
+  padding-top: 14px;
+  margin-bottom: 55px;
+}
+.footer-day-time ul li {
+  display: inline;
+  margin-right: 20px;
+}
+.footer-day-time ul li:last-child {
+  margin-right: 0px;
+}
+.phone-no a {
+  color: #fff;
+  font-family: PlayfairDisplay-Black;
+  font-size: 34px;
+  font-weight: bold;
+}
+.footer-top {
+  background: #2f2f2f;
+  padding:50px 0 50px;
+}
+.footer-top h4 {
+  font-size: 19px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.footer-top p {
+  font-size: 13px;
+  line-height: 2;
+}
+
+footer p {
+margin-bottom:0;
+}
+.footer-logo {
+  display: block;
+  margin-bottom: 32px;
+}
+.address1 li {
+  list-style: none;
+  position: relative;
+  padding: 0px 0 14px 34px;
+  line-height: 26px;
+}
+ul.address1 span {
+  position: absolute;
+  width: 40px;
+  max-width: 40px;
+  left: 0;
+}
+.address1 li a {
+  color: #fff;
+  text-decoration: none;
+}
+ul.address1 i {
+  width: 20px;
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  font-size: 28px;
+  top: 0;
+}
+
+ul.address1 i.fa-envelope {
+  font-size: 18px;
+  top: 4px;
+}
+footer ul.social-icon {
+  float: left;
+}
+
+
+.footer-bottom {
+  background:  #000533;
+  padding: 10px 0px;
+}
+.footer-bottom ul li {
+  display: inline;
+  margin-right: 20px;
+  font-size: 18px;
+}
+.footer-bottom ul li a{
+  color:#fff;
+}
+
+.footer-bottom ul {
+  float: right;
+}
+
+.footer-bottom ul li:last-child {
+  margin-right: 0;
+}
+.copyright {
+  font-size: 18px;
+}
+.about{
+  margin-top: 20px;
+}
+.row{
+  margin-top: 20px;
+}
+.follow{
+  margin-left: 20px;
+}
+.services-section {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+}
+
+.service-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.service-details {
+  text-align: center;
+  color: #1829e7;
+}
+
+.service-details h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.service-details p {
+  color: #666;
+}
+.servicestitle{
+font-size: 20px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color:#0b435c
 }

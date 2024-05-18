@@ -15,6 +15,7 @@ export default function Index() {
   const[username,setUsername]=useState('');
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
+  const[nic,setNic]=useState('');
   const[error,setError]=useState('');
   const auth=useSelector(state=>state.auth);
   const user=useSelector(state=>state.user);
@@ -67,7 +68,7 @@ if (!email) {
   return;
 }
 
-// Validate email format using regular expression
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if (!emailRegex.test(email)) {
   setErrorMessage('Invalid email format');
@@ -82,8 +83,12 @@ if (password.length < 6) {
   setErrorMessage('Password must be at least 6 characters long');
   return;
 }
+if (!nic) {
+  setErrorMessage('NIC is required');
+  return;
+}
     const user={
-      name,DOB,address,phoneNumber,username,email,password
+      name,DOB,address,phoneNumber,username,email,password,nic
     }
     dispatch(signup(user));
     alert("Admin created successfully")
@@ -162,6 +167,13 @@ if (password.length < 6) {
                 value={password}
                 type="password"
                 onChange={(e) =>setPassword(e.target.value)}
+              />
+               <Input
+                label="NIC"
+                placeholder="NIC"
+                value={nic}
+                type="text"
+                onChange={(e) =>setNic(e.target.value)}
               />
 
               <Button variant="primary" type="submit">
